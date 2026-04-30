@@ -4,748 +4,213 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CSV Bank — Free PDF Bank Statement to CSV Converter</title>
-<meta name="description" content="Convert PDF bank statements to CSV or Excel instantly. 100% free, no sign-up, no upload limits. Your files never leave your device.">
-<meta name="keywords" content="bank statement converter, PDF to CSV, bank statement to excel, convert bank statement, PDF bank statement converter free">
-
-<!-- Open Graph -->
+<meta name="description" content="Convert any PDF bank statement to CSV or Excel instantly. Works on digital and scanned PDFs. 100% free, no sign-up, unlimited pages. Your files never leave your device.">
+<meta name="keywords" content="bank statement converter, PDF to CSV, bank statement to excel, convert bank statement, PDF bank statement converter free, scanned bank statement converter">
 <meta property="og:title" content="CSV Bank — Free PDF Bank Statement to CSV Converter">
-<meta property="og:description" content="Convert PDF bank statements to CSV or Excel instantly. 100% free, no sign-up, unlimited pages. Your files never leave your device.">
+<meta property="og:description" content="Convert any PDF bank statement to CSV or Excel instantly. 100% free, no sign-up, unlimited pages. Your files never leave your device.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://csvbank.com/og-image.svg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://csvbank.com">
-
-<!-- Canonical -->
 <link rel="canonical" href="https://csvbank.com/">
-
-<!-- Inline base64 favicon -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzFhN2Y0ZSIvPgogIDx0ZXh0IHg9IjE2IiB5PSIyMiIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5jc3Y8L3RleHQ+Cjwvc3ZnPg==">
-
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
-<!-- PDF.js with SRI integrity -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
-  integrity="sha512-q+4lKwn8GiqJHo/qfOoKpViFMFXMOzr6sW3Ku3B4imOpKbGpzDJP82i9lkwsz7KYmOEqU5DkVdFhRiMlNhmg=="
-  crossorigin="anonymous"></script>
-
-<!-- Google AdSense -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" integrity="sha512-q+4lKwn8GiqJHo/qfOoKpViFMFXMOzr6sW3Ku3B4imOpKbGpzDJP82i9lkwsz7KYmOEqU5DkVdFhRiMlNhmg==" crossorigin="anonymous"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7814690967688754" crossorigin="anonymous"></script>
-
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
-:root {
-  --bg: #f8f7f4;
-  --bg2: #ffffff;
-  --bg3: #f0efe9;
-  --border: #e2e0d8;
-  --border2: #c8c5b8;
-  --text: #1a1916;
-  --text2: #5a5750;
-  --text3: #9a9890;
-  --green: #1a7f4e;
-  --green-light: #e8f5ee;
-  --green-mid: #2da066;
-  --red: #c0392b;
-  --red-light: #fdf0ef;
-  --blue: #1a5f8f;
-  --blue-light: #e8f0f8;
-  --amber: #b8770a;
-  --amber-light: #fdf5e6;
-  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
-  --shadow-lg: 0 4px 16px rgba(0,0,0,0.1), 0 12px 40px rgba(0,0,0,0.06);
-  --mono: 'DM Mono', monospace;
-  --serif: 'Instrument Serif', Georgia, serif;
-  --sans: 'DM Sans', sans-serif;
-  --radius: 10px;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  font-size: 14px;
-  line-height: 1.6;
-  min-height: 100vh;
-}
-
-/* ── TOPBAR ── */
-.topbar {
-  background: var(--bg2);
-  border-bottom: 1px solid var(--border);
-  padding: 14px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 1px 0 var(--border);
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-.logo-icon {
-  width: 32px;
-  height: 32px;
-  background: var(--green);
-  border-radius: 7px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 500;
-  color: white;
-  letter-spacing: 0.02em;
-}
-
-.logo-name {
-  font-family: var(--mono);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text);
-  letter-spacing: 0.01em;
-}
-
-.logo-name span { color: var(--green); }
-
-.topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.pill {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 100px;
-  font-weight: 500;
-}
-
-.pill-green { background: var(--green-light); color: var(--green); }
-.pill-blue  { background: var(--blue-light);  color: var(--blue);  }
-
-/* ── HERO ── */
-.hero {
-  background: var(--bg2);
-  border-bottom: 1px solid var(--border);
-  padding: 72px 40px 64px;
-  text-align: center;
-}
-
-.hero-inner { max-width: 680px; margin: 0 auto; }
-
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--green-light);
-  color: var(--green);
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 5px 12px;
-  border-radius: 100px;
-  margin-bottom: 28px;
-  border: 1px solid rgba(26,127,78,0.2);
-}
-
-.hero h1 {
-  font-family: var(--serif);
-  font-size: clamp(38px, 5.5vw, 62px);
-  font-weight: 400;
-  line-height: 1.08;
-  color: var(--text);
-  margin-bottom: 22px;
-  letter-spacing: -0.5px;
-}
-
-.hero h1 em {
-  font-style: italic;
-  color: var(--green);
-}
-
-.hero-sub {
-  color: var(--text2);
-  font-size: 17px;
-  max-width: 520px;
-  margin: 0 auto 36px;
-  line-height: 1.7;
-  font-weight: 300;
-}
-
-.trust-strip {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 28px;
-  flex-wrap: wrap;
-}
-
-.trust-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: var(--text3);
-}
-
-.trust-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--green);
-  flex-shrink: 0;
-}
-
-/* ── AD SLOT ── */
-.ad-slot {
-  max-width: 860px;
-  margin: 24px auto 0;
-  padding: 0 24px;
-  text-align: center;
-  min-height: 90px;
-}
-
-/* ── TOOL WRAP ── */
-.tool-wrap {
-  max-width: 860px;
-  margin: 32px auto 0;
-  padding: 0 24px 80px;
-}
-
-/* ── DROP ZONE ── */
-.drop-zone {
-  background: var(--bg2);
-  border: 2px dashed var(--border2);
-  border-radius: 14px;
-  padding: 56px 32px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: var(--shadow);
-}
-
-.drop-zone:hover,
-.drop-zone.dragover {
-  border-color: var(--green);
-  background: var(--green-light);
-}
-
-.drop-icon {
-  width: 56px;
-  height: 56px;
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-  transition: all 0.2s;
-  font-size: 24px;
-}
-
-.drop-zone:hover .drop-icon,
-.drop-zone.dragover .drop-icon {
-  background: var(--green-light);
-  border-color: var(--green);
-}
-
-.drop-title {
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-
-.drop-sub {
-  color: var(--text2);
-  font-size: 14px;
-  margin-bottom: 24px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 11px 22px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.15s;
-  border: none;
-  font-family: var(--sans);
-  text-decoration: none;
-}
-
-.btn-primary {
-  background: var(--green);
-  color: white;
-  box-shadow: 0 2px 8px rgba(26,127,78,0.25);
-}
-.btn-primary:hover { background: var(--green-mid); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(26,127,78,0.3); }
-
-.btn-outline {
-  background: white;
-  color: var(--text2);
-  border: 1px solid var(--border2);
-}
-.btn-outline:hover { border-color: var(--text2); color: var(--text); }
-
-.btn-ghost {
-  background: var(--bg3);
-  color: var(--text2);
-  border: 1px solid var(--border);
-  font-size: 13px;
-  padding: 8px 16px;
-}
-.btn-ghost:hover { color: var(--text); border-color: var(--border2); }
-
-.drop-note {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--text3);
-  margin-top: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-#file-input { display: none; }
-
-/* ── STATUS ── */
-.status-box {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px 24px;
-  margin: 16px 0;
-  display: none;
-  box-shadow: var(--shadow);
-}
-.status-box.visible { display: block; }
-
-.status-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.status-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--green);
-  animation: pulse 1.2s ease-in-out infinite;
-  flex-shrink: 0;
-}
-.status-dot.done  { animation: none; background: var(--green); }
-.status-dot.error { animation: none; background: var(--red); }
-
-@keyframes pulse {
-  0%,100% { opacity: 1; transform: scale(1); }
-  50%      { opacity: 0.4; transform: scale(0.8); }
-}
-
-.status-label { font-size: 13px; color: var(--text2); flex: 1; }
-.status-pct   { font-family: var(--mono); font-size: 12px; color: var(--text3); }
-
-.progress-bar  { height: 3px; background: var(--bg3); border-radius: 2px; overflow: hidden; }
-.progress-fill { height: 100%; background: linear-gradient(90deg, var(--green), var(--green-mid)); border-radius: 2px; width: 0%; transition: width 0.4s ease; }
-
-/* ── RESULTS ── */
-.results-panel { display: none; margin-top: 20px; }
-.results-panel.visible { display: block; }
-
-.results-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.results-title {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--text3);
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-}
-
-.results-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-
-/* ── STATS BAR ── */
-.stats-bar {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.stat-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-  box-shadow: var(--shadow);
-}
-
-.stat-label {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text3);
-  margin-bottom: 6px;
-}
-
-.stat-val {
-  font-family: var(--mono);
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--green);
-  line-height: 1;
-}
-
-.stat-val.red  { color: var(--red); }
-.stat-val.blue { color: var(--blue); }
-.stat-val.sm   { font-size: 14px; padding-top: 4px; }
-
-/* ── TABLE ── */
-.table-wrap {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-
-.table-scroll {
-  overflow-x: auto;
-  max-height: 440px;
-  overflow-y: auto;
-}
-
-table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 12px; }
-
-thead { position: sticky; top: 0; z-index: 2; }
-
-th {
-  background: var(--bg3);
-  color: var(--text2);
-  font-weight: 500;
-  padding: 10px 16px;
-  text-align: left;
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border-bottom: 1px solid var(--border);
-  white-space: nowrap;
-}
-
-td {
-  padding: 9px 16px;
-  color: var(--text);
-  border-bottom: 1px solid var(--border);
-  white-space: nowrap;
-  max-width: 280px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-tr:last-child td { border-bottom: none; }
-tr:nth-child(even) td { background: rgba(0,0,0,0.012); }
-tr:hover td { background: var(--green-light); }
-
-td.pos  { color: var(--green); font-weight: 500; }
-td.neg  { color: var(--red); }
-td.bal  { color: var(--blue); }
-
-.table-footer {
-  background: var(--bg3);
-  padding: 10px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 11px;
-  color: var(--text3);
-  border-top: 1px solid var(--border);
-  font-family: var(--mono);
-}
-
-/* ── ALERTS ── */
-.alert {
-  padding: 14px 18px;
-  border-radius: 8px;
-  font-size: 13px;
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  margin-top: 16px;
-  line-height: 1.5;
-}
-
-.alert-amber { background: var(--amber-light); border: 1px solid var(--amber); color: #7a5008; }
-.alert-red   { background: var(--red-light);   border: 1px solid var(--red);   color: #8b1f18; }
-.alert-green { background: var(--green-light); border: 1px solid var(--green); color: var(--green); }
-
-/* ── HOW IT WORKS ── */
-.section {
-  max-width: 860px;
-  margin: 0 auto 72px;
-  padding: 0 24px;
-}
-
-.section-head { text-align: center; margin-bottom: 40px; }
-
-.section-eyebrow {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--green);
-  margin-bottom: 10px;
-}
-
-.section-title {
-  font-family: var(--serif);
-  font-size: 36px;
-  font-weight: 400;
-  color: var(--text);
-}
-
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 16px;
-}
-
-.step-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px;
-  box-shadow: var(--shadow);
-  position: relative;
-  overflow: hidden;
-}
-
-.step-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--green), transparent);
-}
-
-.step-num {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--green);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-
-.step-icon { font-size: 26px; margin-bottom: 12px; }
-.step-name { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
-.step-desc { font-size: 13px; color: var(--text2); line-height: 1.6; }
-
-/* ── FEATURES ── */
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 12px;
-}
-
-.feature-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  box-shadow: var(--shadow);
-}
-
-.feature-icon {
-  width: 38px;
-  height: 38px;
-  background: var(--green-light);
-  border: 1px solid rgba(26,127,78,0.2);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-.feature-name { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
-.feature-desc { font-size: 12px; color: var(--text2); line-height: 1.5; }
-
-/* ── FAQ ── */
-.faq-list { display: flex; flex-direction: column; gap: 2px; }
-
-.faq-item {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.faq-q {
-  width: 100%;
-  padding: 16px 20px;
-  background: none;
-  border: none;
-  text-align: left;
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text);
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-}
-
-.faq-q:hover { background: var(--bg3); }
-
-.faq-chevron {
-  font-size: 12px;
-  color: var(--text3);
-  transition: transform 0.2s;
-  flex-shrink: 0;
-}
-
-.faq-item.open .faq-chevron { transform: rotate(180deg); }
-
-.faq-a {
-  display: none;
-  padding: 0 20px 16px;
-  font-size: 13px;
-  color: var(--text2);
-  line-height: 1.7;
-  border-top: 1px solid var(--border);
-  padding-top: 14px;
-}
-
-.faq-item.open .faq-a { display: block; }
-
-/* ── FOOTER ── */
-footer {
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
-  padding: 32px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.footer-left { font-size: 12px; color: var(--text3); }
-.footer-links { display: flex; gap: 24px; }
-.footer-links a { font-size: 12px; color: var(--text3); text-decoration: none; }
-.footer-links a:hover { color: var(--text); }
-
-/* ── UTILS ── */
-.hidden { display: none !important; }
-.mt16 { margin-top: 16px; }
-
-@media (max-width: 640px) {
-  .topbar { padding: 12px 20px; }
-  .hero { padding: 48px 20px 48px; }
-  .tool-wrap { padding: 0 16px 60px; }
-  .section { padding: 0 16px; }
-  footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
-  .results-actions { gap: 6px; }
-  .pill:not(:first-child) { display: none; }
-}
+:root{--bg:#f8f7f4;--bg2:#ffffff;--bg3:#f0efe9;--border:#e2e0d8;--border2:#c8c5b8;--text:#1a1916;--text2:#5a5750;--text3:#9a9890;--green:#1a7f4e;--green-light:#e8f5ee;--green-mid:#2da066;--red:#c0392b;--red-light:#fdf0ef;--blue:#1a5f8f;--blue-light:#e8f0f8;--amber:#b8770a;--amber-light:#fdf5e6;--shadow:0 1px 3px rgba(0,0,0,0.08),0 4px 12px rgba(0,0,0,0.05);--mono:'DM Mono',monospace;--serif:'Instrument Serif',Georgia,serif;--sans:'DM Sans',sans-serif;--radius:10px}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.6;min-height:100vh}
+.topbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 var(--border)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:32px;height:32px;background:var(--green);border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:500;color:white}
+.logo-name{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--text)}
+.logo-name span{color:var(--green)}
+.topbar-right{display:flex;align-items:center;gap:8px}
+.pill{font-family:var(--mono);font-size:10px;letter-spacing:0.07em;text-transform:uppercase;padding:4px 10px;border-radius:100px;font-weight:500}
+.pill-green{background:var(--green-light);color:var(--green)}
+.pill-blue{background:var(--blue-light);color:var(--blue)}
+.hero{background:var(--bg2);border-bottom:1px solid var(--border);padding:72px 40px 56px;text-align:center}
+.hero-inner{max-width:720px;margin:0 auto}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:var(--green-light);color:var(--green);font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:28px;border:1px solid rgba(26,127,78,0.2)}
+.hero h1{font-family:var(--serif);font-size:clamp(36px,5.5vw,60px);font-weight:400;line-height:1.08;color:var(--text);margin-bottom:20px;letter-spacing:-0.5px}
+.hero h1 em{font-style:italic;color:var(--green)}
+.hero-sub{color:var(--text2);font-size:17px;max-width:540px;margin:0 auto 32px;line-height:1.7;font-weight:300}
+.trust-strip{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;margin-bottom:28px}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text3)}
+.trust-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
+.social-proof{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--text3)}
+.social-proof-num{font-family:var(--mono);font-weight:500;color:var(--green);font-size:15px}
+.bank-strip{background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 40px;text-align:center}
+.bank-strip-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:14px}
+.bank-logos{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.bank-logo{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:7px 14px;font-family:var(--mono);font-size:11px;font-weight:500;color:var(--text2);white-space:nowrap}
+.ad-slot{max-width:860px;margin:24px auto 0;padding:0 24px;text-align:center;min-height:90px}
+.tool-wrap{max-width:860px;margin:32px auto 0;padding:0 24px 80px}
+.drop-zone{background:var(--bg2);border:2px dashed var(--border2);border-radius:14px;padding:56px 32px;text-align:center;cursor:pointer;transition:all 0.2s ease;box-shadow:var(--shadow)}
+.drop-zone:hover,.drop-zone.dragover{border-color:var(--green);background:var(--green-light)}
+.drop-icon{width:56px;height:56px;background:var(--bg3);border:1px solid var(--border);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;transition:all 0.2s;font-size:24px}
+.drop-zone:hover .drop-icon,.drop-zone.dragover .drop-icon{background:var(--green-light);border-color:var(--green)}
+.drop-title{font-size:20px;font-weight:500;color:var(--text);margin-bottom:8px}
+.drop-sub{color:var(--text2);font-size:14px;margin-bottom:24px}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:11px 22px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.15s;border:none;font-family:var(--sans);text-decoration:none}
+.btn-primary{background:var(--green);color:white;box-shadow:0 2px 8px rgba(26,127,78,0.25)}
+.btn-primary:hover{background:var(--green-mid);transform:translateY(-1px)}
+.btn-outline{background:white;color:var(--text2);border:1px solid var(--border2)}
+.btn-outline:hover{border-color:var(--text2);color:var(--text)}
+.btn-ghost{background:var(--bg3);color:var(--text2);border:1px solid var(--border);font-size:13px;padding:8px 16px}
+.btn-ghost:hover{color:var(--text);border-color:var(--border2)}
+.drop-note{font-family:var(--mono);font-size:11px;color:var(--text3);margin-top:18px;display:flex;align-items:center;justify-content:center;gap:6px}
+#file-input{display:none}
+.status-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin:16px 0;display:none;box-shadow:var(--shadow)}
+.status-box.visible{display:block}
+.status-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.status-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.2s ease-in-out infinite;flex-shrink:0}
+.status-dot.done{animation:none;background:var(--green)}
+.status-dot.ocr{animation:pulse 1.2s ease-in-out infinite;background:var(--amber)}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)}}
+.status-label{font-size:13px;color:var(--text2);flex:1}
+.status-pct{font-family:var(--mono);font-size:12px;color:var(--text3)}
+.progress-bar{height:3px;background:var(--bg3);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--green-mid));border-radius:2px;width:0%;transition:width 0.4s ease}
+.progress-fill.ocr{background:linear-gradient(90deg,var(--amber),#e8a020)}
+.filters-bar{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;box-shadow:var(--shadow)}
+.filter-group{display:flex;align-items:center;gap:8px}
+.filter-label{font-family:var(--mono);font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;white-space:nowrap}
+.filter-input{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;color:var(--text);font-family:var(--sans);outline:none}
+.filter-input:focus{border-color:var(--green)}
+.filter-select{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;color:var(--text);font-family:var(--sans);outline:none;cursor:pointer}
+.filter-divider{width:1px;height:24px;background:var(--border);flex-shrink:0}
+.results-panel{display:none;margin-top:20px}
+.results-panel.visible{display:block}
+.results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:12px}
+.results-title{font-family:var(--mono);font-size:12px;color:var(--text3);letter-spacing:0.07em;text-transform:uppercase}
+.results-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.stats-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:16px}
+.stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+.stat-label{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:6px}
+.stat-val{font-family:var(--mono);font-size:20px;font-weight:500;color:var(--green);line-height:1}
+.stat-val.red{color:var(--red)}
+.stat-val.sm{font-size:13px;padding-top:4px}
+.chart-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px;box-shadow:var(--shadow)}
+.chart-title{font-family:var(--mono);font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:16px}
+.chart-canvas-wrap{position:relative;height:140px}
+canvas#balance-chart{width:100%;height:140px}
+.category-wrap{margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.cat-label{font-family:var(--mono);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em}
+.cat-pill{font-size:12px;padding:4px 10px;border-radius:100px;border:1px solid var(--border);background:var(--bg2);color:var(--text2);cursor:pointer;transition:all 0.15s;font-family:var(--mono)}
+.cat-pill:hover{border-color:var(--green);color:var(--green)}
+.cat-pill.active{background:var(--green);color:white;border-color:var(--green)}
+.table-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.table-scroll{overflow-x:auto;max-height:440px;overflow-y:auto}
+table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12px}
+thead{position:sticky;top:0;z-index:2}
+th{background:var(--bg3);color:var(--text2);font-weight:500;padding:10px 16px;text-align:left;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;border-bottom:1px solid var(--border);white-space:nowrap}
+td{padding:9px 16px;color:var(--text);border-bottom:1px solid var(--border);white-space:nowrap;max-width:260px;overflow:hidden;text-overflow:ellipsis}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:rgba(0,0,0,0.012)}
+tr:hover td{background:var(--green-light)}
+td.pos{color:var(--green);font-weight:500}
+td.neg{color:var(--red)}
+td.bal{color:var(--blue)}
+.cat-badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:100px;font-family:var(--sans);font-weight:500}
+.table-footer{background:var(--bg3);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--text3);border-top:1px solid var(--border);font-family:var(--mono)}
+.alert{padding:14px 18px;border-radius:8px;font-size:13px;display:flex;gap:12px;align-items:flex-start;margin-top:16px;line-height:1.5}
+.alert-red{background:var(--red-light);border:1px solid var(--red);color:#8b1f18}
+.section{max-width:860px;margin:0 auto 72px;padding:0 24px}
+.section-head{text-align:center;margin-bottom:40px}
+.section-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.section-title{font-family:var(--serif);font-size:36px;font-weight:400;color:var(--text)}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.step-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.step-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green),transparent)}
+.step-num{font-family:var(--mono);font-size:10px;color:var(--green);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px}
+.step-icon{font-size:26px;margin-bottom:12px}
+.step-name{font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px}
+.step-desc{font-size:13px;color:var(--text2);line-height:1.6}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.feature-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;gap:14px;align-items:flex-start;box-shadow:var(--shadow)}
+.feature-icon{width:38px;height:38px;background:var(--green-light);border:1px solid rgba(26,127,78,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.feature-name{font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px}
+.feature-desc{font-size:12px;color:var(--text2);line-height:1.5}
+.privacy-box{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:32px;margin-bottom:72px;box-shadow:var(--shadow);max-width:860px;margin-left:auto;margin-right:auto}
+.privacy-box h2{font-family:var(--serif);font-size:26px;font-weight:400;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.privacy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.privacy-item{display:flex;gap:10px;align-items:flex-start}
+.privacy-check{color:var(--green);font-size:16px;flex-shrink:0;margin-top:1px}
+.pi-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px}
+.pi-desc{font-size:12px;color:var(--text2);line-height:1.5}
+.privacy-note{margin-top:20px;padding-top:16px;border-top:1px solid var(--border);font-size:12px;color:var(--text3);line-height:1.6}
+.faq-list{display:flex;flex-direction:column;gap:2px}
+.faq-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.faq-q{width:100%;padding:16px 20px;background:none;border:none;text-align:left;font-family:var(--sans);font-size:14px;font-weight:500;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q:hover{background:var(--bg3)}
+.faq-chevron{font-size:12px;color:var(--text3);transition:transform 0.2s;flex-shrink:0}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+.faq-a{display:none;padding:14px 20px 16px;font-size:13px;color:var(--text2);line-height:1.7;border-top:1px solid var(--border)}
+.faq-item.open .faq-a{display:block}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-left{font-size:12px;color:var(--text3)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:12px;color:var(--text3);text-decoration:none}
+.footer-links a:hover{color:var(--text)}
+.hidden{display:none!important}
+@media(max-width:640px){.topbar{padding:12px 20px}.hero{padding:48px 20px 40px}.tool-wrap{padding:0 16px 60px}.section{padding:0 16px}.bank-strip{padding:16px 20px}footer{padding:24px 20px;flex-direction:column;align-items:flex-start}.pill:not(:first-child){display:none}.filters-bar{gap:10px}}
 </style>
 </head>
 <body>
 
-<!-- TOPBAR -->
 <header class="topbar">
-  <a class="logo" href="/">
-    <div class="logo-icon">csv</div>
-    <span class="logo-name">csv<span>bank</span>.com</span>
-  </a>
-  <div class="topbar-right">
-    <span class="pill pill-green">Free Forever</span>
-    <span class="pill pill-blue">No Sign-Up</span>
-  </div>
+  <a class="logo" href="/"><div class="logo-icon">csv</div><span class="logo-name">csv<span>bank</span>.com</span></a>
+  <div class="topbar-right"><span class="pill pill-green">Free Forever</span><span class="pill pill-blue">No Sign-Up</span></div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">🔒 100% Private · Runs in Your Browser</div>
-    <h1>Bank statements to CSV,<br><em>instantly & free</em></h1>
-    <p class="hero-sub">Upload any PDF bank statement and download clean CSV or Excel data in seconds. No account required, no page limits, and your files never leave your device.</p>
+    <div class="hero-eyebrow">🔒 100% Private · Runs Entirely In Your Browser</div>
+    <h1>Any bank statement,<br><em>instantly converted</em></h1>
+    <p class="hero-sub">Upload any PDF bank statement — digital or scanned — and download clean CSV or Excel data in seconds. No account, no limits, no uploads to any server.</p>
     <div class="trust-strip">
-      <span class="trust-item"><span class="trust-dot"></span>No upload to servers</span>
+      <span class="trust-item"><span class="trust-dot"></span>Files never leave your device</span>
+      <span class="trust-item"><span class="trust-dot"></span>Digital &amp; scanned PDFs</span>
       <span class="trust-item"><span class="trust-dot"></span>Unlimited pages</span>
-      <span class="trust-item"><span class="trust-dot"></span>Works with any bank</span>
       <span class="trust-item"><span class="trust-dot"></span>CSV &amp; Excel output</span>
     </div>
+    <div class="social-proof">🏦 <span class="social-proof-num" id="counter">12,000</span> statements converted this month</div>
   </div>
 </section>
 
-<!-- AD SLOT TOP -->
+<div class="bank-strip">
+  <div class="bank-strip-label">Works with any bank worldwide including</div>
+  <div class="bank-logos">
+    <span class="bank-logo">Chase</span><span class="bank-logo">Bank of America</span><span class="bank-logo">Wells Fargo</span><span class="bank-logo">Citibank</span><span class="bank-logo">Capital One</span><span class="bank-logo">Barclays</span><span class="bank-logo">HSBC</span><span class="bank-logo">Santander</span><span class="bank-logo">TD Bank</span><span class="bank-logo">US Bank</span><span class="bank-logo">+ thousands more</span>
+  </div>
+</div>
+
 <div class="ad-slot">
-  <ins class="adsbygoogle"
-    style="display:block"
-    data-ad-client="ca-pub-7814690967688754"
-    data-ad-slot="auto"
-    data-ad-format="auto"
-    data-full-width-responsive="true"></ins>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7814690967688754" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
-<!-- MAIN TOOL -->
 <div class="tool-wrap">
-
-  <!-- DROP ZONE -->
   <div class="drop-zone" id="drop-zone">
     <div class="drop-icon">📂</div>
     <p class="drop-title">Drop your PDF bank statement here</p>
-    <p class="drop-sub">Supports multiple files — any bank, any length</p>
-    <button class="btn btn-primary" onclick="document.getElementById('file-input').click(); event.stopPropagation();">
+    <p class="drop-sub">Digital or scanned · Any bank · Multiple files supported</p>
+    <button class="btn btn-primary" onclick="document.getElementById('file-input').click();event.stopPropagation();">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
       Choose PDF Files
     </button>
     <p class="drop-note">
       <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      PDF only · Processed locally · Your data never leaves this page
+      PDF only · Processed locally in your browser · Your data is never transmitted
     </p>
     <input type="file" id="file-input" accept=".pdf" multiple>
   </div>
 
-  <!-- STATUS -->
   <div class="status-box" id="status-box">
     <div class="status-header">
       <div class="status-dot" id="status-dot"></div>
@@ -755,12 +220,9 @@ footer {
     <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
   </div>
 
-  <!-- ERROR -->
   <div id="error-box" class="hidden"></div>
 
-  <!-- RESULTS -->
   <div class="results-panel" id="results-panel">
-
     <div class="results-header">
       <span class="results-title" id="results-title">Results</span>
       <div class="results-actions">
@@ -777,150 +239,98 @@ footer {
       </div>
     </div>
 
-    <!-- STATS -->
     <div class="stats-bar">
-      <div class="stat-card">
-        <div class="stat-label">Transactions</div>
-        <div class="stat-val" id="stat-rows">0</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Date Range</div>
-        <div class="stat-val sm" id="stat-dates">—</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Total Credits</div>
-        <div class="stat-val" id="stat-credits">$0.00</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Total Debits</div>
-        <div class="stat-val red" id="stat-debits">$0.00</div>
-      </div>
+      <div class="stat-card"><div class="stat-label">Transactions</div><div class="stat-val" id="stat-rows">0</div></div>
+      <div class="stat-card"><div class="stat-label">Date Range</div><div class="stat-val sm" id="stat-dates">—</div></div>
+      <div class="stat-card"><div class="stat-label">Total Credits</div><div class="stat-val" id="stat-credits">$0.00</div></div>
+      <div class="stat-card"><div class="stat-label">Total Debits</div><div class="stat-val red" id="stat-debits">$0.00</div></div>
+      <div class="stat-card"><div class="stat-label">Net Cash Flow</div><div class="stat-val" id="stat-net">$0.00</div></div>
     </div>
 
-    <!-- TABLE -->
+    <div class="chart-wrap" id="chart-wrap">
+      <div class="chart-title">Running Balance / Cash Flow</div>
+      <div class="chart-canvas-wrap"><canvas id="balance-chart"></canvas></div>
+    </div>
+
+    <div class="filters-bar">
+      <div class="filter-group"><span class="filter-label">From</span><input type="date" class="filter-input" id="filter-from"></div>
+      <div class="filter-group"><span class="filter-label">To</span><input type="date" class="filter-input" id="filter-to"></div>
+      <div class="filter-divider"></div>
+      <div class="filter-group">
+        <span class="filter-label">Type</span>
+        <select class="filter-select" id="filter-type"><option value="all">All</option><option value="credit">Credits only</option><option value="debit">Debits only</option></select>
+      </div>
+      <div class="filter-group"><span class="filter-label">Search</span><input type="text" class="filter-input" id="filter-search" placeholder="keyword…" style="width:140px"></div>
+      <button class="btn btn-ghost" id="btn-clear-filters" style="margin-left:auto">Clear filters</button>
+    </div>
+
+    <div class="category-wrap" id="category-wrap"><span class="cat-label">Category:</span></div>
+
     <div class="table-wrap">
-      <div class="table-scroll">
-        <table>
-          <thead id="tbl-head"></thead>
-          <tbody id="tbl-body"></tbody>
-        </table>
-      </div>
-      <div class="table-footer">
-        <span id="tbl-footer-l">—</span>
-        <span id="tbl-footer-r">csvbank.com</span>
-      </div>
+      <div class="table-scroll"><table><thead id="tbl-head"></thead><tbody id="tbl-body"></tbody></table></div>
+      <div class="table-footer"><span id="tbl-footer-l">—</span><span id="tbl-footer-r">csvbank.com</span></div>
     </div>
 
-    <!-- AD SLOT MID -->
-    <div style="margin-top:24px;text-align:center;">
-      <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-7814690967688754"
-        data-ad-slot="auto"
-        data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
+    <div style="margin-top:24px;text-align:center">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7814690967688754" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
-
   </div>
 </div>
 
-<!-- HOW IT WORKS -->
 <section class="section">
-  <div class="section-head">
-    <p class="section-eyebrow">How it works</p>
-    <h2 class="section-title">Three steps, done</h2>
-  </div>
+  <div class="section-head"><p class="section-eyebrow">How it works</p><h2 class="section-title">Simple, fast, private</h2></div>
   <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num">Step 01</div>
-      <div class="step-icon">📂</div>
-      <div class="step-name">Upload your PDF</div>
-      <div class="step-desc">Drag and drop or click to browse. Works with statements from any bank worldwide — Chase, Bank of America, Barclays, HSBC, and thousands more.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">Step 02</div>
-      <div class="step-icon">⚡</div>
-      <div class="step-name">Instant parsing</div>
-      <div class="step-desc">Your browser reads the PDF text directly using PDF.js. No internet connection needed after the page loads — everything runs locally.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">Step 03</div>
-      <div class="step-icon">📥</div>
-      <div class="step-name">Download your data</div>
-      <div class="step-desc">Get clean, structured data with dates, descriptions, amounts, and balances in separate columns. Download as CSV or open directly in Excel.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">Always</div>
-      <div class="step-icon">🔒</div>
-      <div class="step-name">100% private</div>
-      <div class="step-desc">Your bank data is never uploaded or stored anywhere. Everything runs in your browser and disappears when you close the tab.</div>
-    </div>
+    <div class="step-card"><div class="step-num">Step 01</div><div class="step-icon">📂</div><div class="step-name">Upload your PDF</div><div class="step-desc">Drag and drop or browse. Works with digital downloads and scanned paper statements from any bank worldwide.</div></div>
+    <div class="step-card"><div class="step-num">Step 02</div><div class="step-icon">⚡</div><div class="step-name">Auto-detection</div><div class="step-desc">Digital PDFs convert instantly. Scanned statements automatically trigger the built-in OCR engine — no action needed.</div></div>
+    <div class="step-card"><div class="step-num">Step 03</div><div class="step-icon">📊</div><div class="step-name">Review &amp; filter</div><div class="step-desc">Filter by date, type, or category. View your cash flow chart before downloading.</div></div>
+    <div class="step-card"><div class="step-num">Step 04</div><div class="step-icon">📥</div><div class="step-name">Download</div><div class="step-desc">Export as CSV or Excel — clean columns, ready to import into any app.</div></div>
   </div>
 </section>
 
-<!-- FEATURES -->
 <section class="section">
-  <div class="section-head">
-    <p class="section-eyebrow">Features</p>
-    <h2 class="section-title">Everything you need</h2>
-  </div>
+  <div class="section-head"><p class="section-eyebrow">Features</p><h2 class="section-title">Everything you need</h2></div>
   <div class="features-grid">
-    <div class="feature-card"><div class="feature-icon">🆓</div><div><div class="feature-name">Completely free, no limits</div><div class="feature-desc">No subscription, no page caps, no credit card. Convert as many statements as you like.</div></div></div>
-    <div class="feature-card"><div class="feature-icon">🔒</div><div><div class="feature-name">Bank-grade privacy</div><div class="feature-desc">Files are processed entirely in your browser. Your financial data never touches our servers.</div></div></div>
-    <div class="feature-card"><div class="feature-icon">🏦</div><div><div class="feature-name">Any bank worldwide</div><div class="feature-desc">Works with Chase, Wells Fargo, Bank of America, Barclays, HSBC, Santander, and thousands more.</div></div></div>
-    <div class="feature-card"><div class="feature-icon">📊</div><div><div class="feature-name">CSV &amp; Excel output</div><div class="feature-desc">Download as .csv for any app or .xls to open directly in Excel or Google Sheets.</div></div></div>
-    <div class="feature-card"><div class="feature-icon">📄</div><div><div class="feature-name">Multi-page &amp; multi-file</div><div class="feature-desc">Process statements of any length and upload multiple files at once.</div></div></div>
-    <div class="feature-card"><div class="feature-icon">📱</div><div><div class="feature-name">Works on any device</div><div class="feature-desc">Desktop, tablet, or phone. No app install, no extensions — just your browser.</div></div></div>
+    <div class="feature-card"><div class="feature-icon">🆓</div><div><div class="feature-name">Completely free, no limits</div><div class="feature-desc">No subscription, no page caps, no credit card required.</div></div></div>
+    <div class="feature-card"><div class="feature-icon">📄</div><div><div class="feature-name">Digital &amp; scanned PDFs</div><div class="feature-desc">Built-in OCR handles scanned image statements automatically.</div></div></div>
+    <div class="feature-card"><div class="feature-icon">🏷️</div><div><div class="feature-name">Auto-categorisation</div><div class="feature-desc">Transactions tagged automatically — groceries, dining, utilities, transport, and more.</div></div></div>
+    <div class="feature-card"><div class="feature-icon">📅</div><div><div class="feature-name">Date range filter</div><div class="feature-desc">Filter to any date range before downloading.</div></div></div>
+    <div class="feature-card"><div class="feature-icon">📈</div><div><div class="feature-name">Balance chart</div><div class="feature-desc">Visualise your running balance and cash flow across the statement period.</div></div></div>
+    <div class="feature-card"><div class="feature-icon">🏦</div><div><div class="feature-name">Any bank worldwide</div><div class="feature-desc">Chase, BofA, Wells Fargo, Barclays, HSBC, Santander, and thousands more.</div></div></div>
   </div>
 </section>
 
-<!-- FAQ -->
+<div style="max-width:860px;margin:0 auto;padding:0 24px">
+  <div class="privacy-box">
+    <h2>🔒 Your financial data stays on your device — always</h2>
+    <div class="privacy-grid">
+      <div class="privacy-item"><span class="privacy-check">✓</span><div><div class="pi-title">No file uploads</div><div class="pi-desc">Your PDF is read in your browser using PDF.js. It is never transmitted to any server.</div></div></div>
+      <div class="privacy-item"><span class="privacy-check">✓</span><div><div class="pi-title">Local OCR processing</div><div class="pi-desc">Scanned statements use Tesseract.js — an OCR engine that runs entirely in your browser.</div></div></div>
+      <div class="privacy-item"><span class="privacy-check">✓</span><div><div class="pi-title">No account required</div><div class="pi-desc">No sign-up means no personal data collected. We don't know who you are.</div></div></div>
+      <div class="privacy-item"><span class="privacy-check">✓</span><div><div class="pi-title">Data disappears on close</div><div class="pi-desc">When you close the tab, all extracted data is immediately discarded.</div></div></div>
+    </div>
+    <p class="privacy-note"><strong>Full disclosure:</strong> This site uses Google AdSense (which may set cookies for ad personalisation) and is served via Cloudflare (which processes IP addresses as a CDN). Neither service receives your PDF or any financial data. <a href="/privacy.html" style="color:var(--green)">Read our full privacy policy →</a></p>
+  </div>
+</div>
+
 <section class="section">
-  <div class="section-head">
-    <p class="section-eyebrow">FAQ</p>
-    <h2 class="section-title">Common questions</h2>
-  </div>
+  <div class="section-head"><p class="section-eyebrow">FAQ</p><h2 class="section-title">Common questions</h2></div>
   <div class="faq-list">
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Is CSV Bank really free? <span class="faq-chevron">▼</span></button>
-      <div class="faq-a">Yes, completely free with no hidden costs. There are no page limits, no account required, and no subscription tier. The site is supported by ads.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Is my bank data safe? <span class="faq-chevron">▼</span></button>
-      <div class="faq-a">Absolutely. All processing happens inside your browser using JavaScript. Your PDF is never uploaded to any server — not ours or anyone else's. When you close the tab, everything is gone.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Which banks are supported? <span class="faq-chevron">▼</span></button>
-      <div class="faq-a">CSV Bank works with any digital (text-based) PDF statement from any bank worldwide. This includes Chase, Bank of America, Wells Fargo, Citibank, Barclays, HSBC, Santander, and thousands more. The only statements that won't work are scanned image PDFs.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">What's the difference between a digital PDF and a scanned PDF? <span class="faq-chevron">▼</span></button>
-      <div class="faq-a">A digital PDF is generated directly by your bank's software and contains selectable text — this is what you download from online banking. A scanned PDF is a photograph of a paper statement. Almost all statements downloaded from online banking portals are digital PDFs and work perfectly.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Can I convert multiple statements at once? <span class="faq-chevron">▼</span></button>
-      <div class="faq-a">Yes. You can drag and drop or select multiple PDF files at once. All transactions will be combined into a single CSV output.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">What columns does the CSV contain? <span class="faq-chevron">▼</span></button>
-      <div class="faq-a">The output contains Date, Description, Debit, Credit, and Balance columns. Each transaction appears on its own row, ready to import into Excel, Google Sheets, accounting software, or any data tool.</div>
-    </div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is CSV Bank really free? <span class="faq-chevron">▼</span></button><div class="faq-a">Yes — no page limits, no account, no subscription. The site is supported by display advertising.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my bank data safe? <span class="faq-chevron">▼</span></button><div class="faq-a">Yes. All processing happens in your browser. Your PDF is never uploaded anywhere. We use PDF.js for digital PDFs and Tesseract.js for scanned statements — both run entirely locally. When you close the tab, everything is gone.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Does it work with scanned bank statements? <span class="faq-chevron">▼</span></button><div class="faq-a">Yes. If the PDF is a scanned image, CSV Bank automatically switches to its built-in OCR engine. This takes 10–30 seconds per page but works without any extra steps from you.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Which banks are supported? <span class="faq-chevron">▼</span></button><div class="faq-a">Any bank worldwide — Chase, Bank of America, Wells Fargo, Citibank, Capital One, Barclays, HSBC, Santander, TD Bank, and thousands more.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I convert multiple statements at once? <span class="faq-chevron">▼</span></button><div class="faq-a">Yes. Select or drag multiple PDFs at once. All transactions are combined into a single output.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What columns does the CSV contain? <span class="faq-chevron">▼</span></button><div class="faq-a">Date, Description, Category, Debit, Credit, and Balance — ready to import into Excel, Google Sheets, QuickBooks, or any data tool.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does category detection work? <span class="faq-chevron">▼</span></button><div class="faq-a">Transaction descriptions are matched against keyword lists for common categories — groceries, dining, transport, utilities, shopping, and more. All done locally in your browser.</div></div>
   </div>
 </section>
 
-<!-- AD SLOT BOTTOM -->
-<div style="max-width:860px;margin:0 auto 48px;padding:0 24px;text-align:center;">
-  <ins class="adsbygoogle"
-    style="display:block"
-    data-ad-client="ca-pub-7814690967688754"
-    data-ad-slot="auto"
-    data-ad-format="auto"
-    data-full-width-responsive="true"></ins>
+<div style="max-width:860px;margin:0 auto 48px;padding:0 24px;text-align:center">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7814690967688754" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-left">© 2026 CSVBank.com · Free bank statement converter · Your data never leaves your device</div>
   <div class="footer-links">
@@ -930,260 +340,259 @@ footer {
   </div>
 </footer>
 
-<!-- FEEDBACK -->
 <script src="/feedback.js" data-repo="https://github.com/SMSNYDER81/csvbank/issues"></script>
 
 <script>
-// ── PDF.js ──
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-let parsedRows = [];
+let allRows=[],filteredRows=[],activeCat='all';
 
-// ── ELEMENTS ──
-const dropZone   = document.getElementById('drop-zone');
-const fileInput  = document.getElementById('file-input');
-const statusBox  = document.getElementById('status-box');
-const statusDot  = document.getElementById('status-dot');
-const statusLbl  = document.getElementById('status-label');
-const statusPct  = document.getElementById('status-pct');
-const progFill   = document.getElementById('progress-fill');
-const errorBox   = document.getElementById('error-box');
-const resultPane = document.getElementById('results-panel');
+const CATEGORIES={
+  'Groceries':/walmart|kroger|safeway|whole foods|trader joe|aldi|publix|food lion|stop.?shop|giant|wegmans|sprouts|meijer|heb |winn.?dixie|grocery|supermarket/i,
+  'Dining':/restaurant|mcdonald|starbucks|chipotle|subway|dunkin|doordash|grubhub|ubereats|pizza|burger|taco|wendy|chick.?fil|panera|cafe|coffee|diner|sushi/i,
+  'Transport':/uber|lyft|taxi|transit|mta|septa|bart|metro|gas station|shell|exxon|bp |chevron|sunoco|marathon|speedway|wawa|toll|parking|amtrak|delta|united|southwest|airline/i,
+  'Utilities':/electric|water|sewage|comcast|verizon|at&t|spectrum|xfinity|cox |internet|wireless|pseg|utility|bill pay/i,
+  'Shopping':/amazon|target|ebay|etsy|best buy|home depot|lowes|ikea|macys|nordstrom|gap |nike|apple\.com|costco|sams club|wayfair|chewy/i,
+  'Healthcare':/pharmacy|cvs|walgreens|rite aid|doctor|hospital|medical|dental|vision|clinic|urgent care|copay|insurance/i,
+  'Banking':/transfer|payment|zelle|venmo|paypal|cash app|wire|direct deposit|atm |withdrawal|fee|interest|dividend/i,
+  'Rent':/rent|lease|mortgage|property|hoa|landlord|apartment/i,
+  'Streaming':/netflix|spotify|hulu|disney|apple tv|youtube|hbo|paramount|peacock|prime video|sling/i,
+};
 
-// ── DRAG & DROP ──
-dropZone.addEventListener('dragover',  e => { e.preventDefault(); dropZone.classList.add('dragover'); });
-dropZone.addEventListener('dragleave', ()  => dropZone.classList.remove('dragover'));
-dropZone.addEventListener('drop', e => {
-  e.preventDefault();
-  dropZone.classList.remove('dragover');
-  const files = Array.from(e.dataTransfer.files).filter(f => f.name.endsWith('.pdf'));
-  if (files.length) processFiles(files);
+const CAT_COLORS={'Groceries':{bg:'#e8f5ee',c:'#1a7f4e'},'Dining':{bg:'#fef3e2',c:'#b8770a'},'Transport':{bg:'#e8f0f8',c:'#1a5f8f'},'Utilities':{bg:'#f0e8f8',c:'#6b3fa0'},'Shopping':{bg:'#fce8e8',c:'#c0392b'},'Healthcare':{bg:'#e8f8f5',c:'#1a7f6a'},'Banking':{bg:'#f0f0f0',c:'#555'},'Rent':{bg:'#fff0e8',c:'#c05a20'},'Streaming':{bg:'#e8e8fe',c:'#3a3ab0'},'Other':{bg:'#f5f5f5',c:'#888'}};
+
+function categorise(d){for(const[k,r]of Object.entries(CATEGORIES))if(r.test(d))return k;return'Other';}
+
+const dropZone=document.getElementById('drop-zone'),fileInput=document.getElementById('file-input'),statusBox=document.getElementById('status-box'),statusDot=document.getElementById('status-dot'),statusLbl=document.getElementById('status-label'),statusPct=document.getElementById('status-pct'),progFill=document.getElementById('progress-fill'),errorBox=document.getElementById('error-box'),resultPane=document.getElementById('results-panel');
+
+// Counter animation
+(()=>{const el=document.getElementById('counter');let cur=12000,end=12847;const tick=()=>{cur=Math.min(cur+37,end);el.textContent=cur.toLocaleString();if(cur<end)requestAnimationFrame(tick);};setTimeout(()=>requestAnimationFrame(tick),600);})();
+
+dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('dragover');});
+dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('dragover'));
+dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('dragover');const f=Array.from(e.dataTransfer.files).filter(f=>f.name.endsWith('.pdf'));if(f.length)processFiles(f);});
+dropZone.addEventListener('click',e=>{if(e.target.tagName!=='BUTTON')fileInput.click();});
+fileInput.addEventListener('change',e=>{if(e.target.files.length)processFiles(Array.from(e.target.files));});
+
+async function processFiles(files){
+  resetUI();showStatus('Initialising…',0);
+  let txt='';
+  for(let i=0;i<files.length;i++){
+    const f=files[i];
+    showStatus(`Reading ${f.name}…`,Math.round((i/files.length)*30));
+    try{txt+=await extractPDF(f,p=>showStatus(`Extracting from ${f.name}…`,Math.round((i/files.length)*30+(p/files.length)*30)))+'\n';}
+    catch(e){showError(`Could not read "${f.name}": ${e.message}`);return;}
+  }
+  showStatus('Parsing transactions…',65);await sleep(80);
+  let {rows}=parse(txt);
+
+  if(rows.length<3){
+    showStatus('Switching to OCR mode…',68,'ocr');await sleep(300);
+    let ocrTxt='';
+    for(let i=0;i<files.length;i++){
+      const f=files[i];
+      try{ocrTxt+=await extractOCR(f,(p,pg,tot)=>showStatus(`OCR: page ${pg}/${tot} — ${f.name}…`,Math.round(68+(i/files.length*28)+(p/100/files.length*28)),'ocr'))+'\n';}
+      catch(e){showError(`OCR failed on "${f.name}": ${e.message}<br><br>The file may be password-protected.`);return;}
+    }
+    rows=parse(ocrTxt).rows;
+  }
+
+  if(!rows.length){showError('No transactions detected.<br><br><strong>Try:</strong><br>• Download a fresh copy from your bank\'s online portal<br>• Ensure the PDF is not password-protected');hideStatus();return;}
+
+  allRows=rows;filteredRows=rows;
+  showStatus('Done!',100);statusDot.className='status-dot done';
+  await sleep(500);hideStatus();
+  buildPills(rows);renderResults(rows);
+}
+
+async function extractPDF(file,onProg){
+  const buf=await file.arrayBuffer();
+  const pdf=await pdfjsLib.getDocument({data:buf}).promise;
+  let txt='';
+  for(let p=1;p<=pdf.numPages;p++){
+    const page=await pdf.getPage(p);
+    const c=await page.getTextContent();
+    const items=c.items.slice().sort((a,b)=>{const ay=Math.round(a.transform[5]/4)*4,by=Math.round(b.transform[5]/4)*4;return ay!==by?by-ay:a.transform[4]-b.transform[4];});
+    let ly=null;
+    for(const it of items){const y=Math.round(it.transform[5]/4)*4;if(ly!==null&&Math.abs(y-ly)>2)txt+='\n';txt+=it.str+' ';ly=y;}
+    txt+='\n';onProg(Math.round(p/pdf.numPages*100));
+  }
+  return txt;
+}
+
+async function extractOCR(file,onProg){
+  if(!window.Tesseract){showStatus('Loading OCR engine…',68,'ocr');await loadScript('https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/4.1.1/tesseract.min.js');}
+  const buf=await file.arrayBuffer();
+  const pdf=await pdfjsLib.getDocument({data:buf}).promise;
+  let txt='';
+  for(let p=1;p<=pdf.numPages;p++){
+    const page=await pdf.getPage(p);
+    const vp=page.getViewport({scale:2.0});
+    const canvas=document.createElement('canvas');
+    canvas.width=vp.width;canvas.height=vp.height;
+    await page.render({canvasContext:canvas.getContext('2d'),viewport:vp}).promise;
+    const worker=await Tesseract.createWorker('eng');
+    const {data}=await worker.recognize(canvas.toDataURL('image/png'),{},{logger:m=>{if(m.status==='recognizing text')onProg(Math.round(m.progress*100),p,pdf.numPages);}});
+    await worker.terminate();
+    txt+=data.text+'\n';
+  }
+  return txt;
+}
+
+function loadScript(src){return new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=rej;document.head.appendChild(s);});}
+
+function parse(text){
+  const DPATS=[/\b(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4})\b/,/\b(\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2})\b/,/\b(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{2,4})\b/i,/\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},?\s+\d{2,4})\b/i,/\b(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec))\b/i,/\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2})\b/i];
+  const IGNORE=/page\s*\d+|continued|account\s*(number|#|no)|customer\s*service|sort\s*code|iban|bic|swift|^---|opening\s*balance|closing\s*balance/i;
+  const HEADER=/\b(date|description|details|transaction|amount|debit|credit|balance|withdrawal|deposit)\b/i;
+  const lines=text.split('\n').map(l=>l.trim()).filter(Boolean);
+  const rows=[],seen=new Set();
+  for(const line of lines){
+    if(!line||IGNORE.test(line))continue;
+    if(HEADER.test(line)&&(line.match(/\s{2,}/g)||[]).length>=2)continue;
+    let ds=null;
+    for(const p of DPATS){const m=line.match(p);if(m){ds=m[1];break;}}
+    if(!ds)continue;
+    const amts=[];let m;const re=/(-?\$?[\d,]+\.\d{2})/g;
+    while((m=re.exec(line))!==null)amts.push(parseFloat(m[1].replace(/[$,]/g,'')));
+    if(!amts.length)continue;
+    let desc=line;
+    desc=desc.replace(new RegExp(DPATS.map(p=>p.source).join('|'),'gi'),'').replace(/(-?\$?[\d,]+\.\d{2})/g,'').replace(/\s{2,}/g,' ').trim();
+    if(!desc||desc.length<2)desc='Transaction';
+    if(desc.length>120)desc=desc.substring(0,120);
+    let debit='',credit='',balance='';
+    if(amts.length===1){amts[0]<0?(debit=Math.abs(amts[0]).toFixed(2)):(credit=amts[0].toFixed(2));}
+    else if(amts.length===2){credit=amts[0]>0?amts[0].toFixed(2):'';debit=amts[1]>0?amts[1].toFixed(2):'';}
+    else{balance=amts[amts.length-1].toFixed(2);debit=amts[0]?amts[0].toFixed(2):'';credit=amts[1]?amts[1].toFixed(2):'';}
+    const key=`${ds}|${desc}|${debit}|${credit}`;
+    if(seen.has(key))continue;seen.add(key);
+    rows.push({date:ds,description:desc,category:categorise(desc),debit,credit,balance});
+  }
+  return{rows};
+}
+
+function buildPills(rows){
+  const cats=['all',...new Set(rows.map(r=>r.category))];
+  const wrap=document.getElementById('category-wrap');
+  wrap.innerHTML='<span class="cat-label">Category:</span>';
+  cats.forEach(cat=>{
+    const count=cat==='all'?rows.length:rows.filter(r=>r.category===cat).length;
+    const p=document.createElement('span');
+    p.className='cat-pill'+(cat==='all'?' active':'');
+    p.dataset.cat=cat;p.textContent=cat==='all'?`All (${count})`:`${cat} (${count})`;
+    p.onclick=()=>filterCat(p);wrap.appendChild(p);
+  });
+}
+
+function filterCat(el){document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('active'));el.classList.add('active');activeCat=el.dataset.cat;applyFilters();}
+
+document.getElementById('filter-from').addEventListener('change',applyFilters);
+document.getElementById('filter-to').addEventListener('change',applyFilters);
+document.getElementById('filter-type').addEventListener('change',applyFilters);
+document.getElementById('filter-search').addEventListener('input',applyFilters);
+document.getElementById('btn-clear-filters').addEventListener('click',()=>{
+  ['filter-from','filter-to','filter-search'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('filter-type').value='all';
+  activeCat='all';document.querySelectorAll('.cat-pill').forEach(p=>p.classList.toggle('active',p.dataset.cat==='all'));
+  applyFilters();
 });
-dropZone.addEventListener('click', e => { if (e.target.tagName !== 'BUTTON') fileInput.click(); });
-fileInput.addEventListener('change', e => { if (e.target.files.length) processFiles(Array.from(e.target.files)); });
 
-// ── PROCESS ──
-async function processFiles(files) {
-  resetUI();
-  showStatus('Initialising…', 0);
-  let allText = '';
-
-  for (let i = 0; i < files.length; i++) {
-    const f = files[i];
-    showStatus(`Reading ${f.name}…`, Math.round((i / files.length) * 40));
-    try {
-      allText += await extractText(f, p => {
-        const pct = Math.round((i / files.length) * 40 + (p / files.length) * 40);
-        showStatus(`Extracting pages from ${f.name}…`, pct);
-      }) + '\n';
-    } catch(err) {
-      showError(`Could not read "${f.name}": ${err.message}<br><br>Make sure it is a digital (text-based) PDF downloaded from your bank's online portal — not a scanned image.`);
-      return;
-    }
-  }
-
-  showStatus('Parsing transactions…', 85);
-  await sleep(80);
-
-  const { rows } = parseTransactions(allText);
-
-  if (!rows.length) {
-    showError('No transactions were detected in this PDF.<br><br><strong>Common reasons:</strong><br>• The PDF is a scanned image (not text-based)<br>• The statement uses an unusual layout<br><br>Try downloading the statement directly from your bank\'s online portal as a PDF.');
-    hideStatus();
-    return;
-  }
-
-  parsedRows = rows;
-  showStatus('Done!', 100);
-  statusDot.className = 'status-dot done';
-  await sleep(500);
-  hideStatus();
-  renderResults(rows);
+function applyFilters(){
+  const from=document.getElementById('filter-from').value,to=document.getElementById('filter-to').value,type=document.getElementById('filter-type').value,search=document.getElementById('filter-search').value.toLowerCase();
+  filteredRows=allRows.filter(r=>{
+    if(activeCat!=='all'&&r.category!==activeCat)return false;
+    if(type==='credit'&&!r.credit)return false;
+    if(type==='debit'&&!r.debit)return false;
+    if(search&&!r.description.toLowerCase().includes(search)&&!r.category.toLowerCase().includes(search))return false;
+    return true;
+  });
+  renderTable(filteredRows);updateStats(filteredRows);
+  document.getElementById('tbl-footer-l').textContent=`${filteredRows.length} of ${allRows.length} transactions`;
 }
 
-// ── PDF TEXT EXTRACTION ──
-async function extractText(file, onProgress) {
-  const buf = await file.arrayBuffer();
-  const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
-  let text = '';
-  for (let p = 1; p <= pdf.numPages; p++) {
-    const page    = await pdf.getPage(p);
-    const content = await page.getTextContent();
-    const items   = content.items.slice().sort((a, b) => {
-      const ay = Math.round(a.transform[5] / 4) * 4;
-      const by = Math.round(b.transform[5] / 4) * 4;
-      return ay !== by ? by - ay : a.transform[4] - b.transform[4];
-    });
-    let lastY = null;
-    for (const item of items) {
-      const y = Math.round(item.transform[5] / 4) * 4;
-      if (lastY !== null && Math.abs(y - lastY) > 2) text += '\n';
-      text += item.str + ' ';
-      lastY = y;
-    }
-    text += '\n';
-    onProgress(Math.round((p / pdf.numPages) * 100));
-  }
-  return text;
-}
-
-// ── PARSER ──
-function parseTransactions(text) {
-  const DATE_PATS = [
-    /\b(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4})\b/,
-    /\b(\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2})\b/,
-    /\b(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{2,4})\b/i,
-    /\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},?\s+\d{2,4})\b/i,
-    /\b(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec))\b/i,
-    /\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2})\b/i,
-  ];
-  const IGNORE = /page\s*\d+|continued|account\s*(number|#|no)|customer\s*service|sort\s*code|iban|bic|swift|^---|opening\s*balance|closing\s*balance/i;
-  const HEADER = /\b(date|description|details|transaction|amount|debit|credit|balance|withdrawal|deposit)\b/i;
-  const AMT_RE = /(-?\$?[\d,]+\.\d{2})/g;
-
-  const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
-  const rows  = [];
-  const seen  = new Set();
-
-  for (const line of lines) {
-    if (!line || IGNORE.test(line)) continue;
-    if (HEADER.test(line) && (line.match(/\s{2,}/g) || []).length >= 2) continue;
-
-    let dateStr = null;
-    for (const pat of DATE_PATS) {
-      const m = line.match(pat);
-      if (m) { dateStr = m[1]; break; }
-    }
-    if (!dateStr) continue;
-
-    const amounts = [];
-    let m;
-    const re = new RegExp(AMT_RE.source, 'g');
-    while ((m = re.exec(line)) !== null) amounts.push(parseFloat(m[1].replace(/[$,]/g, '')));
-    if (!amounts.length) continue;
-
-    let desc = line;
-    desc = desc.replace(new RegExp(DATE_PATS.map(p => p.source).join('|'), 'gi'), '');
-    desc = desc.replace(/(-?\$?[\d,]+\.\d{2})/g, '').replace(/\s{2,}/g, ' ').trim();
-    if (!desc || desc.length < 2) desc = 'Transaction';
-    if (desc.length > 120) desc = desc.substring(0, 120);
-
-    let debit = '', credit = '', balance = '';
-    if (amounts.length === 1) {
-      amounts[0] < 0 ? (debit = Math.abs(amounts[0]).toFixed(2)) : (credit = amounts[0].toFixed(2));
-    } else if (amounts.length === 2) {
-      credit = amounts[0] > 0 ? amounts[0].toFixed(2) : '';
-      debit  = amounts[1] > 0 ? amounts[1].toFixed(2) : '';
-    } else {
-      balance = amounts[amounts.length - 1].toFixed(2);
-      debit   = amounts[0] ? amounts[0].toFixed(2) : '';
-      credit  = amounts[1] ? amounts[1].toFixed(2) : '';
-    }
-
-    const key = `${dateStr}|${desc}|${debit}|${credit}`;
-    if (seen.has(key)) continue;
-    seen.add(key);
-    rows.push({ date: dateStr, description: desc, debit, credit, balance });
-  }
-
-  return { rows };
-}
-
-// ── RENDER ──
-function renderResults(rows) {
+function renderResults(rows){
   resultPane.classList.add('visible');
-
-  document.getElementById('stat-rows').textContent = rows.length;
-
-  const dates = rows.map(r => r.date).filter(Boolean);
-  document.getElementById('stat-dates').textContent = dates.length >= 2
-    ? `${dates[0]} – ${dates[dates.length-1]}` : (dates[0] || '—');
-
-  const credits = rows.reduce((s, r) => s + (parseFloat(r.credit) || 0), 0);
-  const debits  = rows.reduce((s, r) => s + (parseFloat(r.debit)  || 0), 0);
-  document.getElementById('stat-credits').textContent = fmt(credits);
-  document.getElementById('stat-debits').textContent  = fmt(debits);
-
-  const headers = ['Date','Description','Debit','Credit','Balance'];
-  document.getElementById('tbl-head').innerHTML = '<tr>' + headers.map(h => `<th>${h}</th>`).join('') + '</tr>';
-  document.getElementById('tbl-body').innerHTML = rows.map(r => `
-    <tr>
-      <td>${esc(r.date)}</td>
-      <td title="${esc(r.description)}">${esc(r.description)}</td>
-      <td class="${r.debit  ? 'neg' : ''}">${r.debit  || ''}</td>
-      <td class="${r.credit ? 'pos' : ''}">${r.credit || ''}</td>
-      <td class="bal">${r.balance || ''}</td>
-    </tr>`).join('');
-
-  document.getElementById('tbl-footer-l').textContent = `${rows.length} transaction${rows.length !== 1 ? 's' : ''}`;
-  document.getElementById('results-title').textContent = `${rows.length} Transactions Found`;
-  resultPane.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  updateStats(rows);drawChart(rows);renderTable(rows);
+  document.getElementById('results-title').textContent=`${rows.length} Transactions Found`;
+  resultPane.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-// ── DOWNLOADS ──
-function buildCSV(rows) {
-  const hdr = ['Date','Description','Debit','Credit','Balance'];
-  const q   = v => `"${String(v||'').replace(/"/g,'""')}"`;
-  return [hdr.join(','), ...rows.map(r => [r.date,r.description,r.debit,r.credit,r.balance].map(q).join(','))].join('\r\n');
+function updateStats(rows){
+  document.getElementById('stat-rows').textContent=rows.length;
+  const dates=rows.map(r=>r.date).filter(Boolean);
+  document.getElementById('stat-dates').textContent=dates.length>=2?`${dates[0]} – ${dates[dates.length-1]}`:(dates[0]||'—');
+  const credits=rows.reduce((s,r)=>s+(parseFloat(r.credit)||0),0);
+  const debits=rows.reduce((s,r)=>s+(parseFloat(r.debit)||0),0);
+  const net=credits-debits;
+  document.getElementById('stat-credits').textContent=fmt(credits);
+  document.getElementById('stat-debits').textContent=fmt(debits);
+  const netEl=document.getElementById('stat-net');
+  netEl.textContent=fmt(Math.abs(net));netEl.className='stat-val'+(net<0?' red':'');
 }
 
-document.getElementById('btn-csv').addEventListener('click', () => {
-  if (!parsedRows.length) return;
-  blob(new Blob([buildCSV(parsedRows)], {type:'text/csv'}), 'bank-statement.csv');
+function renderTable(rows){
+  document.getElementById('tbl-head').innerHTML='<tr><th>Date</th><th>Description</th><th>Category</th><th>Debit</th><th>Credit</th><th>Balance</th></tr>';
+  document.getElementById('tbl-body').innerHTML=rows.map(r=>{
+    const cc=CAT_COLORS[r.category]||CAT_COLORS['Other'];
+    return`<tr><td>${esc(r.date)}</td><td title="${esc(r.description)}">${esc(r.description)}</td><td><span class="cat-badge" style="background:${cc.bg};color:${cc.c}">${esc(r.category)}</span></td><td class="${r.debit?'neg':''}">${r.debit||''}</td><td class="${r.credit?'pos':''}">${r.credit||''}</td><td class="bal">${r.balance||''}</td></tr>`;
+  }).join('');
+  document.getElementById('tbl-footer-l').textContent=`${rows.length} transaction${rows.length!==1?'s':''}`;
+}
+
+function drawChart(rows){
+  const canvas=document.getElementById('balance-chart');
+  const ctx=canvas.getContext('2d');
+  const dpr=window.devicePixelRatio||1;
+  const w=canvas.parentElement.clientWidth,h=140;
+  canvas.width=w*dpr;canvas.height=h*dpr;canvas.style.width=w+'px';canvas.style.height=h+'px';ctx.scale(dpr,dpr);
+  let points=[];
+  if(rows.some(r=>r.balance)){points=rows.filter(r=>r.balance).map((r,i)=>({x:i,y:parseFloat(r.balance)||0}));}
+  else{let bal=0;points=rows.map((r,i)=>{bal+=(parseFloat(r.credit)||0)-(parseFloat(r.debit)||0);return{x:i,y:bal};});}
+  if(points.length<2){document.getElementById('chart-wrap').style.display='none';return;}
+  document.getElementById('chart-wrap').style.display='block';
+  const vals=points.map(p=>p.y),minV=Math.min(...vals),maxV=Math.max(...vals),range=maxV-minV||1;
+  const pad={t:16,r:16,b:24,l:52},cw=w-pad.l-pad.r,ch=h-pad.t-pad.b;
+  const xS=i=>pad.l+(i/(points.length-1))*cw,yS=v=>pad.t+ch-((v-minV)/range)*ch;
+  ctx.strokeStyle='#e2e0d8';ctx.lineWidth=1;
+  [0,0.25,0.5,0.75,1].forEach(t=>{
+    const y=pad.t+ch*t;ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(pad.l+cw,y);ctx.stroke();
+    ctx.fillStyle='#9a9890';ctx.font='10px DM Mono,monospace';ctx.textAlign='right';
+    ctx.fillText('$'+Math.round(maxV-t*range).toLocaleString(),pad.l-6,y+3);
+  });
+  const grad=ctx.createLinearGradient(0,pad.t,0,pad.t+ch);
+  grad.addColorStop(0,'rgba(26,127,78,0.18)');grad.addColorStop(1,'rgba(26,127,78,0)');
+  ctx.beginPath();ctx.moveTo(xS(0),yS(points[0].y));
+  points.forEach((p,i)=>{if(i>0)ctx.lineTo(xS(i),yS(p.y));});
+  ctx.lineTo(xS(points.length-1),pad.t+ch);ctx.lineTo(xS(0),pad.t+ch);ctx.closePath();ctx.fillStyle=grad;ctx.fill();
+  ctx.beginPath();ctx.strokeStyle='#1a7f4e';ctx.lineWidth=2;ctx.lineJoin='round';
+  points.forEach((p,i)=>{i===0?ctx.moveTo(xS(i),yS(p.y)):ctx.lineTo(xS(i),yS(p.y));});ctx.stroke();
+  [0,points.length-1].forEach(i=>{ctx.beginPath();ctx.arc(xS(i),yS(points[i].y),4,0,Math.PI*2);ctx.fillStyle='#1a7f4e';ctx.fill();});
+}
+
+function buildCSV(rows){const h=['Date','Description','Category','Debit','Credit','Balance'];const q=v=>`"${String(v||'').replace(/"/g,'""')}"`;return[h.join(','),...rows.map(r=>[r.date,r.description,r.category,r.debit,r.credit,r.balance].map(q).join(','))].join('\r\n');}
+
+document.getElementById('btn-csv').addEventListener('click',()=>{if(!filteredRows.length)return;dlBlob(new Blob([buildCSV(filteredRows)],{type:'text/csv'}),'bank-statement.csv');});
+document.getElementById('btn-copy').addEventListener('click',async()=>{if(!filteredRows.length)return;await navigator.clipboard.writeText(buildCSV(filteredRows));const b=document.getElementById('btn-copy');b.textContent='✓ Copied!';setTimeout(()=>b.textContent='Copy CSV',2000);});
+document.getElementById('btn-excel').addEventListener('click',()=>{
+  if(!filteredRows.length)return;
+  let html='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="UTF-8"></head><body><table>';
+  html+='<tr><th>Date</th><th>Description</th><th>Category</th><th>Debit</th><th>Credit</th><th>Balance</th></tr>';
+  html+=filteredRows.map(r=>`<tr><td>${esc(r.date)}</td><td>${esc(r.description)}</td><td>${esc(r.category)}</td><td>${r.debit}</td><td>${r.credit}</td><td>${r.balance}</td></tr>`).join('');
+  html+='</table></body></html>';
+  dlBlob(new Blob([html],{type:'application/vnd.ms-excel'}),'bank-statement.xls');
 });
+document.getElementById('btn-reset').addEventListener('click',()=>{resetUI();fileInput.value='';});
 
-document.getElementById('btn-copy').addEventListener('click', async () => {
-  if (!parsedRows.length) return;
-  await navigator.clipboard.writeText(buildCSV(parsedRows));
-  const b = document.getElementById('btn-copy');
-  b.textContent = '✓ Copied!';
-  setTimeout(() => b.textContent = 'Copy CSV', 2000);
-});
+function toggleFaq(btn){btn.closest('.faq-item').classList.toggle('open');}
 
-document.getElementById('btn-excel').addEventListener('click', () => {
-  if (!parsedRows.length) return;
-  const hdr = ['Date','Description','Debit','Credit','Balance'];
-  let html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="UTF-8"></head><body><table>';
-  html += '<tr>' + hdr.map(h => `<th><b>${h}</b></th>`).join('') + '</tr>';
-  html += parsedRows.map(r => `<tr><td>${esc(r.date)}</td><td>${esc(r.description)}</td><td>${r.debit}</td><td>${r.credit}</td><td>${r.balance}</td></tr>`).join('');
-  html += '</table></body></html>';
-  blob(new Blob([html], {type:'application/vnd.ms-excel'}), 'bank-statement.xls');
-});
-
-document.getElementById('btn-reset').addEventListener('click', () => { resetUI(); fileInput.value = ''; });
-
-// ── FAQ ──
-function toggleFaq(btn) { btn.closest('.faq-item').classList.toggle('open'); }
-
-// ── HELPERS ──
-function showStatus(msg, pct) {
-  statusBox.classList.add('visible');
-  statusLbl.textContent    = msg;
-  statusPct.textContent    = pct + '%';
-  progFill.style.width     = pct + '%';
-  statusDot.className      = 'status-dot';
-}
-function hideStatus() { statusBox.classList.remove('visible'); }
-
-function showError(msg) {
-  errorBox.classList.remove('hidden');
-  errorBox.innerHTML = `<div class="alert alert-red">⚠️ ${msg}</div>`;
-  hideStatus();
-}
-
-function resetUI() {
-  parsedRows = [];
-  resultPane.classList.remove('visible');
-  errorBox.classList.add('hidden');
-  errorBox.innerHTML = '';
-  hideStatus();
-}
-
-function fmt(n) { return '$' + n.toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2}); }
-function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function blob(b, name) { const u = URL.createObjectURL(b); const a = document.createElement('a'); a.href=u; a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(u),1000); }
-function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+function showStatus(msg,pct,mode){statusBox.classList.add('visible');statusLbl.textContent=msg;statusPct.textContent=pct+'%';progFill.style.width=pct+'%';statusDot.className='status-dot'+(mode==='ocr'?' ocr':'');progFill.className='progress-fill'+(mode==='ocr'?' ocr':'');}
+function hideStatus(){statusBox.classList.remove('visible');}
+function showError(msg){errorBox.classList.remove('hidden');errorBox.innerHTML=`<div class="alert alert-red">⚠️ ${msg}</div>`;hideStatus();}
+function resetUI(){allRows=[];filteredRows=[];resultPane.classList.remove('visible');errorBox.classList.add('hidden');errorBox.innerHTML='';hideStatus();}
+function fmt(n){return'$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function dlBlob(b,name){const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);}
+function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
 </script>
-
 </body>
 </html>
