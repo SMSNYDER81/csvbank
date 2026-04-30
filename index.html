@@ -466,9 +466,9 @@ function loadScript(src){return new Promise((res,rej)=>{const s=document.createE
 
 function parse(text){
   const DPATS=[
-    /\b(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4})\b/,  // MM/DD/YYYY
-    /\b(\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2})\b/,    // YYYY-MM-DD
-    /\b(\d{1,2}[\/\-]\d{1,2})\b/,                  // MM/DD (TD Bank, no year)
+    /\b(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4})\b/,
+    /\b(\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2})\b/,
+    /\b(\d{1,2}[\/\-]\d{1,2})\b/,
     /\b(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{2,4})\b/i,
     /\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},?\s+\d{2,4})\b/i,
     /\b(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec))\b/i,
@@ -477,14 +477,13 @@ function parse(text){
   const IGNORE=/page\s*\d+|continued|account\s*(number|#|no)|customer\s*service|sort\s*code|iban|bic|swift|^---|begin|adjust|ending balance|fdic|equal housing|bank.by.phone|how to balance|statement balance|account summary|total for|grace period|year to date|plus \d|less \d/i;
   const HEADER=/^\s*(date|description|details|transaction|amount|debit|credit|balance|withdrawal|deposit)\s*$/i;
   const AMT=/(-?\$?[\d,]+\.\d{2})/g;
+  // TD Bank credit indicators in the transaction type field
+  const CREDIT_TYPE=/ACH DEP|DIRECT DEP|DEBIT CARD CREDIT|ACH DEPOSIT|DEPOSIT|CREDIT(?!\s*CARD)|PAYROLL|REFUND/i;
+  // Lines that are just internal reference codes — skip as description
+  const REF_LINE=/^AUT\s+\d|^VISA DDA|^DDA PUR|^\d{6}\s/i;
 
   const lines=text.split('\n').map(l=>l.trim()).filter(Boolean);
   const rows=[],seen=new Set();
-
-  // TD Bank uses MM/DD format and each transaction may span multiple lines
-  // Strategy: if a line starts with a date, it's a transaction line
-  // Merge continuation lines (no date, no amount) into the previous transaction's description
-
   let pending=null;
 
   const flush=()=>{
@@ -494,59 +493,98 @@ function parse(text){
     const amts=[];let m;const re=new RegExp(AMT.source,'g');
     while((m=re.exec(line))!==null)amts.push(parseFloat(m[1].replace(/[$,]/g,'')));
     if(amts.length){
-      let desc=line;
-      desc=desc.replace(new RegExp(DPATS.map(p=>p.source).join('|'),'gi'),'');
-      desc=desc.replace(new RegExp(AMT.source,'g'),'').replace(/\s{2,}/g,' ').trim();
-      if(!desc||desc.length<2)desc=pending.extra||'Transaction';
-      if(desc.length>120)desc=desc.substring(0,120);
-      let debit='',credit='',balance='';
-      if(amts.length===1){amts[0]<0?(debit=Math.abs(amts[0]).toFixed(2)):(credit=amts[0].toFixed(2));}
-      else if(amts.length===2){
-        // TD Bank: single amount then balance — figure out debit vs credit from context
-        balance=amts[amts.length-1].toFixed(2);
-        const amt=amts[0];
-        if(amt<0)debit=Math.abs(amt).toFixed(2);
-        else if(pending.extra&&/deposit|credit|pmt dep/i.test(pending.extra))credit=amt.toFixed(2);
-        else debit=amt.toFixed(2);
+      // Build description: prefer merchant name (lines[2]) over transaction type (lines[0])
+      // lines[0] = "03/26 DBCRD PUR AP, ***** amount balance"
+      // lines[1] = "AUT 032426 VISA DDA PUR AP" (reference — skip)
+      // lines[2] = "WALMART MEMBER 03 26..." (merchant — use this)
+      let desc='';
+      // Use merchant lines (non-reference continuation lines)
+      if(pending.merchant){
+        desc=pending.merchant;
       } else {
-        balance=amts[amts.length-1].toFixed(2);
-        debit=amts[0]?amts[0].toFixed(2):'';
-        credit=amts[1]?amts[1].toFixed(2):'';
+        // Fall back to transaction type from first line
+        desc=line.replace(new RegExp(DPATS.map(p=>p.source).join('|'),'gi'),'');
+        desc=desc.replace(new RegExp(AMT.source,'g'),'').replace(/\s{2,}/g,' ').trim();
+        // Clean up card numbers and common prefixes
+        desc=desc.replace(/\*{3,}\d+/g,'').replace(/,\s*$/,'').trim();
       }
-      const key=`${ds}|${desc}|${debit}|${credit}`;
-      if(!seen.has(key)){seen.add(key);rows.push({date:ds,description:desc,category:categorise(desc),debit,credit,balance});}
+      if(!desc||desc.length<2)desc='Transaction';
+      if(desc.length>80)desc=desc.substring(0,80);
+
+      let debit='',credit='',balance='';
+      const txType=line; // original line has transaction type indicator
+
+      if(amts.length===1){
+        amts[0]<0?(debit=Math.abs(amts[0]).toFixed(2)):(credit=amts[0].toFixed(2));
+      } else if(amts.length===2){
+        balance=amts[1].toFixed(2);
+        const amt=amts[0];
+        const absAmt=Math.abs(amt);
+        // Determine debit vs credit:
+        // 1. Negative amount = debit
+        // 2. Balance went UP from previous = credit
+        // 3. Transaction type contains credit keywords = credit
+        // 4. "DEBIT CARD CREDIT" = credit (refund)
+        const prevBal=pending.prevBalance;
+        const curBal=amts[1];
+        if(amt<0){
+          debit=absAmt.toFixed(2);
+        } else if(CREDIT_TYPE.test(txType)||CREDIT_TYPE.test(pending.merchant||'')){
+          credit=absAmt.toFixed(2);
+        } else if(prevBal!==null&&curBal>prevBal+0.01){
+          credit=absAmt.toFixed(2);
+        } else if(/DEBIT CARD CREDIT|CARD CREDIT/i.test(txType)){
+          credit=absAmt.toFixed(2);
+        } else {
+          debit=absAmt.toFixed(2);
+        }
+      } else if(amts.length>=3){
+        balance=amts[amts.length-1].toFixed(2);
+        debit=amts[0]>0?amts[0].toFixed(2):'';
+        credit=amts[1]>0?amts[1].toFixed(2):'';
+      }
+
+      // Use balance to update prevBalance for next transaction
+      if(balance)pending.balanceOut=parseFloat(balance);
+
+      const key=`${ds}|${desc}|${balance}`;
+      if(!seen.has(key)){
+        seen.add(key);
+        rows.push({date:ds,description:desc,category:categorise(desc),debit,credit,balance});
+      }
     }
     pending=null;
   };
 
+  let prevBalance=null;
   for(const line of lines){
     if(!line||IGNORE.test(line))continue;
     if(HEADER.test(line))continue;
 
-    // Check if line starts with a date
     let ds=null;
     for(const p of DPATS){const m=line.match(p);if(m&&line.indexOf(m[1])<=6){ds=m[1];break;}}
 
     if(ds){
+      if(pending&&pending.balanceOut)prevBalance=pending.balanceOut;
       flush();
-      // Check if this line has amounts — if so it's a complete transaction line
       const testAmts=line.match(new RegExp(AMT.source,'g'));
       if(testAmts&&testAmts.length>=1){
-        pending={date:ds,line,extra:''};
+        pending={date:ds,line,merchant:'',prevBalance};
       }
     } else if(pending){
-      // Continuation line — append to description if it looks like merchant info
-      if(!/^[\d\s]+$/.test(line)&&line.length>2){
-        pending.extra=(pending.extra+' '+line).trim().substring(0,120);
-        // Use first non-reference continuation line as description if main line desc is poor
-        if(pending.extra&&!/AUT \d|VISA DDA|DDA PUR/i.test(line)){
-          pending.line=pending.line; // keep original for amounts
+      if(!line||line.length<2)return;
+      if(REF_LINE.test(line))return; // skip reference lines like "AUT 032426 VISA DDA"
+      // This is a merchant/description line — use it
+      if(!pending.merchant){
+        // Clean up merchant line: remove trailing state/country codes and phone numbers
+        let merchant=line.replace(/\s+\*\s+[A-Z]{2}\s*$/,'').replace(/\d{3}\s+\d{3}\s+\d{4}/g,'').replace(/\s{2,}/g,' ').trim();
+        if(merchant.length>2&&!/^\d+$/.test(merchant)){
+          pending.merchant=merchant.substring(0,80);
         }
       }
     }
   }
   flush();
-
   return{rows};
 }
 
