@@ -701,12 +701,13 @@ document.getElementById('btn-excel').addEventListener('click',()=>{
 document.getElementById('btn-reset').addEventListener('click',()=>{resetUI();fileInput.value='';});
 let _emailBusy=false;
 document.getElementById('btn-email').addEventListener('click',()=>{
-  if(!filteredRows.length||_emailBusy)return;
-  _emailBusy=true;setTimeout(()=>_emailBusy=false,4000);
-  const csv=buildCSV(filteredRows);
-  const subject=encodeURIComponent('Bank Statement CSV');
-  const body=encodeURIComponent('Please find bank statement data below. Save as .csv and open in Excel or Google Sheets.\n\n'+csv.substring(0,1200));
-  window.location.href='mailto:?subject='+subject+'&body='+body;
+  if(!filteredRows.length)return;
+  // Step 1: download the CSV so user has it ready to attach
+  dlBlob(new Blob([buildCSV(filteredRows)],{type:'text/csv'}),'bank-statement.csv');
+  // Step 2: open Outlook with a short clean email (no CSV in body — too large for mailto)
+  const subject=encodeURIComponent('Bank Statement — '+new Date().toLocaleDateString());
+  const body=encodeURIComponent('Hi,\n\nPlease find my bank statement attached as a CSV file (bank-statement.csv — just downloaded to your computer).\n\nKind regards');
+  setTimeout(()=>{ window.location.href='mailto:?subject='+subject+'&body='+body; },800);
 });
 
 function toggleFaq(btn){btn.closest('.faq-item').classList.toggle('open');}
