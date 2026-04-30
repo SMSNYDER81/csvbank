@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- v2.1 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -397,15 +398,9 @@ async function processFiles(files){
   let {rows}=parse(txt);
   console.log('=== ROWS FOUND:',rows.length,'===');
 
-  if(rows.length<2){
-    showStatus('Switching to OCR mode…',68,'ocr');await sleep(300);
-    let ocrTxt='';
-    for(let i=0;i<files.length;i++){
-      const f=files[i];
-      try{ocrTxt+=await extractOCR(f,(p,pg,tot)=>showStatus(`OCR: page ${pg}/${tot} — ${f.name}…`,Math.round(68+(i/files.length*28)+(p/100/files.length*28)),'ocr'))+'\n';}
-      catch(e){showError(`OCR failed on "${f.name}": ${e.message}<br><br>The file may be password-protected.`);return;}
-    }
-    rows=parse(ocrTxt).rows;
+  if(rows.length<1){
+    showError('No transactions detected.<br><br><strong>Tips:</strong><br>\u2022 Download the PDF directly from your bank website<br>\u2022 Ensure the PDF is not password-protected<br>\u2022 Try opening the PDF and selecting text \u2014 if you cannot select text it may be a scanned image<br><br><a href="https://github.com/SMSNYDER81/csvbank/issues" style="color:var(--green)" target="_blank">Report this issue \u2192</a>');
+    hideStatus();return;
   }
 
   if(!rows.length){showError('No transactions detected.<br><br><strong>Try:</strong><br>• Download a fresh copy from your bank\'s online portal<br>• Ensure the PDF is not password-protected');hideStatus();return;}
@@ -469,32 +464,88 @@ async function extractOCR(file,onProg){
 function loadScript(src){return new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=rej;document.head.appendChild(s);});}
 
 function parse(text){
-  const DPATS=[/\b(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4})\b/,/\b(\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2})\b/,/\b(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{2,4})\b/i,/\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},?\s+\d{2,4})\b/i,/\b(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec))\b/i,/\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2})\b/i];
-  const IGNORE=/page\s*\d+|continued|account\s*(number|#|no)|customer\s*service|sort\s*code|iban|bic|swift|^---|opening\s*balance|closing\s*balance/i;
-  const HEADER=/\b(date|description|details|transaction|amount|debit|credit|balance|withdrawal|deposit)\b/i;
+  const DPATS=[
+    /\b(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4})\b/,  // MM/DD/YYYY
+    /\b(\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2})\b/,    // YYYY-MM-DD
+    /\b(\d{1,2}[\/\-]\d{1,2})\b/,                  // MM/DD (TD Bank, no year)
+    /\b(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{2,4})\b/i,
+    /\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},?\s+\d{2,4})\b/i,
+    /\b(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec))\b/i,
+    /\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2})\b/i,
+  ];
+  const IGNORE=/page\s*\d+|continued|account\s*(number|#|no)|customer\s*service|sort\s*code|iban|bic|swift|^---|begin|adjust|ending balance|fdic|equal housing|bank.by.phone|how to balance|statement balance|account summary|total for|grace period|year to date|plus \d|less \d/i;
+  const HEADER=/^\s*(date|description|details|transaction|amount|debit|credit|balance|withdrawal|deposit)\s*$/i;
+  const AMT=/(-?\$?[\d,]+\.\d{2})/g;
+
   const lines=text.split('\n').map(l=>l.trim()).filter(Boolean);
   const rows=[],seen=new Set();
+
+  // TD Bank uses MM/DD format and each transaction may span multiple lines
+  // Strategy: if a line starts with a date, it's a transaction line
+  // Merge continuation lines (no date, no amount) into the previous transaction's description
+
+  let pending=null;
+
+  const flush=()=>{
+    if(!pending)return;
+    const line=pending.line;
+    const ds=pending.date;
+    const amts=[];let m;const re=new RegExp(AMT.source,'g');
+    while((m=re.exec(line))!==null)amts.push(parseFloat(m[1].replace(/[$,]/g,'')));
+    if(amts.length){
+      let desc=line;
+      desc=desc.replace(new RegExp(DPATS.map(p=>p.source).join('|'),'gi'),'');
+      desc=desc.replace(new RegExp(AMT.source,'g'),'').replace(/\s{2,}/g,' ').trim();
+      if(!desc||desc.length<2)desc=pending.extra||'Transaction';
+      if(desc.length>120)desc=desc.substring(0,120);
+      let debit='',credit='',balance='';
+      if(amts.length===1){amts[0]<0?(debit=Math.abs(amts[0]).toFixed(2)):(credit=amts[0].toFixed(2));}
+      else if(amts.length===2){
+        // TD Bank: single amount then balance — figure out debit vs credit from context
+        balance=amts[amts.length-1].toFixed(2);
+        const amt=amts[0];
+        if(amt<0)debit=Math.abs(amt).toFixed(2);
+        else if(pending.extra&&/deposit|credit|pmt dep/i.test(pending.extra))credit=amt.toFixed(2);
+        else debit=amt.toFixed(2);
+      } else {
+        balance=amts[amts.length-1].toFixed(2);
+        debit=amts[0]?amts[0].toFixed(2):'';
+        credit=amts[1]?amts[1].toFixed(2):'';
+      }
+      const key=`${ds}|${desc}|${debit}|${credit}`;
+      if(!seen.has(key)){seen.add(key);rows.push({date:ds,description:desc,category:categorise(desc),debit,credit,balance});}
+    }
+    pending=null;
+  };
+
   for(const line of lines){
     if(!line||IGNORE.test(line))continue;
-    if(HEADER.test(line)&&(line.match(/\s{2,}/g)||[]).length>=2)continue;
+    if(HEADER.test(line))continue;
+
+    // Check if line starts with a date
     let ds=null;
-    for(const p of DPATS){const m=line.match(p);if(m){ds=m[1];break;}}
-    if(!ds)continue;
-    const amts=[];let m;const re=/(-?\$?[\d,]+\.\d{2})/g;
-    while((m=re.exec(line))!==null)amts.push(parseFloat(m[1].replace(/[$,]/g,'')));
-    if(!amts.length)continue;
-    let desc=line;
-    desc=desc.replace(new RegExp(DPATS.map(p=>p.source).join('|'),'gi'),'').replace(/(-?\$?[\d,]+\.\d{2})/g,'').replace(/\s{2,}/g,' ').trim();
-    if(!desc||desc.length<2)desc='Transaction';
-    if(desc.length>120)desc=desc.substring(0,120);
-    let debit='',credit='',balance='';
-    if(amts.length===1){amts[0]<0?(debit=Math.abs(amts[0]).toFixed(2)):(credit=amts[0].toFixed(2));}
-    else if(amts.length===2){credit=amts[0]>0?amts[0].toFixed(2):'';debit=amts[1]>0?amts[1].toFixed(2):'';}
-    else{balance=amts[amts.length-1].toFixed(2);debit=amts[0]?amts[0].toFixed(2):'';credit=amts[1]?amts[1].toFixed(2):'';}
-    const key=`${ds}|${desc}|${debit}|${credit}`;
-    if(seen.has(key))continue;seen.add(key);
-    rows.push({date:ds,description:desc,category:categorise(desc),debit,credit,balance});
+    for(const p of DPATS){const m=line.match(p);if(m&&line.indexOf(m[1])<=6){ds=m[1];break;}}
+
+    if(ds){
+      flush();
+      // Check if this line has amounts — if so it's a complete transaction line
+      const testAmts=line.match(new RegExp(AMT.source,'g'));
+      if(testAmts&&testAmts.length>=1){
+        pending={date:ds,line,extra:''};
+      }
+    } else if(pending){
+      // Continuation line — append to description if it looks like merchant info
+      if(!/^[\d\s]+$/.test(line)&&line.length>2){
+        pending.extra=(pending.extra+' '+line).trim().substring(0,120);
+        // Use first non-reference continuation line as description if main line desc is poor
+        if(pending.extra&&!/AUT \d|VISA DDA|DDA PUR/i.test(line)){
+          pending.line=pending.line; // keep original for amounts
+        }
+      }
+    }
   }
+  flush();
+
   return{rows};
 }
 
