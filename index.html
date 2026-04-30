@@ -200,7 +200,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 40p
     <div class="drop-icon">📂</div>
     <p class="drop-title">Drop your PDF bank statement here</p>
     <p class="drop-sub">Digital or scanned · Any bank · Multiple files supported</p>
-    <button class="btn btn-primary" onclick="document.getElementById('file-input').click();event.stopPropagation();">
+    <button class="btn btn-primary" id="btn-choose">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
       Choose PDF Files
     </button>
@@ -368,11 +368,19 @@ const dropZone=document.getElementById('drop-zone'),fileInput=document.getElemen
 // Counter animation
 (()=>{const el=document.getElementById('counter');let cur=12000,end=12847;const tick=()=>{cur=Math.min(cur+37,end);el.textContent=cur.toLocaleString();if(cur<end)requestAnimationFrame(tick);};setTimeout(()=>requestAnimationFrame(tick),600);})();
 
+// Choose button
+document.getElementById('btn-choose').addEventListener('click',e=>{e.stopPropagation();fileInput.click();});
+
+// Drop zone click
+dropZone.addEventListener('click',e=>{if(!e.target.closest('#btn-choose'))fileInput.click();});
+
+// Drag and drop
 dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('dragover');});
-dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('dragover'));
-dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('dragover');const f=Array.from(e.dataTransfer.files).filter(f=>f.name.endsWith('.pdf'));if(f.length)processFiles(f);});
-dropZone.addEventListener('click',e=>{if(e.target.tagName!=='BUTTON')fileInput.click();});
-fileInput.addEventListener('change',e=>{if(e.target.files.length)processFiles(Array.from(e.target.files));});
+dropZone.addEventListener('dragleave',e=>{if(!dropZone.contains(e.relatedTarget))dropZone.classList.remove('dragover');});
+dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('dragover');const files=Array.from(e.dataTransfer.files).filter(f=>f.type==='application/pdf'||f.name.toLowerCase().endsWith('.pdf'));if(files.length)processFiles(files);});
+
+// File input
+fileInput.addEventListener('change',e=>{if(e.target.files.length)processFiles(Array.from(e.target.files));fileInput.value='';});
 
 async function processFiles(files){
   resetUI();showStatus('Initialising…',0);
