@@ -699,11 +699,13 @@ document.getElementById('btn-excel').addEventListener('click',()=>{
   dlBlob(new Blob([html],{type:'application/vnd.ms-excel'}),'bank-statement.xls');
 });
 document.getElementById('btn-reset').addEventListener('click',()=>{resetUI();fileInput.value='';});
+let _emailBusy=false;
 document.getElementById('btn-email').addEventListener('click',()=>{
-  if(!filteredRows.length)return;
+  if(!filteredRows.length||_emailBusy)return;
+  _emailBusy=true;setTimeout(()=>_emailBusy=false,4000);
   const csv=buildCSV(filteredRows);
-  const subject=encodeURIComponent('Bank Statement CSV — '+new Date().toLocaleDateString());
-  const body=encodeURIComponent('Please find the attached bank statement data below.\n\nNote: Copy the CSV data and save as a .csv file to open in Excel or your accounting software.\n\n---\n\n'+csv.substring(0,1800)+'\n\n[Full file: please request if needed]');
+  const subject=encodeURIComponent('Bank Statement CSV');
+  const body=encodeURIComponent('Please find bank statement data below. Save as .csv and open in Excel or Google Sheets.\n\n'+csv.substring(0,1200));
   window.location.href='mailto:?subject='+subject+'&body='+body;
 });
 
