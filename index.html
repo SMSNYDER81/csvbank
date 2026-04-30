@@ -394,7 +394,7 @@ async function processFiles(files){
   showStatus('Parsing transactions…',65);await sleep(80);
   let {rows}=parse(txt);
 
-  if(rows.length<3){
+  if(rows.length<2){
     showStatus('Switching to OCR mode…',68,'ocr');await sleep(300);
     let ocrTxt='';
     for(let i=0;i<files.length;i++){
@@ -420,10 +420,23 @@ async function extractPDF(file,onProg){
   for(let p=1;p<=pdf.numPages;p++){
     const page=await pdf.getPage(p);
     const c=await page.getTextContent();
-    const items=c.items.slice().sort((a,b)=>{const ay=Math.round(a.transform[5]/4)*4,by=Math.round(b.transform[5]/4)*4;return ay!==by?by-ay:a.transform[4]-b.transform[4];});
-    let ly=null;
-    for(const it of items){const y=Math.round(it.transform[5]/4)*4;if(ly!==null&&Math.abs(y-ly)>2)txt+='\n';txt+=it.str+' ';ly=y;}
-    txt+='\n';onProg(Math.round(p/pdf.numPages*100));
+    // Group items into rows by Y position (3px tolerance) — handles multi-column layouts like TD Bank
+    const rowMap=new Map();
+    for(const it of c.items){
+      if(!it.str.trim())continue;
+      const y=Math.round(it.transform[5]);
+      let key=null;
+      for(const k of rowMap.keys()){if(Math.abs(k-y)<=3){key=k;break;}}
+      if(key===null){key=y;rowMap.set(key,[]);}
+      rowMap.get(key).push({x:it.transform[4],str:it.str});
+    }
+    const sortedRows=[...rowMap.entries()].sort((a,b)=>b[0]-a[0]);
+    for(const [,items] of sortedRows){
+      items.sort((a,b)=>a.x-b.x);
+      txt+=items.map(i=>i.str).join(' ')+'\n';
+    }
+    txt+='\n';
+    onProg(Math.round(p/pdf.numPages*100));
   }
   return txt;
 }
