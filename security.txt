@@ -1,4 +1,0 @@
-Contact: mailto:security@csvbank.com
-Expires: 2028-01-01T00:00:00.000Z
-Preferred-Languages: en
-Canonical: https://csvbank.com/.well-known/security.txt
