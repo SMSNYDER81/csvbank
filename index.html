@@ -572,8 +572,8 @@ function parse(text){
         pending={date:ds,line,merchant:'',prevBalance};
       }
     } else if(pending){
-      if(!line||line.length<2)return;
-      if(REF_LINE.test(line))return; // skip reference lines like "AUT 032426 VISA DDA"
+      if(!line||line.length<2)continue;
+      if(REF_LINE.test(line))continue; // skip reference lines like "AUT 032426 VISA DDA"
       // This is a merchant/description line — use it
       if(!pending.merchant){
         // Clean up merchant line: remove trailing state/country codes and phone numbers
