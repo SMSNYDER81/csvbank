@@ -3,60 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Laser Cutter Settings Calculator — Hobbyist Diode & CO2 Guide</title>
-<meta name="description" content="Free laser cutter settings calculator for diode and CO2 machines. Enter your wattage, material, and thickness to get power %, speed, passes, kerf offset, and air assist settings instantly.">
-<meta name="keywords" content="laser cutter settings calculator, diode laser settings, CO2 laser settings, LightBurn settings, xTool settings, Sculpfun settings, laser power speed chart">
-<link rel="canonical" href="https://hobbyistlasercalc.com/">
+<title>CSV Bank — Free PDF Bank Statement to CSV Converter</title>
+<meta name="description" content="Convert PDF bank statements to CSV or Excel instantly. 100% free, no sign-up, no upload limits. Your files never leave your device.">
+<meta name="keywords" content="bank statement converter, PDF to CSV, bank statement to excel, convert bank statement, PDF bank statement converter free">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Laser Cutter Settings Calculator">
-<meta property="og:description" content="Dial-in settings for diode & CO2 lasers. Real tested data, not guesses.">
+<meta property="og:title" content="CSV Bank — Free PDF Bank Statement to CSV Converter">
+<meta property="og:description" content="Convert PDF bank statements to CSV or Excel instantly. 100% free, no sign-up, unlimited pages. Your files never leave your device.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://csvbank.com/og-image.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://csvbank.com">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://csvbank.com/">
+
+<!-- Inline base64 favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzFhN2Y0ZSIvPgogIDx0ZXh0IHg9IjE2IiB5PSIyMiIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5jc3Y8L3RleHQ+Cjwvc3ZnPg==">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
-<!-- Schema Markup -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Laser Cutter Settings Calculator",
-  "description": "Free calculator for hobbyist laser cutter settings including diode and CO2 machines",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Any",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-}
-</script>
+<!-- PDF.js with SRI integrity -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
+  integrity="sha512-q+4lKwn8GiqJHo/qfOoKpViFMFXMOzr6sW3Ku3B4imOpKbGpzDJP82i9lkwsz7KYmOEqU5DkVdFhRiMlNhmg=="
+  crossorigin="anonymous"></script>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7814690967688754" crossorigin="anonymous"></script>
 
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root {
-  --bg: #0d0e0f;
-  --bg2: #141618;
-  --bg3: #1c1f22;
-  --bg4: #252a2e;
-  --line: rgba(255,255,255,0.07);
-  --line2: rgba(255,255,255,0.12);
-  --text: #e8e4dc;
-  --text2: #9a9590;
-  --text3: #5a5650;
-  --laser: #ff5c1a;
-  --laser2: #ff8c4a;
-  --laser-dim: rgba(255,92,26,0.15);
-  --laser-glow: rgba(255,92,26,0.4);
-  --cyan: #3dd9c4;
-  --cyan-dim: rgba(61,217,196,0.12);
-  --gold: #e8c84a;
-  --gold-dim: rgba(232,200,74,0.12);
-  --green: #5dc97a;
-  --green-dim: rgba(93,201,122,0.12);
-  --syne: 'Syne', sans-serif;
-  --mono: 'IBM Plex Mono', monospace;
-  --serif: 'Instrument Serif', serif;
-  --radius: 8px;
+  --bg: #f8f7f4;
+  --bg2: #ffffff;
+  --bg3: #f0efe9;
+  --border: #e2e0d8;
+  --border2: #c8c5b8;
+  --text: #1a1916;
+  --text2: #5a5750;
+  --text3: #9a9890;
+  --green: #1a7f4e;
+  --green-light: #e8f5ee;
+  --green-mid: #2da066;
+  --red: #c0392b;
+  --red-light: #fdf0ef;
+  --blue: #1a5f8f;
+  --blue-light: #e8f0f8;
+  --amber: #b8770a;
+  --amber-light: #fdf5e6;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+  --shadow-lg: 0 4px 16px rgba(0,0,0,0.1), 0 12px 40px rgba(0,0,0,0.06);
+  --mono: 'DM Mono', monospace;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', sans-serif;
+  --radius: 10px;
 }
 
 html { scroll-behavior: smooth; }
@@ -64,2380 +68,1121 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--mono);
-  font-size: 13px;
+  font-family: var(--sans);
+  font-size: 14px;
   line-height: 1.6;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
-/* ─── NOISE OVERLAY ─── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.4;
-}
-
-/* ─── LASER BEAM HEADER FX ─── */
-.laser-beam {
-  position: fixed;
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, var(--laser) 40%, var(--laser2) 50%, var(--laser) 60%, transparent 100%);
-  animation: beam-scan 6s ease-in-out infinite;
   z-index: 100;
-  opacity: 0.7;
+  box-shadow: 0 1px 0 var(--border);
 }
 
-@keyframes beam-scan {
-  0%, 100% { opacity: 0.3; transform: scaleX(0.3); transform-origin: left; }
-  50% { opacity: 0.9; transform: scaleX(1); }
-}
-
-/* ─── LAYOUT ─── */
-.container {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 0 24px;
-  position: relative;
-  z-index: 1;
-}
-
-/* ─── HEADER ─── */
-header {
-  padding: 52px 0 0;
-  margin-bottom: 48px;
-}
-
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.site-badge {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--laser);
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.site-badge::before {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 1px;
-  background: var(--laser);
-}
-
-h1 {
-  font-family: var(--syne);
-  font-size: clamp(32px, 5vw, 52px);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  color: var(--text);
-  margin-bottom: 12px;
-}
-
-h1 .accent { color: var(--laser); }
-
-.header-desc {
-  font-size: 14px;
-  color: var(--text2);
-  max-width: 520px;
-  line-height: 1.7;
-  font-family: var(--mono);
-}
-
-.header-stats {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex-shrink: 0;
-  padding-top: 8px;
-}
-
-.hstat {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  color: var(--text2);
-}
-
-.hstat .dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--laser);
-  flex-shrink: 0;
-}
-
-.hstat .dot.cyan { background: var(--cyan); }
-.hstat .dot.gold { background: var(--gold); }
-
-/* ─── MAIN GRID ─── */
-.main-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  margin-bottom: 2px;
-}
-
-@media (max-width: 720px) {
-  .main-grid { grid-template-columns: 1fr; }
-}
-
-/* ─── PANELS ─── */
-.panel {
-  background: var(--bg2);
-  border: 1px solid var(--line);
-  padding: 28px 28px 24px;
-  position: relative;
-  overflow: hidden;
-}
-
-.panel::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--laser);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.panel:focus-within::before, .panel.active::before { opacity: 1; }
-
-.panel-label {
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text3);
-  margin-bottom: 20px;
-  font-family: var(--syne);
-  font-weight: 600;
-}
-
-/* ─── FORM ELEMENTS ─── */
-.field {
-  margin-bottom: 18px;
-}
-
-.field label {
-  display: block;
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  color: var(--text2);
-  margin-bottom: 7px;
-  font-family: var(--syne);
-  font-weight: 600;
-}
-
-.field label .req {
-  color: var(--laser);
-  margin-left: 3px;
-}
-
-select, input[type="number"] {
-  width: 100%;
-  background: var(--bg3);
-  border: 1px solid var(--line2);
-  border-radius: 4px;
-  color: var(--text);
-  font-family: var(--mono);
-  font-size: 13px;
-  padding: 10px 14px;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a5650' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  padding-right: 36px;
-  cursor: pointer;
-}
-
-select:focus, input[type="number"]:focus {
-  border-color: var(--laser);
-  box-shadow: 0 0 0 3px var(--laser-dim);
-}
-
-select option { background: var(--bg3); }
-
-/* ─── SEGMENTED CONTROL ─── */
-.seg-control {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  background: var(--bg3);
-  padding: 3px;
-  border-radius: 6px;
-  border: 1px solid var(--line);
-}
-
-.seg-btn {
-  padding: 9px 12px;
-  border: none;
-  border-radius: 4px;
-  background: transparent;
-  color: var(--text2);
-  font-family: var(--syne);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  cursor: pointer;
-  transition: all 0.2s;
-  text-align: center;
-}
-
-.seg-btn.active {
-  background: var(--laser);
-  color: #fff;
-}
-
-/* ─── CALCULATE BUTTON ─── */
-.calc-btn {
-  width: 100%;
-  padding: 16px;
-  background: var(--laser);
-  border: none;
-  border-radius: var(--radius);
-  color: #fff;
-  font-family: var(--syne);
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.2s;
-  position: relative;
-  overflow: hidden;
-  margin-top: 8px;
-}
-
-.calc-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-.calc-btn:hover {
-  background: var(--laser2);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px var(--laser-glow);
-}
-
-.calc-btn:active { transform: translateY(0); }
-
-/* ─── RESULTS PANEL ─── */
-.results-panel {
-  background: var(--bg2);
-  border: 1px solid var(--line);
-  padding: 28px;
-  display: none;
-  grid-column: 1 / -1;
-  position: relative;
-  overflow: hidden;
-}
-
-.results-panel.visible { display: block; }
-
-.results-panel::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--laser), var(--cyan));
-}
-
-.results-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 28px;
-  flex-wrap: wrap;
-}
-
-.results-title {
-  font-family: var(--syne);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text3);
-  margin-bottom: 4px;
-}
-
-.results-subtitle {
-  font-family: var(--syne);
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.results-subtitle .mat { color: var(--laser2); font-style: italic; font-family: var(--serif); }
-
-.confidence-bar {
+.logo {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-shrink: 0;
+  text-decoration: none;
 }
 
-.conf-label {
-  font-size: 10px;
-  color: var(--text3);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.conf-track {
-  width: 80px;
-  height: 6px;
-  background: var(--bg4);
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.conf-fill {
-  height: 100%;
-  border-radius: 3px;
-  background: linear-gradient(90deg, var(--laser), var(--gold));
-  transition: width 0.6s ease;
-}
-
-.conf-pct {
-  font-family: var(--syne);
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--gold);
-  min-width: 36px;
-}
-
-/* ─── RESULT CARDS GRID ─── */
-.result-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.result-card {
-  background: var(--bg3);
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: 16px;
-  position: relative;
-  overflow: hidden;
-  animation: card-in 0.4s ease backwards;
-}
-
-@keyframes card-in {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.result-card:nth-child(1) { animation-delay: 0.05s; }
-.result-card:nth-child(2) { animation-delay: 0.1s; }
-.result-card:nth-child(3) { animation-delay: 0.15s; }
-.result-card:nth-child(4) { animation-delay: 0.2s; }
-.result-card:nth-child(5) { animation-delay: 0.25s; }
-.result-card:nth-child(6) { animation-delay: 0.3s; }
-
-.result-card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-}
-
-.result-card.laser-type::before { background: var(--laser); }
-.result-card.speed-type::before { background: var(--cyan); }
-.result-card.passes-type::before { background: var(--gold); }
-.result-card.kerf-type::before { background: var(--green); }
-.result-card.air-type::before { background: #9b7eff; }
-.result-card.focus-type::before { background: #ff7eb6; }
-
-.rc-label {
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text3);
-  margin-bottom: 8px;
-  font-family: var(--syne);
-}
-
-.rc-value {
-  font-family: var(--syne);
-  font-size: 26px;
-  font-weight: 800;
-  line-height: 1;
-  margin-bottom: 4px;
-}
-
-.rc-value.laser-col { color: var(--laser2); }
-.rc-value.speed-col { color: var(--cyan); }
-.rc-value.passes-col { color: var(--gold); }
-.rc-value.kerf-col { color: var(--green); }
-.rc-value.air-col { color: #9b7eff; }
-.rc-value.focus-col { color: #ff7eb6; }
-
-.rc-unit {
-  font-size: 11px;
-  color: var(--text3);
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--green);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: white;
+  letter-spacing: 0.02em;
 }
 
-.rc-sub {
+.logo-name {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+
+.logo-name span { color: var(--green); }
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pill {
+  font-family: var(--mono);
   font-size: 10px;
-  color: var(--text3);
-  margin-top: 6px;
-  line-height: 1.4;
-}
-
-/* ─── NOTES BOX ─── */
-.notes-box {
-  background: var(--bg3);
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--laser);
-  border-radius: 4px;
-  padding: 14px 18px;
-  margin-bottom: 16px;
-  font-size: 12px;
-  color: var(--text2);
-  line-height: 1.7;
-}
-
-.notes-box strong {
-  color: var(--laser2);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
   font-weight: 500;
 }
 
-/* ─── LIGHTBURN TIP ─── */
-.lb-tip {
-  background: linear-gradient(135deg, var(--laser-dim) 0%, transparent 60%);
-  border: 1px solid rgba(255,92,26,0.2);
-  border-radius: 6px;
-  padding: 14px 18px;
-  font-size: 12px;
-  color: var(--text2);
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-}
+.pill-green { background: var(--green-light); color: var(--green); }
+.pill-blue  { background: var(--blue-light);  color: var(--blue);  }
 
-.lb-tip .lb-icon {
-  flex-shrink: 0;
-  font-size: 16px;
-  line-height: 1.4;
-}
-
-/* ─── TABS (material reference) ─── */
-.tabs-section {
+/* ── HERO ── */
+.hero {
   background: var(--bg2);
-  border: 1px solid var(--line);
-  padding: 28px;
-  margin-bottom: 2px;
-  grid-column: 1 / -1;
+  border-bottom: 1px solid var(--border);
+  padding: 72px 40px 64px;
+  text-align: center;
 }
 
-.tabs-nav {
+.hero-inner { max-width: 680px; margin: 0 auto; }
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green-light);
+  color: var(--green);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+  border: 1px solid rgba(26,127,78,0.2);
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(38px, 5.5vw, 62px);
+  font-weight: 400;
+  line-height: 1.08;
+  color: var(--text);
+  margin-bottom: 22px;
+  letter-spacing: -0.5px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--green);
+}
+
+.hero-sub {
+  color: var(--text2);
+  font-size: 17px;
+  max-width: 520px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.trust-strip {
   display: flex;
-  gap: 2px;
-  margin-bottom: 20px;
-  background: var(--bg3);
-  padding: 3px;
-  border-radius: 6px;
-  border: 1px solid var(--line);
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
   flex-wrap: wrap;
 }
 
-.tab-btn {
-  padding: 7px 14px;
-  border: none;
-  border-radius: 4px;
-  background: transparent;
-  color: var(--text2);
-  font-family: var(--syne);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-
-.tab-btn.active {
-  background: var(--bg4);
-  color: var(--text);
-}
-
-.tab-content { display: none; }
-.tab-content.active { display: block; }
-
-/* ─── REFERENCE TABLE ─── */
-.ref-table-wrap {
-  overflow-x: auto;
-}
-
-.ref-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 12px;
-}
-
-.ref-table thead tr {
-  border-bottom: 1px solid var(--line2);
-}
-
-.ref-table th {
-  text-align: left;
-  padding: 8px 12px;
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
   color: var(--text3);
-  font-family: var(--syne);
-  font-weight: 600;
-  white-space: nowrap;
 }
 
-.ref-table td {
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--line);
-  color: var(--text2);
-  vertical-align: top;
+.trust-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
 }
 
-.ref-table tr:last-child td { border-bottom: none; }
-
-.ref-table tr:hover td {
-  background: rgba(255,255,255,0.02);
+/* ── AD SLOT ── */
+.ad-slot {
+  max-width: 860px;
+  margin: 24px auto 0;
+  padding: 0 24px;
+  text-align: center;
+  min-height: 90px;
 }
 
-.ref-table .val-cell {
-  font-family: var(--syne);
-  font-weight: 600;
-  color: var(--text);
+/* ── TOOL WRAP ── */
+.tool-wrap {
+  max-width: 860px;
+  margin: 32px auto 0;
+  padding: 0 24px 80px;
 }
 
-.ref-table .power-val { color: var(--laser2); }
-.ref-table .speed-val { color: var(--cyan); }
-
-.badge-machine {
-  display: inline-block;
-  padding: 2px 7px;
-  border-radius: 3px;
-  font-size: 10px;
-  border: 1px solid;
-}
-
-.badge-diode { background: rgba(255,92,26,0.1); color: var(--laser2); border-color: rgba(255,92,26,0.3); }
-.badge-co2 { background: rgba(61,217,196,0.1); color: var(--cyan); border-color: rgba(61,217,196,0.3); }
-
-/* ─── KERF SECTION ─── */
-.kerf-section {
+/* ── DROP ZONE ── */
+.drop-zone {
   background: var(--bg2);
-  border: 1px solid var(--line);
-  padding: 28px;
-  margin-bottom: 2px;
+  border: 2px dashed var(--border2);
+  border-radius: 14px;
+  padding: 56px 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow);
 }
 
-.section-title {
-  font-family: var(--syne);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text3);
-  margin-bottom: 16px;
+.drop-zone:hover,
+.drop-zone.dragover {
+  border-color: var(--green);
+  background: var(--green-light);
 }
 
-.kerf-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-}
-
-.kerf-card {
+.drop-icon {
+  width: 56px;
+  height: 56px;
   background: var(--bg3);
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  transition: all 0.2s;
+  font-size: 24px;
 }
 
-.kerf-card h4 {
-  font-family: var(--syne);
-  font-size: 12px;
-  font-weight: 700;
+.drop-zone:hover .drop-icon,
+.drop-zone.dragover .drop-icon {
+  background: var(--green-light);
+  border-color: var(--green);
+}
+
+.drop-title {
+  font-size: 20px;
+  font-weight: 500;
   color: var(--text);
   margin-bottom: 8px;
 }
 
-.kerf-card p {
-  font-size: 11px;
+.drop-sub {
   color: var(--text2);
-  line-height: 1.6;
+  font-size: 14px;
+  margin-bottom: 24px;
 }
 
-.kerf-card .kerf-num {
-  font-family: var(--syne);
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--green);
-  display: block;
-  margin-bottom: 4px;
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  border: none;
+  font-family: var(--sans);
+  text-decoration: none;
 }
 
-/* ─── FAQ ─── */
-.faq-section {
+.btn-primary {
+  background: var(--green);
+  color: white;
+  box-shadow: 0 2px 8px rgba(26,127,78,0.25);
+}
+.btn-primary:hover { background: var(--green-mid); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(26,127,78,0.3); }
+
+.btn-outline {
+  background: white;
+  color: var(--text2);
+  border: 1px solid var(--border2);
+}
+.btn-outline:hover { border-color: var(--text2); color: var(--text); }
+
+.btn-ghost {
+  background: var(--bg3);
+  color: var(--text2);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  padding: 8px 16px;
+}
+.btn-ghost:hover { color: var(--text); border-color: var(--border2); }
+
+.drop-note {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+#file-input { display: none; }
+
+/* ── STATUS ── */
+.status-box {
   background: var(--bg2);
-  border: 1px solid var(--line);
-  padding: 28px;
-  margin-bottom: 2px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 16px 0;
+  display: none;
+  box-shadow: var(--shadow);
 }
+.status-box.visible { display: block; }
+
+.status-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.status-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 1.2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.status-dot.done  { animation: none; background: var(--green); }
+.status-dot.error { animation: none; background: var(--red); }
+
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.8); }
+}
+
+.status-label { font-size: 13px; color: var(--text2); flex: 1; }
+.status-pct   { font-family: var(--mono); font-size: 12px; color: var(--text3); }
+
+.progress-bar  { height: 3px; background: var(--bg3); border-radius: 2px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--green), var(--green-mid)); border-radius: 2px; width: 0%; transition: width 0.4s ease; }
+
+/* ── RESULTS ── */
+.results-panel { display: none; margin-top: 20px; }
+.results-panel.visible { display: block; }
+
+.results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.results-title {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text3);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.results-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+/* ── STATS BAR ── */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+
+.stat-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 6px;
+}
+
+.stat-val {
+  font-family: var(--mono);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--green);
+  line-height: 1;
+}
+
+.stat-val.red  { color: var(--red); }
+.stat-val.blue { color: var(--blue); }
+.stat-val.sm   { font-size: 14px; padding-top: 4px; }
+
+/* ── TABLE ── */
+.table-wrap {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.table-scroll {
+  overflow-x: auto;
+  max-height: 440px;
+  overflow-y: auto;
+}
+
+table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 12px; }
+
+thead { position: sticky; top: 0; z-index: 2; }
+
+th {
+  background: var(--bg3);
+  color: var(--text2);
+  font-weight: 500;
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+td {
+  padding: 9px 16px;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: rgba(0,0,0,0.012); }
+tr:hover td { background: var(--green-light); }
+
+td.pos  { color: var(--green); font-weight: 500; }
+td.neg  { color: var(--red); }
+td.bal  { color: var(--blue); }
+
+.table-footer {
+  background: var(--bg3);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text3);
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+}
+
+/* ── ALERTS ── */
+.alert {
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+.alert-amber { background: var(--amber-light); border: 1px solid var(--amber); color: #7a5008; }
+.alert-red   { background: var(--red-light);   border: 1px solid var(--red);   color: #8b1f18; }
+.alert-green { background: var(--green-light); border: 1px solid var(--green); color: var(--green); }
+
+/* ── HOW IT WORKS ── */
+.section {
+  max-width: 860px;
+  margin: 0 auto 72px;
+  padding: 0 24px;
+}
+
+.section-head { text-align: center; margin-bottom: 40px; }
+
+.section-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+}
+
+.step-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.step-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green), transparent);
+}
+
+.step-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--green);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.step-icon { font-size: 26px; margin-bottom: 12px; }
+.step-name { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+.step-desc { font-size: 13px; color: var(--text2); line-height: 1.6; }
+
+/* ── FEATURES ── */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+}
+
+.feature-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  box-shadow: var(--shadow);
+}
+
+.feature-icon {
+  width: 38px;
+  height: 38px;
+  background: var(--green-light);
+  border: 1px solid rgba(26,127,78,0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.feature-name { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+.feature-desc { font-size: 12px; color: var(--text2); line-height: 1.5; }
+
+/* ── FAQ ── */
+.faq-list { display: flex; flex-direction: column; gap: 2px; }
 
 .faq-item {
-  border-bottom: 1px solid var(--line);
-  padding: 16px 0;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 
-.faq-item:last-child { border-bottom: none; }
-
 .faq-q {
-  font-family: var(--syne);
+  width: 100%;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: var(--sans);
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--text);
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
-  user-select: none;
+  gap: 12px;
 }
 
-.faq-q:hover { color: var(--laser2); }
+.faq-q:hover { background: var(--bg3); }
 
-.faq-toggle {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--line2);
-  border-radius: 50%;
-  font-size: 14px;
+.faq-chevron {
+  font-size: 12px;
   color: var(--text3);
-  transition: all 0.2s;
+  transition: transform 0.2s;
+  flex-shrink: 0;
 }
 
-.faq-item.open .faq-toggle {
-  background: var(--laser-dim);
-  border-color: var(--laser);
-  color: var(--laser);
-  transform: rotate(45deg);
-}
+.faq-item.open .faq-chevron { transform: rotate(180deg); }
 
 .faq-a {
-  font-size: 12px;
-  color: var(--text2);
-  line-height: 1.75;
-  padding-top: 12px;
   display: none;
+  padding: 0 20px 16px;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
 }
 
 .faq-item.open .faq-a { display: block; }
 
-/* ─── FOOTER ─── */
+/* ── FOOTER ── */
 footer {
   background: var(--bg2);
-  border-top: 1px solid var(--line);
-  padding: 24px;
-  text-align: center;
-  font-size: 11px;
-  color: var(--text3);
-  line-height: 1.7;
-  position: relative;
-  z-index: 1;
-}
-
-footer a { color: var(--text2); text-decoration: none; }
-footer a:hover { color: var(--laser2); }
-
-/* ─── UTILITY ─── */
-.grid-2col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-}
-
-@media (max-width: 600px) {
-  .grid-2col { grid-template-columns: 1fr; }
-  .result-cards { grid-template-columns: 1fr 1fr; }
-}
-
-.mt-16 { margin-top: 16px; }
-.disclaimer {
-  font-size: 11px;
-  color: var(--text3);
-  padding-top: 12px;
-  border-top: 1px solid var(--line);
-  margin-top: 16px;
-  line-height: 1.6;
-}
-
-/* ─── RANGE INDICATOR ─── */
-.range-hint {
+  border-top: 1px solid var(--border);
+  padding: 32px 40px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  font-size: 10px;
-  color: var(--text3);
-  margin-top: 4px;
-  padding: 0 2px;
-}
-
-/* ─── MACHINE TAG ─── */
-.machine-selected {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--laser-dim);
-  border: 1px solid rgba(255,92,26,0.25);
-  border-radius: 4px;
-  padding: 4px 10px;
-  font-size: 11px;
-  color: var(--laser2);
-  font-family: var(--syne);
-  font-weight: 600;
-  margin-top: 8px;
-}
-
-.machine-selected::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--laser);
-  animation: pulse-dot 2s ease infinite;
-}
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.7); }
-}
-
-/* ─── EMPTY STATE ─── */
-.empty-state {
-  text-align: center;
-  padding: 48px 24px;
-  color: var(--text3);
-}
-
-.empty-icon {
-  font-size: 40px;
-  margin-bottom: 12px;
-  display: block;
-  opacity: 0.4;
-}
-
-.empty-state p {
-  font-size: 13px;
-  line-height: 1.6;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-/* ─── RANGE SLIDER ─── */
-.power-range {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.range-min, .range-max {
-  font-family: var(--syne);
-  font-size: 13px;
-  font-weight: 700;
-  min-width: 40px;
-}
-
-.range-min { color: var(--laser); text-align: right; }
-.range-max { color: var(--laser2); }
-
-/* ─── THICKNESS DUAL INPUT ─── */
-.thickness-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.thickness-input-wrap {
-  display: flex;
-  align-items: center;
-  background: var(--bg3);
-  border: 1px solid var(--line2);
-  border-radius: 4px;
-  overflow: hidden;
-  flex: 1;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.thickness-input-wrap:focus-within {
-  border-color: var(--laser);
-  box-shadow: 0 0 0 3px var(--laser-dim);
-}
-
-.thickness-input-wrap input {
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  flex: 1;
-  min-width: 0;
-  padding: 10px 10px;
-}
-
-.thickness-input-wrap input:focus {
-  border: none;
-  box-shadow: none;
-}
-
-.unit-label {
-  padding: 0 10px;
-  font-family: var(--syne);
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--text3);
-  background: var(--bg4);
-  border-left: 1px solid var(--line);
-  height: 100%;
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-}
-
-.thickness-sep {
-  font-size: 13px;
-  color: var(--text3);
-  flex-shrink: 0;
-}
-
-.thickness-quick {
-  display: flex;
-  align-items: center;
-  gap: 5px;
   flex-wrap: wrap;
-  margin-bottom: 6px;
+  gap: 16px;
 }
 
-.tq-label {
-  font-size: 10px;
-  color: var(--text3);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  flex-shrink: 0;
-}
+.footer-left { font-size: 12px; color: var(--text3); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 12px; color: var(--text3); text-decoration: none; }
+.footer-links a:hover { color: var(--text); }
 
-.tq-btn {
-  font-size: 10px;
-  padding: 3px 8px;
-  border: 1px solid var(--line2);
-  border-radius: 3px;
-  background: var(--bg3);
-  color: var(--text2);
-  cursor: pointer;
-  font-family: var(--mono);
-  transition: all 0.15s;
-}
+/* ── UTILS ── */
+.hidden { display: none !important; }
+.mt16 { margin-top: 16px; }
 
-.tq-btn:hover {
-  border-color: var(--laser);
-  color: var(--laser2);
-  background: var(--laser-dim);
+@media (max-width: 640px) {
+  .topbar { padding: 12px 20px; }
+  .hero { padding: 48px 20px 48px; }
+  .tool-wrap { padding: 0 16px 60px; }
+  .section { padding: 0 16px; }
+  footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+  .results-actions { gap: 6px; }
+  .pill:not(:first-child) { display: none; }
 }
-
-/* ─── DISCLAIMER BANNER ─── */
-.disclaimer-banner {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  background: rgba(232,200,74,0.07);
-  border: 1px solid rgba(232,200,74,0.25);
-  border-left: 3px solid var(--gold);
-  border-radius: 6px;
-  padding: 14px 18px;
-  margin-bottom: 16px;
-  font-size: 12px;
-  color: var(--text2);
-  line-height: 1.7;
-}
-
-.db-icon {
-  flex-shrink: 0;
-  font-size: 15px;
-  color: var(--gold);
-  padding-top: 1px;
-}
-
-.disclaimer-banner strong {
-  color: var(--gold);
-  font-weight: 500;
-}
-
-/* ─── AD SLOTS ─── */
-.ad-slot {
-  margin: 0 0 2px;
-  background: var(--bg2);
-  border: 1px solid var(--line);
-  padding: 12px;
-  text-align: center;
-  min-height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.ad-slot ins {
-  display: block;
-  width: 100%;
-}
-
 </style>
-
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7814690967688754" crossorigin="anonymous"></script>
-
+</head>
 <body>
 
-<div class="laser-beam"></div>
+<!-- TOPBAR -->
+<header class="topbar">
+  <a class="logo" href="/">
+    <div class="logo-icon">csv</div>
+    <span class="logo-name">csv<span>bank</span>.com</span>
+  </a>
+  <div class="topbar-right">
+    <span class="pill pill-green">Free Forever</span>
+    <span class="pill pill-blue">No Sign-Up</span>
+  </div>
+</header>
 
-<div class="container">
-  <header>
-    <div class="header-inner">
-      <div>
-        <div class="site-badge">Hobbyist Laser Calc</div>
-        <h1>Laser Cutter<br><span class="accent">Settings Calculator</span></h1>
-        <p class="header-desc">Real, tested settings for diode and CO₂ machines — not generic guesses. Enter your machine, material, and thickness to get instant cut and engrave parameters.</p>
-      </div>
-      <div class="header-stats">
-        <div class="hstat"><span class="dot"></span>Diode: xTool, Sculpfun, Longer Ray 5</div>
-        <div class="hstat"><span class="dot"></span>CO₂: K40, OMTech, Glowforge</div>
-        <div class="hstat"><span class="dot cyan"></span>LightBurn compatible output</div>
-        <div class="hstat"><span class="dot gold"></span>Kerf offset + air assist guide</div>
-      </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">🔒 100% Private · Runs in Your Browser</div>
+    <h1>Bank statements to CSV,<br><em>instantly & free</em></h1>
+    <p class="hero-sub">Upload any PDF bank statement and download clean CSV or Excel data in seconds. No account required, no page limits, and your files never leave your device.</p>
+    <div class="trust-strip">
+      <span class="trust-item"><span class="trust-dot"></span>No upload to servers</span>
+      <span class="trust-item"><span class="trust-dot"></span>Unlimited pages</span>
+      <span class="trust-item"><span class="trust-dot"></span>Works with any bank</span>
+      <span class="trust-item"><span class="trust-dot"></span>CSV &amp; Excel output</span>
     </div>
-  </header>
+  </div>
+</section>
+
+<!-- AD SLOT TOP -->
+<div class="ad-slot">
+  <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-7814690967688754"
+    data-ad-slot="auto"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
-<!-- ─── CALCULATOR ─── -->
-<div class="container">
+<!-- MAIN TOOL -->
+<div class="tool-wrap">
 
-  <!-- PERSISTENT DISCLAIMER BANNER -->
-  <div class="disclaimer-banner">
-    <div class="db-icon">⚠</div>
-    <div class="db-text">
-      <strong>Starting points only.</strong> All settings are community-sourced references and should be treated as a starting point — not plug-and-play values. Your actual results will vary based on lens focus quality, ambient temperature, material brand and batch, machine age and calibration, and table flatness. <strong>Always run a test cut on scrap before committing to your workpiece.</strong> Never leave a running laser unattended. The owner of this site takes no responsibility for damage to materials, equipment, or injury resulting from use of these settings.
-    </div>
-  </div>
-
-  <!-- AD SLOT 1 — above calculator -->
-  <div class="ad-slot">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7814690967688754"
-         data-ad-slot="auto"
-         data-ad-format="horizontal"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-
-  <div class="main-grid">
-
-    <!-- LEFT: Machine Setup -->
-    <div class="panel" id="panel-machine">
-      <div class="panel-label">01 — Machine Setup</div>
-
-      <div class="field">
-        <label>Laser Type <span class="req">*</span></label>
-        <div class="seg-control">
-          <button class="seg-btn active" onclick="setLaserType('diode', this)">⚡ Diode</button>
-          <button class="seg-btn" onclick="setLaserType('co2', this)">💨 CO₂</button>
-        </div>
-      </div>
-
-      <div class="field" id="field-machine">
-        <label>Machine Model <span class="req">*</span></label>
-        <select id="sel-machine" onchange="updateMachineInfo()">
-          <option value="">— select machine —</option>
-          <optgroup label="─ Longer Ray (Longer)" id="group-diode">
-            <option value="longer_ray5_5w">Longer Ray 5 — 5W</option>
-            <option value="longer_ray5_10w">Longer Ray 5 — 10W (doubled)</option>
-            <option value="longer_ray5_20w">Longer Ray 5 — 20W</option>
-            <option value="longer_b1_30w">Longer B1 — 30W</option>
-          </optgroup>
-          <optgroup label="─ xTool">
-            <option value="xtool_d1_5w">xTool D1 — 5W</option>
-            <option value="xtool_d1_10w">xTool D1 Pro — 10W</option>
-            <option value="xtool_d1_20w">xTool D1 Pro — 20W</option>
-            <option value="xtool_s1">xTool S1 — 20W</option>
-            <option value="xtool_f1">xTool F1 — 10W (IR+diode)</option>
-            <option value="xtool_m1">xTool M1 — 10W</option>
-          </optgroup>
-          <optgroup label="─ Sculpfun">
-            <option value="sculpfun_s9">Sculpfun S9 — 5.5W</option>
-            <option value="sculpfun_s30">Sculpfun S30 Pro — 10W</option>
-            <option value="sculpfun_s30_max">Sculpfun S30 Pro Max — 20W</option>
-            <option value="sculpfun_s30_ultra">Sculpfun S30 Ultra — 20W</option>
-          </optgroup>
-          <optgroup label="─ Ortur">
-            <option value="ortur_lm2_pro">Ortur LM2 Pro — 5.5W</option>
-            <option value="ortur_lm3">Ortur LM3 — 10W</option>
-            <option value="ortur_lm3_ultra">Ortur LM3 Ultra — 20W</option>
-          </optgroup>
-          <optgroup label="─ AtomStack">
-            <option value="atomstack_a5">AtomStack A5 Pro — 5.5W</option>
-            <option value="atomstack_a10">AtomStack A10 Pro — 10W</option>
-            <option value="atomstack_a20">AtomStack A20 Pro — 20W</option>
-            <option value="atomstack_x20">AtomStack X20 Pro — 20W</option>
-          </optgroup>
-          <optgroup label="─ Comgrow / TwoTrees / Other">
-            <option value="comgrow_z1">Comgrow Z1 — 10W</option>
-            <option value="twotrees_ts2">TwoTrees TS2 — 10W</option>
-            <option value="twotrees_ts3">TwoTrees TS3 — 20W</option>
-            <option value="lasermaster3">xTool / LM3-style — 10W</option>
-            <option value="diode_generic_5w">Generic Diode — ~5W</option>
-            <option value="diode_generic_10w">Generic Diode — ~10W</option>
-            <option value="diode_generic_20w">Generic Diode — ~20W</option>
-          </optgroup>
-          <optgroup label="─ CO₂ Lasers" id="group-co2" style="display:none">
-            <option value="k40_co2">K40 — 40W</option>
-            <option value="omtech_50w">OMTech — 50W</option>
-            <option value="omtech_60w">OMTech — 60W</option>
-            <option value="glowforge_basic">Glowforge Basic — 45W</option>
-            <option value="glowforge_plus">Glowforge Plus — 45W</option>
-            <option value="glowforge_pro">Glowforge Pro — 45W</option>
-            <option value="boss_ls1416">Boss LS-1416 — 60W</option>
-            <option value="co2_generic_40w">Generic CO₂ — 40W</option>
-            <option value="co2_generic_60w">Generic CO₂ — 60W</option>
-          </optgroup>
-        </select>
-        <div id="machine-tag" style="display:none" class="machine-selected" id="machine-tag-inner"></div>
-      </div>
-
-      <div class="field">
-        <label>Operation Type <span class="req">*</span></label>
-        <div class="seg-control">
-          <button class="seg-btn active" onclick="setOpType('cut', this)">✂ Cut</button>
-          <button class="seg-btn" onclick="setOpType('engrave', this)">◈ Engrave</button>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- RIGHT: Material Setup -->
-    <div class="panel" id="panel-material">
-      <div class="panel-label">02 — Material & Thickness</div>
-
-      <div class="field">
-        <label>Material <span class="req">*</span></label>
-        <select id="sel-material" onchange="updateMaterialInfo()">
-          <option value="">— select material —</option>
-          <optgroup label="Wood">
-            <option value="basswood_plywood">Basswood Plywood</option>
-            <option value="birch_plywood">Birch Plywood</option>
-            <option value="mdf">MDF (Medium Density Fiberboard)</option>
-            <option value="hardboard">Hardboard / HDF</option>
-            <option value="balsa">Balsa Wood</option>
-            <option value="pine">Pine / Softwood</option>
-            <option value="cherry_walnut">Cherry / Walnut (Hardwood)</option>
-            <option value="poplar">Poplar</option>
-          </optgroup>
-          <optgroup label="Acrylic">
-            <option value="acrylic_cast">Acrylic — Cast</option>
-            <option value="acrylic_extruded">Acrylic — Extruded</option>
-            <option value="acrylic_mirrored">Acrylic — Mirrored</option>
-          </optgroup>
-          <optgroup label="Leather">
-            <option value="leather_veg_tan">Leather — Veg Tan</option>
-            <option value="leather_chrome">Leather — Chrome Tan</option>
-            <option value="leather_faux">Faux Leather / PU Leather</option>
-          </optgroup>
-          <optgroup label="Paper & Card">
-            <option value="cardboard">Cardboard / Chipboard</option>
-            <option value="paper">Paper</option>
-            <option value="mat_board">Mat Board</option>
-            <option value="craft_foam_sheet">Craft Foam Sheet (thin)</option>
-          </optgroup>
-          <optgroup label="Foam Board">
-            <option value="foam_board_dollar_tree">Foam Board — Dollar Tree / Adams (~5mm)</option>
-            <option value="foam_board_readi">Foam Board — Readi-Board / Generic (~5mm)</option>
-            <option value="foam_board_thick">Foam Board — Thick (~10mm)</option>
-            <option value="depron_foam">Depron Foam (RC / model aircraft)</option>
-            <option value="eva_foam">EVA Foam (craft / cosplay)</option>
-            <option value="eva_foam_thick">EVA Foam — Thick 6–10mm</option>
-          </optgroup>
-          <optgroup label="Fabric">
-            <option value="cotton">Cotton / Canvas</option>
-            <option value="felt">Felt (Wool or Synthetic)</option>
-            <option value="denim">Denim</option>
-            <option value="polyester">Polyester / Nylon Fabric</option>
-          </optgroup>
-          <optgroup label="Rubber & Silicone">
-            <option value="rubber_stamp">Rubber (Stamp / Linoleum)</option>
-            <option value="silicone_sheet">Silicone Sheet</option>
-          </optgroup>
-          <optgroup label="Cork & Other">
-            <option value="cork_sheet">Cork Sheet</option>
-            <option value="kraft_paper_thick">Kraft Paper / Paper Bag (heavy)</option>
-          </optgroup>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Material Thickness <span class="req">*</span></label>
-        <div class="thickness-row">
-          <div class="thickness-input-wrap">
-            <input type="number" id="inp-thickness-mm" min="0.5" max="25" step="0.5" placeholder="e.g. 3.0" oninput="syncThickness('mm')">
-            <span class="unit-label">mm</span>
-          </div>
-          <span class="thickness-sep">=</span>
-          <div class="thickness-input-wrap">
-            <input type="number" id="inp-thickness-in" min="0.02" max="1" step="0.005" placeholder='e.g. 0.118"' oninput="syncThickness('in')">
-            <span class="unit-label">in</span>
-          </div>
-        </div>
-        <div class="thickness-quick">
-          <span class="tq-label">Quick:</span>
-          <button type="button" class="tq-btn" onclick="setThickness(1.5)">1/16"</button>
-          <button type="button" class="tq-btn" onclick="setThickness(3)">1/8"</button>
-          <button type="button" class="tq-btn" onclick="setThickness(4.8)">3/16"</button>
-          <button type="button" class="tq-btn" onclick="setThickness(6)">1/4"</button>
-          <button type="button" class="tq-btn" onclick="setThickness(5)">~5mm</button>
-        </div>
-        <div class="range-hint">
-          <span id="max-thickness-hint">25 mm / 1" max</span>
-        </div>
-      </div>
-
-      <div class="field">
-        <label>Focus Distance</label>
-        <div class="seg-control" style="grid-template-columns: 1fr 1fr 1fr;">
-          <button class="seg-btn active" onclick="setFocus('surface', this)" style="font-size:10px">Surface</button>
-          <button class="seg-btn" onclick="setFocus('mid', this)" style="font-size:10px">Mid-point</button>
-          <button class="seg-btn" onclick="setFocus('auto', this)" style="font-size:10px">Auto</button>
-        </div>
-      </div>
-
-      <button class="calc-btn" onclick="calculate()">
-        Calculate Settings →
-      </button>
-    </div>
-
-    <!-- RESULTS -->
-    <div class="results-panel" id="results-panel">
-      <div id="results-empty" class="empty-state">
-        <span class="empty-icon">◎</span>
-        <p>Fill out machine, material, and thickness above, then hit Calculate.</p>
-      </div>
-      <div id="results-content" style="display:none">
-        <div class="results-header">
-          <div>
-            <div class="results-title">Recommended Settings</div>
-            <div class="results-subtitle"><span id="res-machine-name">—</span> / <span class="mat" id="res-material-name">—</span> / <span id="res-thickness">—</span>mm</div>
-          </div>
-          <div class="confidence-bar">
-            <span class="conf-label">Data confidence</span>
-            <div class="conf-track">
-              <div class="conf-fill" id="conf-fill" style="width:0%"></div>
-            </div>
-            <span class="conf-pct" id="conf-pct">—</span>
-          </div>
-        </div>
-
-        <div class="result-cards" id="result-cards"></div>
-
-        <div class="notes-box" id="result-notes"></div>
-
-        <div class="lb-tip" id="lb-tip">
-          <span class="lb-icon">💡</span>
-          <div id="lb-tip-text"></div>
-        </div>
-
-        <div class="disclaimer">
-          <strong style="color:var(--text)">⚠ These are starting-point estimates, not guaranteed settings.</strong> Real-world results depend on factors this calculator cannot know: your specific lens focus accuracy, lens cleanliness, material moisture content, brand and batch variation, ambient temperature, table flatness, and how well-calibrated your machine is. The same "3mm basswood" from two different suppliers can behave differently. <strong>Always run a test cut on scrap first</strong> — start at the suggested values, observe the result, then adjust power ±5% or speed ±50 mm/min until you dial it in. Never leave a laser running unattended.
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /main-grid -->
-
-  <!-- AD SLOT 2 — between calculator and reference tables -->
-  <div class="ad-slot">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7814690967688754"
-         data-ad-slot="auto"
-         data-ad-format="horizontal"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-
-  <!-- ─── REFERENCE TABLES ─── -->
-  <div class="tabs-section">
-    <div class="panel-label">Material Reference — Diode vs CO₂</div>
-    <div class="tabs-nav">
-      <button class="tab-btn active" onclick="openTab('tab-wood', this)">Wood</button>
-      <button class="tab-btn" onclick="openTab('tab-acrylic', this)">Acrylic</button>
-      <button class="tab-btn" onclick="openTab('tab-leather', this)">Leather</button>
-      <button class="tab-btn" onclick="openTab('tab-paper', this)">Paper/Card</button>
-      <button class="tab-btn" onclick="openTab('tab-fabric', this)">Fabric</button>
-    </div>
-
-    <!-- WOOD TABLE -->
-    <div id="tab-wood" class="tab-content active">
-      <div class="ref-table-wrap">
-        <table class="ref-table">
-          <thead>
-            <tr>
-              <th>Material</th>
-              <th>Thickness</th>
-              <th>Machine</th>
-              <th>Power %</th>
-              <th>Speed (mm/min)</th>
-              <th>Passes</th>
-              <th>Air Assist</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Basswood Ply</td>
-              <td>3mm</td>
-              <td><span class="badge-machine badge-diode">Diode 5W</span></td>
-              <td class="val-cell power-val">90–100%</td>
-              <td class="val-cell speed-val">300</td>
-              <td class="val-cell">2–3</td>
-              <td>High</td>
-              <td>Standard cut, reliable</td>
-            </tr>
-            <tr>
-              <td>Basswood Ply</td>
-              <td>3mm</td>
-              <td><span class="badge-machine badge-diode">Diode 10W</span></td>
-              <td class="val-cell power-val">70–80%</td>
-              <td class="val-cell speed-val">500</td>
-              <td class="val-cell">1–2</td>
-              <td>High</td>
-              <td>Faster with 10W</td>
-            </tr>
-            <tr>
-              <td>Basswood Ply</td>
-              <td>3mm</td>
-              <td><span class="badge-machine badge-co2">CO₂ 40W</span></td>
-              <td class="val-cell power-val">60%</td>
-              <td class="val-cell speed-val">20mm/s</td>
-              <td class="val-cell">1</td>
-              <td>On</td>
-              <td>Single pass, clean edge</td>
-            </tr>
-            <tr>
-              <td>Basswood Ply</td>
-              <td>6mm</td>
-              <td><span class="badge-machine badge-diode">Diode 10W</span></td>
-              <td class="val-cell power-val">100%</td>
-              <td class="val-cell speed-val">200</td>
-              <td class="val-cell">3–4</td>
-              <td>High</td>
-              <td>Focus mid-point recommended</td>
-            </tr>
-            <tr>
-              <td>Birch Ply</td>
-              <td>3mm</td>
-              <td><span class="badge-machine badge-diode">Diode 5W</span></td>
-              <td class="val-cell power-val">95–100%</td>
-              <td class="val-cell speed-val">250</td>
-              <td class="val-cell">3</td>
-              <td>High</td>
-              <td>Denser than basswood, more passes</td>
-            </tr>
-            <tr>
-              <td>MDF</td>
-              <td>3mm</td>
-              <td><span class="badge-machine badge-diode">Diode 10W</span></td>
-              <td class="val-cell power-val">100%</td>
-              <td class="val-cell speed-val">300</td>
-              <td class="val-cell">2–3</td>
-              <td>Max</td>
-              <td>Heavy smoke — max air assist</td>
-            </tr>
-            <tr>
-              <td>MDF</td>
-              <td>3mm</td>
-              <td><span class="badge-machine badge-co2">CO₂ 40W</span></td>
-              <td class="val-cell power-val">65%</td>
-              <td class="val-cell speed-val">18mm/s</td>
-              <td class="val-cell">1</td>
-              <td>Max</td>
-              <td>Very smoky — use exhaust</td>
-            </tr>
-            <tr>
-              <td>Balsa</td>
-              <td>1.5mm</td>
-              <td><span class="badge-machine badge-diode">Diode 5W</span></td>
-              <td class="val-cell power-val">60–70%</td>
-              <td class="val-cell speed-val">600</td>
-              <td class="val-cell">1</td>
-              <td>Low</td>
-              <td>Burns easily — test first</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- ACRYLIC TABLE -->
-    <div id="tab-acrylic" class="tab-content">
-      <div class="ref-table-wrap">
-        <table class="ref-table">
-          <thead>
-            <tr>
-              <th>Material</th>
-              <th>Thickness</th>
-              <th>Machine</th>
-              <th>Power %</th>
-              <th>Speed</th>
-              <th>Passes</th>
-              <th>Air Assist</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Cast Acrylic</td>
-              <td>3mm</td>
-              <td><span class="badge-machine badge-co2">CO₂ 40W</span></td>
-              <td class="val-cell power-val">65%</td>
-              <td class="val-cell speed-val">15mm/s</td>
-              <td class="val-cell">1</td>
-              <td>Off</td>
-              <td>No air — melts cleanly. Air = frosted edge</td>
-            </tr>
-            <tr>
-              <td>Cast Acrylic</td>
-              <td>3mm</td>
-              <td><span class="badge-machine badge-diode">Diode 10W</span></td>
-              <td class="val-cell power-val">100%</td>
-              <td class="val-cell speed-val">150</td>
-              <td class="val-cell">4–6</td>
-              <td>Off</td>
-              <td>Diode is weak on acrylic — CO₂ preferred</td>
-            </tr>
-            <tr>
-              <td>Extruded Acrylic</td>
-              <td>3mm</td>
-              <td><span class="badge-machine badge-co2">CO₂ 40W</span></td>
-              <td class="val-cell power-val">60%</td>
-              <td class="val-cell speed-val">18mm/s</td>
-              <td class="val-cell">1</td>
-              <td>Off</td>
-              <td>Cuts easier, but chips more than cast</td>
-            </tr>
-            <tr>
-              <td>Cast Acrylic</td>
-              <td>6mm</td>
-              <td><span class="badge-machine badge-co2">CO₂ 50W</span></td>
-              <td class="val-cell power-val">70%</td>
-              <td class="val-cell speed-val">10mm/s</td>
-              <td class="val-cell">1</td>
-              <td>Off</td>
-              <td>Slow single pass for flame polish edge</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- LEATHER TABLE -->
-    <div id="tab-leather" class="tab-content">
-      <div class="ref-table-wrap">
-        <table class="ref-table">
-          <thead>
-            <tr>
-              <th>Material</th>
-              <th>Thickness</th>
-              <th>Machine</th>
-              <th>Power %</th>
-              <th>Speed</th>
-              <th>Passes</th>
-              <th>Air Assist</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Veg Tan Leather</td>
-              <td>2mm</td>
-              <td><span class="badge-machine badge-diode">Diode 5W</span></td>
-              <td class="val-cell power-val">85%</td>
-              <td class="val-cell speed-val">400</td>
-              <td class="val-cell">2</td>
-              <td>Medium</td>
-              <td>Clean cut, minimal charring</td>
-            </tr>
-            <tr>
-              <td>Veg Tan Leather</td>
-              <td>2mm</td>
-              <td><span class="badge-machine badge-co2">CO₂ 40W</span></td>
-              <td class="val-cell power-val">40%</td>
-              <td class="val-cell speed-val">25mm/s</td>
-              <td class="val-cell">1</td>
-              <td>Medium</td>
-              <td>Great results on CO₂</td>
-            </tr>
-            <tr>
-              <td>Chrome Tan Leather</td>
-              <td>2mm</td>
-              <td><span class="badge-machine badge-diode">Diode 10W</span></td>
-              <td class="val-cell power-val">80%</td>
-              <td class="val-cell speed-val">350</td>
-              <td class="val-cell">2</td>
-              <td>Medium</td>
-              <td>⚠️ Chrome tan releases toxic fumes — ventilate well</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- PAPER TABLE -->
-    <div id="tab-paper" class="tab-content">
-      <div class="ref-table-wrap">
-        <table class="ref-table">
-          <thead>
-            <tr>
-              <th>Material</th>
-              <th>Thickness</th>
-              <th>Machine</th>
-              <th>Power %</th>
-              <th>Speed</th>
-              <th>Passes</th>
-              <th>Air Assist</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Cardboard</td>
-              <td>3mm</td>
-              <td><span class="badge-machine badge-diode">Diode 5W</span></td>
-              <td class="val-cell power-val">70%</td>
-              <td class="val-cell speed-val">500</td>
-              <td class="val-cell">2</td>
-              <td>Low</td>
-              <td>Low air to prevent fire risk</td>
-            </tr>
-            <tr>
-              <td>Paper</td>
-              <td>0.1mm</td>
-              <td><span class="badge-machine badge-diode">Diode 5W</span></td>
-              <td class="val-cell power-val">20–30%</td>
-              <td class="val-cell speed-val">800–1200</td>
-              <td class="val-cell">1</td>
-              <td>Off</td>
-              <td>Very low power — fire risk, use a backing</td>
-            </tr>
-            <tr>
-              <td>Mat Board</td>
-              <td>3mm</td>
-              <td><span class="badge-machine badge-diode">Diode 10W</span></td>
-              <td class="val-cell power-val">75%</td>
-              <td class="val-cell speed-val">600</td>
-              <td class="val-cell">1</td>
-              <td>Low</td>
-              <td>Cuts cleanly, minimal residue</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- FABRIC TABLE -->
-    <div id="tab-fabric" class="tab-content">
-      <div class="ref-table-wrap">
-        <table class="ref-table">
-          <thead>
-            <tr>
-              <th>Material</th>
-              <th>Thickness</th>
-              <th>Machine</th>
-              <th>Power %</th>
-              <th>Speed</th>
-              <th>Passes</th>
-              <th>Air Assist</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Cotton / Canvas</td>
-              <td>~1mm</td>
-              <td><span class="badge-machine badge-diode">Diode 5W</span></td>
-              <td class="val-cell power-val">50–60%</td>
-              <td class="val-cell speed-val">600</td>
-              <td class="val-cell">1</td>
-              <td>Low</td>
-              <td>Pin or tape flat, avoid stretching</td>
-            </tr>
-            <tr>
-              <td>Felt (Wool)</td>
-              <td>3mm</td>
-              <td><span class="badge-machine badge-diode">Diode 5W</span></td>
-              <td class="val-cell power-val">65%</td>
-              <td class="val-cell speed-val">400</td>
-              <td class="val-cell">1</td>
-              <td>Low</td>
-              <td>Cuts very well, sealed edges</td>
-            </tr>
-            <tr>
-              <td>Denim</td>
-              <td>~1.5mm</td>
-              <td><span class="badge-machine badge-diode">Diode 10W</span></td>
-              <td class="val-cell power-val">75%</td>
-              <td class="val-cell speed-val">400</td>
-              <td class="val-cell">2</td>
-              <td>Low</td>
-              <td>Engraving denim works great</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-  </div><!-- /tabs-section -->
-
-  <!-- ─── KERF REFERENCE ─── -->
-  <div class="kerf-section">
-    <div class="section-title">Kerf Offset — What It Is & Typical Values</div>
-    <p style="font-size:12px; color:var(--text2); margin-bottom:16px; line-height:1.7;">Kerf is the width of material the laser beam removes. When precision-fitting parts (like boxes or press-fits), you need to offset your cut paths by half the kerf width. Typical values below:</p>
-    <div class="kerf-grid">
-      <div class="kerf-card">
-        <h4>Diode Laser (5W)</h4>
-        <span class="kerf-num">0.1–0.15 mm</span>
-        <p>Tighter beam, less kerf than CO₂. Use 0.1mm offset as a starting point for press-fits.</p>
-      </div>
-      <div class="kerf-card">
-        <h4>Diode Laser (10–20W)</h4>
-        <span class="kerf-num">0.12–0.18 mm</span>
-        <p>Slightly wider kerf due to higher power. Test with a calibration square.</p>
-      </div>
-      <div class="kerf-card">
-        <h4>CO₂ Laser (40W)</h4>
-        <span class="kerf-num">0.15–0.25 mm</span>
-        <p>Wider beam = more kerf. K40 machines vary widely — always measure your specific machine.</p>
-      </div>
-      <div class="kerf-card">
-        <h4>In LightBurn</h4>
-        <span class="kerf-num" style="font-size:14px">Kerf Offset</span>
-        <p>In LightBurn, go to Cut Settings → Kerf Offset. Enter half the measured kerf (e.g., 0.075mm for 0.15mm kerf).</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── FAQ ─── -->
-  <div class="faq-section">
-    <div class="panel-label">Common Questions</div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        Why do I need multiple passes instead of more power?
-        <span class="faq-toggle">+</span>
-      </div>
-      <div class="faq-a">
-        Running a single high-power pass concentrates too much heat in one spot, which causes excessive charring, wider kerf, and can start fires in combustible materials like wood. Multiple passes at lower power allow the material to cool between passes, resulting in cleaner cuts, tighter kerf, and less char. As a rule of thumb: if you can cut something in 2 passes at 100% power, try 3 passes at 75% and compare the cut quality.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        When should I turn air assist off?
-        <span class="faq-toggle">+</span>
-      </div>
-      <div class="faq-a">
-        Turn air assist off when cutting cast acrylic if you want a flame-polished, optically clear edge. Air assist on acrylic cools the melt too fast and creates a frosted, milky edge. For wood, leather, and most other materials, air assist on is almost always the right call — it blows smoke out of the beam path, prevents flare-ups, and keeps the lens clean.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        What's the difference between cast and extruded acrylic for laser cutting?
-        <span class="faq-toggle">+</span>
-      </div>
-      <div class="faq-a">
-        Cast acrylic is made by pouring liquid acrylic into molds — it cuts and engraves beautifully on CO₂ lasers, leaving a flame-polished edge and bright white engraving. Extruded acrylic is made through a continuous process and is cheaper, but it's more prone to chipping, leaves a glossier (but less polished) cut edge, and doesn't engrave as brightly. For display pieces and signs, always use cast. For structural parts where appearance is secondary, extruded is fine.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        Can I cut acrylic with a diode laser?
-        <span class="faq-toggle">+</span>
-      </div>
-      <div class="faq-a">
-        Technically yes, but it's very difficult. Diode lasers operate at ~450nm (blue-violet wavelength), which acrylic transmits rather than absorbs — this is why it's so inefficient. Clear acrylic is especially difficult; black or very dark acrylic works somewhat better because the colorant absorbs the beam. You'll need many slow passes at full power, and the result won't compare to a CO₂ cut. If cutting acrylic is a primary use case, a CO₂ machine is the right tool.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        How do I enter these settings in LightBurn?
-        <span class="faq-toggle">+</span>
-      </div>
-      <div class="faq-a">
-        In LightBurn, click the layer color chip on the left side panel to open Cut Settings. For diode lasers: Power (%) maps directly to the "Max Power %" field; Speed in mm/min maps to the "Speed" field. For CO₂ machines using mm/s natively, convert by dividing mm/min by 60. Set the number of passes in the "Passes" field. Air assist is controlled by checking "Air Assist" if your machine supports it, or manually via a relay connected to the Z axis output. Enable "Bi-directional Fill" for engrave passes to speed things up without affecting quality.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        What materials should I NEVER cut with a laser?
-        <span class="faq-toggle">+</span>
-      </div>
-      <div class="faq-a">
-        <strong style="color:var(--laser2)">Never cut:</strong> PVC / vinyl (releases chlorine gas — extremely dangerous), polycarbonate (melts, doesn't cut, creates hazardous fumes), ABS plastic (toxic fumes, fire risk), fiberglass / carbon fiber (highly toxic particulates), chrome-tanned leather (toxic chromium compounds), coated metals without proper setup, and any material you can't positively identify. When in doubt, don't cut it. A good source for a safe materials list is the ATX Hackerspace materials guide, which is widely referenced in the maker community.
-      </div>
-    </div>
-
-  </div><!-- /faq -->
-
-</div><!-- /container -->
-
-<footer>
-  <div class="container">
-    <p>hobbyistlasercalc.com — Free laser cutter settings for makers</p>
-    <p style="margin-top:6px">Settings based on real-world testing. Always run test cuts on scrap. Never leave a running laser unattended.</p>
-    <p style="margin-top:8px">
-      <a href="https://github.com/SMSNYDER81/hobbyistlasercalc.com" target="_blank" rel="noopener">GitHub</a>
-      · <a href="https://github.com/SMSNYDER81/hobbyistlasercalc.com/issues/new?title=Settings+Submission&body=**Machine:**%0A**Material:**%0A**Thickness:**%0A**Power:**%0A**Speed:**%0A**Passes:**%0A**Air+Assist:**%0A**Notes:**" target="_blank" rel="noopener">Submit Your Settings</a>
-      · <a href="https://github.com/SMSNYDER81/hobbyistlasercalc.com/issues" target="_blank" rel="noopener">Report an Issue</a>
+  <!-- DROP ZONE -->
+  <div class="drop-zone" id="drop-zone">
+    <div class="drop-icon">📂</div>
+    <p class="drop-title">Drop your PDF bank statement here</p>
+    <p class="drop-sub">Supports multiple files — any bank, any length</p>
+    <button class="btn btn-primary" onclick="document.getElementById('file-input').click(); event.stopPropagation();">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Choose PDF Files
+    </button>
+    <p class="drop-note">
+      <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      PDF only · Processed locally · Your data never leaves this page
     </p>
-    <p style="margin-top:8px; font-size:10px; color:var(--text3)">Built by a hobbyist, for hobbyists · <a href="https://github.com/SMSNYDER81/hobbyistlasercalc.com/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a></p>
+    <input type="file" id="file-input" accept=".pdf" multiple>
+  </div>
+
+  <!-- STATUS -->
+  <div class="status-box" id="status-box">
+    <div class="status-header">
+      <div class="status-dot" id="status-dot"></div>
+      <span class="status-label" id="status-label">Processing…</span>
+      <span class="status-pct" id="status-pct">0%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+
+  <!-- ERROR -->
+  <div id="error-box" class="hidden"></div>
+
+  <!-- RESULTS -->
+  <div class="results-panel" id="results-panel">
+
+    <div class="results-header">
+      <span class="results-title" id="results-title">Results</span>
+      <div class="results-actions">
+        <button class="btn btn-ghost" id="btn-copy">Copy CSV</button>
+        <button class="btn btn-outline" id="btn-csv">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CSV
+        </button>
+        <button class="btn btn-primary" id="btn-excel">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Download Excel
+        </button>
+        <button class="btn btn-ghost" id="btn-reset">↩ New File</button>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-bar">
+      <div class="stat-card">
+        <div class="stat-label">Transactions</div>
+        <div class="stat-val" id="stat-rows">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Date Range</div>
+        <div class="stat-val sm" id="stat-dates">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Total Credits</div>
+        <div class="stat-val" id="stat-credits">$0.00</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Total Debits</div>
+        <div class="stat-val red" id="stat-debits">$0.00</div>
+      </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-wrap">
+      <div class="table-scroll">
+        <table>
+          <thead id="tbl-head"></thead>
+          <tbody id="tbl-body"></tbody>
+        </table>
+      </div>
+      <div class="table-footer">
+        <span id="tbl-footer-l">—</span>
+        <span id="tbl-footer-r">csvbank.com</span>
+      </div>
+    </div>
+
+    <!-- AD SLOT MID -->
+    <div style="margin-top:24px;text-align:center;">
+      <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-7814690967688754"
+        data-ad-slot="auto"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="section-head">
+    <p class="section-eyebrow">How it works</p>
+    <h2 class="section-title">Three steps, done</h2>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">Step 01</div>
+      <div class="step-icon">📂</div>
+      <div class="step-name">Upload your PDF</div>
+      <div class="step-desc">Drag and drop or click to browse. Works with statements from any bank worldwide — Chase, Bank of America, Barclays, HSBC, and thousands more.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">Step 02</div>
+      <div class="step-icon">⚡</div>
+      <div class="step-name">Instant parsing</div>
+      <div class="step-desc">Your browser reads the PDF text directly using PDF.js. No internet connection needed after the page loads — everything runs locally.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">Step 03</div>
+      <div class="step-icon">📥</div>
+      <div class="step-name">Download your data</div>
+      <div class="step-desc">Get clean, structured data with dates, descriptions, amounts, and balances in separate columns. Download as CSV or open directly in Excel.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">Always</div>
+      <div class="step-icon">🔒</div>
+      <div class="step-name">100% private</div>
+      <div class="step-desc">Your bank data is never uploaded or stored anywhere. Everything runs in your browser and disappears when you close the tab.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section">
+  <div class="section-head">
+    <p class="section-eyebrow">Features</p>
+    <h2 class="section-title">Everything you need</h2>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card"><div class="feature-icon">🆓</div><div><div class="feature-name">Completely free, no limits</div><div class="feature-desc">No subscription, no page caps, no credit card. Convert as many statements as you like.</div></div></div>
+    <div class="feature-card"><div class="feature-icon">🔒</div><div><div class="feature-name">Bank-grade privacy</div><div class="feature-desc">Files are processed entirely in your browser. Your financial data never touches our servers.</div></div></div>
+    <div class="feature-card"><div class="feature-icon">🏦</div><div><div class="feature-name">Any bank worldwide</div><div class="feature-desc">Works with Chase, Wells Fargo, Bank of America, Barclays, HSBC, Santander, and thousands more.</div></div></div>
+    <div class="feature-card"><div class="feature-icon">📊</div><div><div class="feature-name">CSV &amp; Excel output</div><div class="feature-desc">Download as .csv for any app or .xls to open directly in Excel or Google Sheets.</div></div></div>
+    <div class="feature-card"><div class="feature-icon">📄</div><div><div class="feature-name">Multi-page &amp; multi-file</div><div class="feature-desc">Process statements of any length and upload multiple files at once.</div></div></div>
+    <div class="feature-card"><div class="feature-icon">📱</div><div><div class="feature-name">Works on any device</div><div class="feature-desc">Desktop, tablet, or phone. No app install, no extensions — just your browser.</div></div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-head">
+    <p class="section-eyebrow">FAQ</p>
+    <h2 class="section-title">Common questions</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Is CSV Bank really free? <span class="faq-chevron">▼</span></button>
+      <div class="faq-a">Yes, completely free with no hidden costs. There are no page limits, no account required, and no subscription tier. The site is supported by ads.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Is my bank data safe? <span class="faq-chevron">▼</span></button>
+      <div class="faq-a">Absolutely. All processing happens inside your browser using JavaScript. Your PDF is never uploaded to any server — not ours or anyone else's. When you close the tab, everything is gone.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Which banks are supported? <span class="faq-chevron">▼</span></button>
+      <div class="faq-a">CSV Bank works with any digital (text-based) PDF statement from any bank worldwide. This includes Chase, Bank of America, Wells Fargo, Citibank, Barclays, HSBC, Santander, and thousands more. The only statements that won't work are scanned image PDFs.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What's the difference between a digital PDF and a scanned PDF? <span class="faq-chevron">▼</span></button>
+      <div class="faq-a">A digital PDF is generated directly by your bank's software and contains selectable text — this is what you download from online banking. A scanned PDF is a photograph of a paper statement. Almost all statements downloaded from online banking portals are digital PDFs and work perfectly.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Can I convert multiple statements at once? <span class="faq-chevron">▼</span></button>
+      <div class="faq-a">Yes. You can drag and drop or select multiple PDF files at once. All transactions will be combined into a single CSV output.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What columns does the CSV contain? <span class="faq-chevron">▼</span></button>
+      <div class="faq-a">The output contains Date, Description, Debit, Credit, and Balance columns. Each transaction appears on its own row, ready to import into Excel, Google Sheets, accounting software, or any data tool.</div>
+    </div>
+  </div>
+</section>
+
+<!-- AD SLOT BOTTOM -->
+<div style="max-width:860px;margin:0 auto 48px;padding:0 24px;text-align:center;">
+  <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-7814690967688754"
+    data-ad-slot="auto"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">© 2026 CSVBank.com · Free bank statement converter · Your data never leaves your device</div>
+  <div class="footer-links">
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="https://github.com/SMSNYDER81/csvbank/issues" target="_blank" rel="noopener">Feedback</a>
   </div>
 </footer>
 
-<!-- ─── SETTINGS DATABASE ─── -->
+<!-- FEEDBACK -->
+<script src="/feedback.js" data-repo="https://github.com/SMSNYDER81/csvbank/issues"></script>
+
 <script>
-// ─── STATE ───
-let laserType = 'diode';
-let opType = 'cut';
-let focusMode = 'surface';
+// ── PDF.js ──
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-function setLaserType(type, btn) {
-  laserType = type;
-  document.querySelectorAll('#panel-machine .seg-control:first-of-type .seg-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  // Show only the relevant optgroups
-  const sel = document.getElementById('sel-machine');
-  Array.from(sel.querySelectorAll('optgroup')).forEach(og => {
-    const isCo2Group = og.id === 'group-co2';
-    og.style.display = (type === 'co2' ? isCo2Group : !isCo2Group) ? '' : 'none';
-  });
-  sel.value = '';
-  document.getElementById('machine-tag').style.display = 'none';
-}
+let parsedRows = [];
 
-function setOpType(type, btn) {
-  opType = type;
-  document.querySelectorAll('#panel-machine .seg-control:last-of-type .seg-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-}
+// ── ELEMENTS ──
+const dropZone   = document.getElementById('drop-zone');
+const fileInput  = document.getElementById('file-input');
+const statusBox  = document.getElementById('status-box');
+const statusDot  = document.getElementById('status-dot');
+const statusLbl  = document.getElementById('status-label');
+const statusPct  = document.getElementById('status-pct');
+const progFill   = document.getElementById('progress-fill');
+const errorBox   = document.getElementById('error-box');
+const resultPane = document.getElementById('results-panel');
 
-function setFocus(mode, btn) {
-  focusMode = mode;
-  btn.parentElement.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-}
-
-function updateMachineInfo() {
-  const val = document.getElementById('sel-machine').value;
-  const tag = document.getElementById('machine-tag');
-  if (val) {
-    tag.style.display = 'inline-flex';
-    tag.textContent = getMachineName(val);
-  } else {
-    tag.style.display = 'none';
-  }
-}
-
-function getMachineName(key) {
-  const names = {
-    // Longer Ray
-    longer_ray5_5w: 'Longer Ray 5 (5W)',
-    longer_ray5_10w: 'Longer Ray 5 (10W doubled)',
-    longer_ray5_20w: 'Longer Ray 5 (20W)',
-    longer_b1_30w: 'Longer B1 (30W)',
-    // xTool
-    xtool_d1_5w: 'xTool D1 (5W)',
-    xtool_d1_10w: 'xTool D1 Pro (10W)',
-    xtool_d1_20w: 'xTool D1 Pro (20W)',
-    xtool_s1: 'xTool S1 (20W)',
-    xtool_f1: 'xTool F1 (10W)',
-    xtool_m1: 'xTool M1 (10W)',
-    // Sculpfun
-    sculpfun_s9: 'Sculpfun S9 (5.5W)',
-    sculpfun_s30: 'Sculpfun S30 Pro (10W)',
-    sculpfun_s30_max: 'Sculpfun S30 Pro Max (20W)',
-    sculpfun_s30_ultra: 'Sculpfun S30 Ultra (20W)',
-    // Ortur
-    ortur_lm2_pro: 'Ortur LM2 Pro (5.5W)',
-    ortur_lm3: 'Ortur LM3 (10W)',
-    ortur_lm3_ultra: 'Ortur LM3 Ultra (20W)',
-    // AtomStack
-    atomstack_a5: 'AtomStack A5 Pro (5.5W)',
-    atomstack_a10: 'AtomStack A10 Pro (10W)',
-    atomstack_a20: 'AtomStack A20 Pro (20W)',
-    atomstack_x20: 'AtomStack X20 Pro (20W)',
-    // Other diode
-    comgrow_z1: 'Comgrow Z1 (10W)',
-    twotrees_ts2: 'TwoTrees TS2 (10W)',
-    twotrees_ts3: 'TwoTrees TS3 (20W)',
-    lasermaster3: 'Generic 10W Diode',
-    diode_generic_5w: 'Generic Diode (~5W)',
-    diode_generic_10w: 'Generic Diode (~10W)',
-    diode_generic_20w: 'Generic Diode (~20W)',
-    // CO₂
-    k40_co2: 'K40 (40W)',
-    omtech_50w: 'OMTech (50W)',
-    omtech_60w: 'OMTech (60W)',
-    glowforge_basic: 'Glowforge Basic',
-    glowforge_plus: 'Glowforge Plus',
-    glowforge_pro: 'Glowforge Pro',
-    boss_ls1416: 'Boss LS-1416 (60W)',
-    co2_generic_40w: 'Generic CO₂ (40W)',
-    co2_generic_60w: 'Generic CO₂ (60W)',
-  };
-  return names[key] || key;
-}
-
-function getMaterialName(key) {
-  const names = {
-    basswood_plywood: 'Basswood Plywood',
-    birch_plywood: 'Birch Plywood',
-    mdf: 'MDF',
-    hardboard: 'Hardboard',
-    balsa: 'Balsa',
-    pine: 'Pine',
-    cherry_walnut: 'Cherry/Walnut',
-    poplar: 'Poplar',
-    acrylic_cast: 'Cast Acrylic',
-    acrylic_extruded: 'Extruded Acrylic',
-    acrylic_mirrored: 'Mirrored Acrylic',
-    leather_veg_tan: 'Veg Tan Leather',
-    leather_chrome: 'Chrome Tan Leather',
-    leather_faux: 'Faux / PU Leather',
-    cardboard: 'Cardboard',
-    paper: 'Paper',
-    mat_board: 'Mat Board',
-    craft_foam_sheet: 'Craft Foam Sheet',
-    foam_board_dollar_tree: 'Dollar Tree Foam Board',
-    foam_board_readi: 'Readi-Board Foam Board',
-    foam_board_thick: 'Thick Foam Board (~10mm)',
-    depron_foam: 'Depron Foam',
-    eva_foam: 'EVA Foam',
-    eva_foam_thick: 'EVA Foam (thick)',
-    cotton: 'Cotton/Canvas',
-    felt: 'Felt',
-    denim: 'Denim',
-    polyester: 'Polyester/Nylon',
-    rubber_stamp: 'Rubber (Stamp)',
-    silicone_sheet: 'Silicone Sheet',
-    cork_sheet: 'Cork Sheet',
-    kraft_paper_thick: 'Kraft Paper',
-  };
-  return names[key] || key;
-}
-
-function updateMaterialInfo() { }
-
-function syncThickness(from) {
-  const mmEl = document.getElementById('inp-thickness-mm');
-  const inEl = document.getElementById('inp-thickness-in');
-  if (from === 'mm') {
-    const mm = parseFloat(mmEl.value);
-    if (!isNaN(mm)) inEl.value = (mm / 25.4).toFixed(3);
-  } else {
-    const inches = parseFloat(inEl.value);
-    if (!isNaN(inches)) mmEl.value = (inches * 25.4).toFixed(1);
-  }
-  updateThicknessHint();
-}
-
-function setThickness(mm) {
-  document.getElementById('inp-thickness-mm').value = mm;
-  document.getElementById('inp-thickness-in').value = (mm / 25.4).toFixed(3);
-  updateThicknessHint();
-  // highlight active quick button
-  document.querySelectorAll('.tq-btn').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
-}
-
-function updateThicknessHint() {
-  const mat = document.getElementById('sel-material').value;
-  let maxMM = laserType === 'diode' ? 12 : 25;
-  if (mat === 'paper' || mat === 'kraft_paper_thick') maxMM = 1;
-  const maxIn = (maxMM / 25.4).toFixed(2);
-  document.getElementById('max-thickness-hint').textContent =
-    `Max ~${maxMM}mm / ${maxIn}" for ${laserType === 'diode' ? 'diode' : 'CO₂'}`;
-}
-
-function validateThickness() { updateThicknessHint(); }
-
-// ─── SETTINGS DATABASE ───
-// Format: settings[laserCategory][material][opType]
-// laserCategory: '5w_diode' | '10w_diode' | '20w_diode' | '40w_co2' | '50w_co2'
-const DB = {
-  // ── 5W DIODE ──
-  '5w_diode': {
-    basswood_plywood: {
-      cut: { power: [85,100], speed: 300, passes: [2,3], air: 'High', kerf: 0.12, focus: 'surface', confidence: 95, notes: 'Tested on Longer Ray 5 and Sculpfun S9. 3mm is the practical max for single-session cutting. Keep air assist high to prevent flare-ups in the grain.', lb_tip: 'In LightBurn, use "Cut" mode. Set Min Power to 10% lower than Max Power to prevent burning at direction-change corners. Enable Z-step if doing multiple passes.' },
-      engrave: { power: [50,70], speed: 2000, passes: 1, air: 'Low', dpi: 254, focus: 'surface', confidence: 90, notes: 'Great engraving material. Use 300–400 DPI for detail, 150–200 DPI for large fills. Go cross-grain for cleaner texture.', lb_tip: 'Use "Fill" mode. Enable "Bi-directional Fill" and set overscan to 2–3% to prevent edge burn from deceleration.' },
-    },
-    birch_plywood: {
-      cut: { power: [95,100], speed: 250, passes: [2,3], air: 'High', kerf: 0.13, focus: 'surface', confidence: 88, notes: 'Birch is denser than basswood and varies by grade. BB/BB (void-free) cuts consistently; lower grades may have voids that stop the beam.', lb_tip: 'For multi-pass cuts, enable "Constant Power Mode" in LightBurn to maintain power through turns. Prevents uncut corners.' },
-      engrave: { power: [45,65], speed: 2000, passes: 1, air: 'Low', dpi: 254, focus: 'surface', confidence: 85, notes: 'Beautiful engraving. Higher contrast than basswood. Test power to avoid washing out grain detail.', lb_tip: 'Jarvis or Stucki dithering works well for photo engraving on birch. Avoid Floyd-Steinberg — it can look grainy.' },
-    },
-    mdf: {
-      cut: { power: [95,100], speed: 200, passes: [3,4], air: 'Max', kerf: 0.15, focus: 'surface', confidence: 80, notes: '⚠️ MDF produces a LOT of smoke and resin-based fumes. Max air assist mandatory, plus good room exhaust. 3mm is achievable but 5W machines struggle — consider 10W for MDF work.', lb_tip: 'Use a powerful exhaust fan and run air assist at maximum. Consider a pre-cut air blast to clear smoke before each pass.' },
-      engrave: { power: [40,55], speed: 2000, passes: 1, air: 'Medium', dpi: 254, focus: 'surface', confidence: 82, notes: 'MDF engraves very uniformly due to consistent density. Excellent for painted/primed signs. Clean with a damp cloth after engraving.', lb_tip: 'Lower power for shallow engrave, higher for deep 3D texture. MDF takes power changes very predictably.' },
-    },
-    balsa: {
-      cut: { power: [55,70], speed: 700, passes: 1, air: 'Low', kerf: 0.10, focus: 'surface', confidence: 85, notes: 'Very easy to cut — use lower power to avoid char. 5W is overkill for balsa under 3mm. Watch for fire risk.', lb_tip: 'Run a test at 50% power first. If it cuts cleanly, don\'t increase. Balsa ignites easily.' },
-      engrave: { power: [20,35], speed: 3000, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 80, notes: 'Engraves beautifully but burns easily. Start very low.', lb_tip: 'Use "Flood Fill" for large areas to reduce repeated start/stop heat buildup.' },
-    },
-    acrylic_cast: {
-      cut: { power: [100,100], speed: 100, passes: [5,8], air: 'Off', kerf: 0.15, focus: 'surface', confidence: 55, notes: '⚠️ Diode lasers are poorly suited for acrylic. The 450nm wavelength passes through transparent acrylic rather than being absorbed. Black/dark acrylic works better but still requires many passes. CO₂ is strongly recommended for acrylic work.', lb_tip: 'If you must use a diode: use VERY dark or black acrylic only. Protect your lens — acrylic vapors deposit residue quickly.' },
-      engrave: { power: [60,80], speed: 1500, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 60, notes: 'Engraving dark/black acrylic with a diode works reasonably well. Transparent acrylic will not engrave.', lb_tip: 'For engraving only (not cutting), dark cast acrylic engraves with white frosted appearance.' },
-    },
-    leather_veg_tan: {
-      cut: { power: [80,90], speed: 400, passes: [1,2], air: 'Medium', kerf: 0.12, focus: 'surface', confidence: 88, notes: 'Veg tan is the ideal leather for laser cutting. Clean cut with minimal charring. 2–3mm thickness works well on 5W.', lb_tip: 'Use masking tape on the surface to protect from smoke staining, especially on light colors.' },
-      engrave: { power: [30,50], speed: 2500, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 87, notes: 'Beautiful dark engrave on veg tan. Lower power = lighter brown, higher power = darker.', lb_tip: 'Test a small area first — leather varies batch to batch. Go lighter and add passes rather than burning in one shot.' },
-    },
-    leather_chrome: {
-      cut: { power: [85,95], speed: 350, passes: [1,2], air: 'Medium', kerf: 0.12, focus: 'surface', confidence: 75, notes: '⚠️ Chrome-tanned leather can release toxic chromium compounds when cut. Ensure excellent ventilation. Some makers avoid this entirely.', lb_tip: 'If cutting chrome tan, run exhaust outside or use a high-quality fume extractor with HEPA + activated carbon.' },
-      engrave: { power: [35,50], speed: 2000, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 72, notes: 'Engraving is lower risk than cutting — less material is removed. Still ventilate well.', lb_tip: 'Use lower power for a subtle mark, higher for deeper engrave. Chrome tan varies widely by source.' },
-    },
-    cardboard: {
-      cut: { power: [65,75], speed: 500, passes: [1,2], air: 'Low', kerf: 0.13, focus: 'surface', confidence: 87, notes: 'Cardboard cuts easily. Keep air assist low to avoid fanning flames. Monitor closely — cardboard can catch fire.', lb_tip: 'Pin or weight cardboard flat. Warped cardboard will defocus the beam and cause uneven cuts.' },
-      engrave: { power: [25,40], speed: 2500, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 82, notes: 'Engraves cleanly. Can do detailed work on chipboard.', lb_tip: 'Very low power for scoring/engraving. Even medium power may cut through thinner cardboard.' },
-    },
-    paper: {
-      cut: { power: [20,30], speed: 900, passes: 1, air: 'Off', kerf: 0.10, focus: 'surface', confidence: 82, notes: '⚠️ Paper is extremely fire-prone. Use a honeycomb bed to allow airflow underneath. Never leave unattended. Keep a fire extinguisher nearby.', lb_tip: 'Place paper on a ceramic tile or honeycomb bed. Use the lowest power that cleanly cuts your weight of paper.' },
-      engrave: { power: [10,18], speed: 3000, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 78, notes: 'Lightly scorches the surface. Good for score lines / origami guides.', lb_tip: 'Engrave mode on paper is mostly used for scoring fold lines. Extremely low power.' },
-    },
-    cotton: {
-      cut: { power: [50,65], speed: 600, passes: 1, air: 'Low', kerf: 0.10, focus: 'surface', confidence: 83, notes: 'Pin or tape fabric completely flat — any slack will defocus the beam. Natural fibers cut better than synthetics. Cotton cuts cleanly with sealed edges.', lb_tip: 'Use a honeycomb bed and pin all edges. LightBurn\'s rotary support works for fabric cut repeat patterns.' },
-      engrave: { power: [20,35], speed: 2500, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 78, notes: 'Marks/scorches the fabric surface. Good for brand marks or decorative pattern burning.', lb_tip: 'Test on a small hidden area first — cotton color and weave affects burn appearance significantly.' },
-    },
-    felt: {
-      cut: { power: [60,70], speed: 400, passes: 1, air: 'Low', kerf: 0.11, focus: 'surface', confidence: 90, notes: 'Wool felt cuts beautifully — clean sealed edges with no fraying. Synthetic felt (acrylic) works too but melts slightly. Wool felt is preferred.', lb_tip: 'Run at higher speed to get a clean seal on the cut edge. Slow speed = melted/crusty edge on synthetic felt.' },
-      engrave: { power: [25,40], speed: 2000, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 85, notes: 'Great engrave results. Creates interesting surface texture.', lb_tip: 'Fill engrave works very well on felt for deep texture work.' },
-    },
-    eva_foam: {
-      cut: { power: [60,75], speed: 400, passes: [1,2], air: 'Off', kerf: 0.15, focus: 'surface', confidence: 80, notes: '⚠️ EVA foam fumes are irritating — ventilate well. Do NOT confuse with PVC foam (Sintra) which is toxic. EVA (ethylene-vinyl acetate) is the safe foam used in cosplay and exercise mats.', lb_tip: 'Air assist causes melting and distortion on foam. Keep it off. Single slow pass at medium power.' },
-      engrave: { power: [30,45], speed: 1500, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 77, notes: 'Engraves with nice depth. Good for stamps and cosplay texture work.', lb_tip: 'Deep 3D engrave on foam works very well — vary power to create texture depth.' },
-    },
-    foam_board_dollar_tree: {
-      cut: { power: [70,85], speed: 350, passes: [2,3], air: 'Off', kerf: 0.20, focus: 'surface', confidence: 88, notes: 'Dollar Tree foam board (~5mm) is a popular cheap material. It has a paper facing on each side with foam core. The paper burns cleanly but the foam core can melt and distort under too much heat. Low power, slow speed, NO air assist — air causes the foam to distort and can fan the paper facing into flame. 2–3 passes at moderate power cuts cleanly. Check for Dollar Tree vs Adams brand — they can vary slightly.', lb_tip: 'Critical: air assist OFF. Even low air will distort the foam and can cause the paper skin to catch. Use constant power mode in LightBurn to prevent corner burns.' },
-      engrave: { power: [30,45], speed: 1500, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 85, notes: 'Engraves the paper skin cleanly to create a nice recessed look. Low power to avoid cutting through the facing into foam.', lb_tip: 'Score/engrave lines work great on Dollar Tree foam board for folding projects. Keep power low to just mark the paper skin, not cut through it.' },
-    },
-    foam_board_readi: {
-      cut: { power: [72,88], speed: 320, passes: [2,3], air: 'Off', kerf: 0.20, focus: 'surface', confidence: 85, notes: 'Readi-Board and generic dollar-store foam boards are similar to Dollar Tree. Slight density variations between brands — start at the lower end of these values. Same rules apply: no air assist, low power, multiple passes. The foam core varies — some brands use denser foam that needs an extra pass.', lb_tip: 'Air assist OFF. Test the first pass and look — if the paper skin is cut but foam is not, add a pass at same settings rather than increasing power.' },
-      engrave: { power: [28,42], speed: 1500, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 83, notes: 'Same as Dollar Tree board. Paper facing engraves well.', lb_tip: 'Light engrave of the paper skin creates great contrast on foam board signs and displays.' },
-    },
-    foam_board_thick: {
-      cut: { power: [85,100], speed: 200, passes: [3,5], air: 'Off', kerf: 0.25, focus: 'mid', confidence: 72, notes: '~10mm foam board is pushing the limits for a 5W diode. Multiple slow passes needed. Focus at mid-point of material. Air assist OFF. The thick foam core tends to melt and re-seal between passes — let each pass cool for a few seconds before the next.', lb_tip: 'Use Z-step in LightBurn if your machine supports it — lower the focus point slightly with each pass to follow the cut depth into the material.' },
-      engrave: { power: [35,50], speed: 1200, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 70, notes: 'Surface engrave only recommended. Deep engraving foam tends to produce uneven results.', lb_tip: 'For 10mm board, engrave is surface-only. Use cut mode with very low power for score lines.' },
-    },
-    depron_foam: {
-      cut: { power: [45,60], speed: 500, passes: 1, air: 'Off', kerf: 0.12, focus: 'surface', confidence: 82, notes: 'Depron is a closed-cell XPS foam used in RC aircraft and model building. Very clean cuts with low power — no paper facing to complicate things. Cuts in a single pass easily at 5W. NO air assist — distorts foam.', lb_tip: 'Depron cuts beautifully with diode lasers. Very low power needed — test at 40% first. It will surprise you.' },
-      engrave: { power: [20,30], speed: 2000, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 80, notes: 'Very low power for surface texturing. Easy to cut through accidentally.', lb_tip: 'Use low power engrave for creating panel lines and surface detail on RC foam builds.' },
-    },
-    eva_foam_thick: {
-      cut: { power: [80,95], speed: 250, passes: [2,3], air: 'Off', kerf: 0.20, focus: 'mid', confidence: 75, notes: 'Thick EVA (6–10mm) needs multiple passes and mid-point focus. The foam tends to close up slightly between passes — this is normal. Keep air off. Ventilate well — EVA fumes at volume are unpleasant.', lb_tip: 'Focus at mid-point and use Z-step if available. Multiple slow passes beat one fast high-power pass for foam.' },
-      engrave: { power: [30,45], speed: 1200, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 75, notes: 'Great 3D texture engraving on thick EVA. Popular for cosplay armor.', lb_tip: 'Variable power (greyscale) engraving creates beautiful 3D depth in thick EVA foam.' },
-    },
-    cork_sheet: {
-      cut: { power: [75,90], speed: 400, passes: [1,2], air: 'Low', kerf: 0.14, focus: 'surface', confidence: 82, notes: 'Cork cuts well on diode. Produces a pleasant burnt-cork smell. Light air assist helps clear debris. Thicker cork sheets may need 2 passes.', lb_tip: 'Cork is friable — pin it flat. Even low warp will cause defocus and incomplete cuts.' },
-      engrave: { power: [35,50], speed: 2000, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 85, notes: 'Beautiful engrave on cork — excellent contrast. Great for coasters, trivets, and memo boards.', lb_tip: 'Cork engraves with a very distinctive look. Use Jarvis dithering for photo engraves on cork.' },
-    },
-    kraft_paper_thick: {
-      cut: { power: [25,40], speed: 800, passes: 1, air: 'Off', kerf: 0.10, focus: 'surface', confidence: 80, notes: 'Heavy kraft paper and paper bags cut cleanly at low power. Fire risk — no air assist, use a backing board.', lb_tip: 'Pin flat on a ceramic tile. Very low power needed.' },
-      engrave: { power: [10,18], speed: 2500, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 77, notes: 'Score/mark kraft paper easily. Good for packaging and giftwrap scoring.', lb_tip: 'Use score mode for fold lines on kraft paper boxes and packaging.' },
-    },
-    leather_faux: {
-      cut: { power: [70,85], speed: 450, passes: [1,2], air: 'Medium', kerf: 0.13, focus: 'surface', confidence: 78, notes: '⚠️ Faux/PU leather contains polyurethane coating — fumes are more irritating than real leather. Ensure good ventilation. Results vary significantly by brand and backing material. Test first.', lb_tip: 'Ventilate well. Results vary with faux leather — the PU coating can melt and gum up differently than real leather.' },
-      engrave: { power: [30,45], speed: 2200, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 72, notes: 'Can mark the surface but results are inconsistent depending on backing and coating. Natural leather is far superior for engraving.', lb_tip: 'Test engrave on a small hidden area. Faux leather varies enormously between products.' },
-    },
-    rubber_stamp: {
-      cut: { power: [80,95], speed: 300, passes: [1,2], air: 'Low', kerf: 0.15, focus: 'surface', confidence: 82, notes: 'Rubber stamp material (linoleum-type) cuts cleanly on diode. Some fumes — ventilate. Produces excellent stamps with clean edges.', lb_tip: 'Use "Offset Fill" in LightBurn to create stamp reliefs. Invert your design — the engraved areas will NOT print.' },
-      engrave: { power: [50,70], speed: 1200, passes: 1, air: 'Low', dpi: 254, focus: 'surface', confidence: 88, notes: 'The primary use case — engraving stamp faces. Produces deep, clean relief. Standard stamp rubber engraves very consistently.', lb_tip: 'Mirror your text before engraving stamps. Use offset fill to clear the background. Deeper engrave = more ink pickup.' },
-    },
-    craft_foam_sheet: {
-      cut: { power: [30,45], speed: 600, passes: 1, air: 'Off', kerf: 0.10, focus: 'surface', confidence: 85, notes: 'Thin craft foam (1–2mm, typical Darice/Foamies sheets) cuts very easily. Very low power needed. Similar to EVA but thinner.', lb_tip: 'So easy to cut at 5W that you may need to drop power below these values. Start at 25% and test.' },
-      engrave: { power: [15,25], speed: 2500, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 82, notes: 'Scores the surface nicely for scoring/fold lines.', lb_tip: 'Use score lines on thin craft foam for 3D paper-craft style assemblies.' },
-    },
-    poplar: {
-      cut: { power: [88,100], speed: 280, passes: [2,3], air: 'High', kerf: 0.13, focus: 'surface', confidence: 80, notes: 'Poplar is a medium-density hardwood — denser than basswood but lighter than birch. Cuts reasonably well but may need an extra pass vs basswood.', lb_tip: 'Similar to birch settings. Poplar has consistent grain with few voids — more predictable than lower-grade birch.' },
-      engrave: { power: [45,60], speed: 2000, passes: 1, air: 'Low', dpi: 254, focus: 'surface', confidence: 78, notes: 'Good engrave contrast. Consistent grain gives predictable results.', lb_tip: 'Engrave cross-grain for finest detail on poplar.' },
-    },
-  },
-  // ── 10W DIODE ──
-  '10w_diode': {
-    basswood_plywood: {
-      cut: { power: [70,85], speed: 500, passes: [1,2], air: 'High', kerf: 0.14, focus: 'surface', confidence: 95, notes: 'The sweet spot for 10W diode. 3mm basswood in a single pass at 80% / 400mm/min is very achievable. These are tested Sculpfun S30 and xTool D1 Pro settings.', lb_tip: 'For 3mm basswood: 75% power, 450mm/min, 1 pass. If not through, bump to 500mm/min at 85%. Avoid 100% power — excessive char.' },
-      engrave: { power: [35,55], speed: 3000, passes: 1, air: 'Low', dpi: 254, focus: 'surface', confidence: 92, notes: 'Fast, detailed engraving. 10W machines can do photo engraving at 300+ DPI at high speeds.', lb_tip: 'Use "Line Interval" of 0.1mm (254 DPI) for fine detail. For fast fills, 0.2mm interval at 4000mm/min.' },
-    },
-    birch_plywood: {
-      cut: { power: [80,90], speed: 400, passes: [1,2], air: 'High', kerf: 0.14, focus: 'surface', confidence: 90, notes: 'Birch cuts well on 10W. Single pass for 3mm is usually achievable with good focus.', lb_tip: 'Focus is critical for 10W on birch — even 0.5mm defocus noticeably affects cut quality. Use a focus block or autofocus.' },
-      engrave: { power: [30,45], speed: 3500, passes: 1, air: 'Low', dpi: 254, focus: 'surface', confidence: 88, notes: 'High contrast engrave on birch. Very fast at 10W.', lb_tip: 'Lighter power + faster speed = lighter, finer engrave. Better for detailed photographs.' },
-    },
-    mdf: {
-      cut: { power: [95,100], speed: 300, passes: [2,3], air: 'Max', kerf: 0.16, focus: 'surface', confidence: 85, notes: 'MDF is cuttable on 10W but heavy fumes. Max air, exhaust mandatory. 3mm in 2 passes is typical.', lb_tip: 'MDF clogs lenses quickly from resin smoke. Clean your lens after every MDF session.' },
-      engrave: { power: [35,50], speed: 3000, passes: 1, air: 'Medium', dpi: 254, focus: 'surface', confidence: 87, notes: 'Very uniform, consistent engrave on MDF.', lb_tip: 'Prime/paint MDF first for engraved signs — the engrave will show as a different color against the painted surface.' },
-    },
-    acrylic_cast: {
-      cut: { power: [100,100], speed: 80, passes: [4,6], air: 'Off', kerf: 0.16, focus: 'surface', confidence: 45, notes: '⚠️ Diode lasers are poorly matched to acrylic. CO₂ laser is strongly recommended for acrylic. Dark/black acrylic only for diode — transparent will not cut.', lb_tip: 'If cutting black acrylic with diode: multiple slow passes, no air assist. Clean lens between sessions.' },
-      engrave: { power: [55,70], speed: 2000, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 58, notes: 'Dark acrylic engraves reasonably. Transparent does not.', lb_tip: 'Use low power for lighter marks, higher for frosted white appearance on dark acrylic.' },
-    },
-    leather_veg_tan: {
-      cut: { power: [65,75], speed: 600, passes: 1, air: 'Medium', kerf: 0.12, focus: 'surface', confidence: 90, notes: 'Excellent results on veg tan with 10W. Single pass through 2mm, two passes for 3–4mm.', lb_tip: 'Speed up vs the 5W settings — 10W can do in one pass what 5W needed two for.' },
-      engrave: { power: [20,35], speed: 3500, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 90, notes: 'Beautiful dark marks at even lower power percentages. Very controllable.', lb_tip: 'At 10W, go much lighter than you think for leather engrave — 20-25% max for light color leather.' },
-    },
-    cardboard: {
-      cut: { power: [55,65], speed: 700, passes: 1, air: 'Low', kerf: 0.14, focus: 'surface', confidence: 88, notes: 'Easy and fast at 10W. Very low power needed — watch for fire.', lb_tip: 'Cardboard cuts so easily at 10W you may need to lower power significantly from these defaults.' },
-      engrave: { power: [15,25], speed: 3500, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 84, notes: 'Very light touch needed at 10W. Easy to over-engrave cardboard.', lb_tip: 'Start at 15% power and increase as needed. 10W engraves cardboard very aggressively.' },
-    },
-    cotton: {
-      cut: { power: [40,55], speed: 800, passes: 1, air: 'Low', kerf: 0.10, focus: 'surface', confidence: 82, notes: 'Cuts cleanly. Pin flat.', lb_tip: 'Lower power than 5W equivalent — 10W can cut fabric at speeds that minimize heat spread.' },
-      engrave: { power: [15,25], speed: 3000, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 78, notes: 'Very light touch. Cotton darkens quickly with 10W.', lb_tip: 'Test on a scrap first. Different cotton weaves absorb very differently.' },
-    },
-    felt: {
-      cut: { power: [45,55], speed: 600, passes: 1, air: 'Low', kerf: 0.12, focus: 'surface', confidence: 90, notes: 'Cuts perfectly at lower power than 5W. Great sealed edges.', lb_tip: 'Higher speed = better edge seal. Slow speed melts synthetic felt too much.' },
-      engrave: { power: [15,30], speed: 2500, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 86, notes: 'Good control at low power. Very easy to over-engrave with 10W.', lb_tip: 'Start at 15-18% and dial up. 10W engraves felt much more aggressively than 5W.' },
-    },
-    eva_foam: {
-      cut: { power: [50,60], speed: 500, passes: 1, air: 'Off', kerf: 0.16, focus: 'surface', confidence: 80, notes: 'Easy on 10W. Low power, moderate speed, no air. Fumes — ventilate.', lb_tip: 'EVA foam cuts with one slow pass easily at 10W. Reduce power from defaults if you see melting.' },
-      engrave: { power: [20,35], speed: 2000, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 78, notes: 'Good texture engrave. Air off to prevent distortion.', lb_tip: '3D engrave with variable power creates great foam textures for cosplay work.' },
-    },
-    foam_board_dollar_tree: {
-      cut: { power: [55,68], speed: 450, passes: [1,2], air: 'Off', kerf: 0.20, focus: 'surface', confidence: 90, notes: 'Dollar Tree foam board (~5mm) cuts very well at 10W — often single pass at moderate power. Paper facing + foam core. NO air assist under any circumstances — will distort the foam and can ignite the paper skin. Single pass at 60%/450mm/min is the target. These are tested settings at the 10W class.', lb_tip: 'Air assist OFF — this is non-negotiable for foam board. A single clean pass at 60% power, 450mm/min is the sweet spot for 10W on Dollar Tree board. If edges are rough, slow down 50mm/min rather than adding power.' },
-      engrave: { power: [22,35], speed: 1800, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 87, notes: 'Engraves the paper skin beautifully. Great for signage, theater props, and classroom projects.', lb_tip: 'Engrave first, then cut — prevents the board from shifting after it\'s been cut free.' },
-    },
-    foam_board_readi: {
-      cut: { power: [58,72], speed: 400, passes: [1,2], air: 'Off', kerf: 0.20, focus: 'surface', confidence: 87, notes: 'Very similar to Dollar Tree board. Some brands use slightly denser foam. Start at 60% and add a second pass if needed rather than increasing power.', lb_tip: 'Air OFF always. Test cut on a corner scrap before running the full job.' },
-      engrave: { power: [22,35], speed: 1800, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 85, notes: 'Paper skin engraves cleanly.', lb_tip: 'Keep engrave power low to mark the paper skin without cutting into foam.' },
-    },
-    foam_board_thick: {
-      cut: { power: [75,90], speed: 250, passes: [2,3], air: 'Off', kerf: 0.25, focus: 'mid', confidence: 80, notes: '~10mm foam board is manageable at 10W with 2–3 passes. Focus at mid-point. Air off. Let foam cool between passes.', lb_tip: 'Mid-point focus and Z-step per pass if your machine supports it. Multiple moderate-power passes beat one high-power pass.' },
-      engrave: { power: [28,40], speed: 1400, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 76, notes: 'Surface engrave only. Deep engraving foam produces uneven results.', lb_tip: 'Surface engrave only on thick board. Score lines work well for fold/break lines.' },
-    },
-    depron_foam: {
-      cut: { power: [30,45], speed: 700, passes: 1, air: 'Off', kerf: 0.11, focus: 'surface', confidence: 85, notes: 'Depron cuts with very low power at 10W — single pass, fast speed. One of the cleanest-cutting foam materials for laser.', lb_tip: 'Start lower than you think. 35% power at 700mm/min may be all you need. Depron cuts beautifully.' },
-      engrave: { power: [12,22], speed: 2500, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 82, notes: 'Low power texturing and detail work on RC foam builds.', lb_tip: 'Extremely low power for panel lines. 10W engraves Depron very aggressively.' },
-    },
-    cork_sheet: {
-      cut: { power: [60,75], speed: 550, passes: 1, air: 'Low', kerf: 0.14, focus: 'surface', confidence: 85, notes: 'Cork cuts easily at 10W in a single pass. Light air assist keeps the debris clear.', lb_tip: 'Pin cork flat. Single pass at these settings should cut most 3–5mm cork cleanly.' },
-      engrave: { power: [25,38], speed: 2500, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 87, notes: 'Beautiful, high-contrast engrave on cork.', lb_tip: 'Cork is one of the best engraving materials for a diode laser. Very consistent results.' },
-    },
-    rubber_stamp: {
-      cut: { power: [65,80], speed: 400, passes: 1, air: 'Low', kerf: 0.15, focus: 'surface', confidence: 84, notes: 'Stamp rubber cuts cleanly in one pass at 10W.', lb_tip: 'Use offset fill for stamp reliefs in LightBurn. Mirror text before engraving.' },
-      engrave: { power: [35,55], speed: 1500, passes: 1, air: 'Low', dpi: 254, focus: 'surface', confidence: 90, notes: 'Excellent stamp engraving at 10W. Clean, deep relief.', lb_tip: 'Mirror your art. Higher power = deeper relief = more ink. Test depth on a corner first.' },
-    },
-  },
-  // ── 20W DIODE ──
-  '20w_diode': {
-    basswood_plywood: {
-      cut: { power: [55,70], speed: 800, passes: 1, air: 'High', kerf: 0.15, focus: 'surface', confidence: 93, notes: 'Single-pass 3mm basswood is easy at 20W. Can push through 6mm with focus at mid-point and 2 passes.', lb_tip: 'At 20W, single pass is your friend. Fast speed + moderate power = cleaner cut than slow + high power.' },
-      engrave: { power: [25,40], speed: 4000, passes: 1, air: 'Low', dpi: 254, focus: 'surface', confidence: 90, notes: 'Very fast engraving. 20W machines are productive for production runs.', lb_tip: 'Variable power (greyscale) engraving works very well at 20W for 3D/depth effects in wood.' },
-    },
-    mdf: {
-      cut: { power: [80,90], speed: 500, passes: [1,2], air: 'Max', kerf: 0.17, focus: 'surface', confidence: 86, notes: 'Cuts 3mm MDF in 1–2 passes. Heavy fumes remain — max air assist and exhaust.', lb_tip: '20W + MDF = a lot of smoke. Run your exhaust fan at max and clean the lens every session.' },
-      engrave: { power: [25,40], speed: 4000, passes: 1, air: 'Medium', dpi: 254, focus: 'surface', confidence: 88, notes: 'Very fast and consistent. Great for production sign work.', lb_tip: 'At high speeds, enable overscan in LightBurn (2–3%) to prevent dark edges from deceleration.' },
-    },
-    leather_veg_tan: {
-      cut: { power: [50,60], speed: 900, passes: 1, air: 'Medium', kerf: 0.12, focus: 'surface', confidence: 90, notes: 'Single pass cut through 2–3mm veg tan is very easy at 20W.', lb_tip: 'Lower power and higher speed vs smaller wattage. 20W burns leather easily — test first.' },
-      engrave: { power: [12,22], speed: 4500, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 88, notes: 'Very light touch required. 20W can deeply engrave at very low power percentages.', lb_tip: '15% power at 4500mm/min gives a beautiful light-brown mark on natural veg tan. Go lower than you think.' },
-    },
-    foam_board_dollar_tree: {
-      cut: { power: [45,55], speed: 600, passes: 1, air: 'Off', kerf: 0.20, focus: 'surface', confidence: 92, notes: 'Dollar Tree foam board cuts effortlessly at 20W — single pass at moderate power. Air assist OFF, no exceptions. At 20W you have plenty of power to cut in one slow-moderate pass without needing air. These are tested settings on the Longer Ray 5 20W and similar machines.', lb_tip: 'Air OFF. At 20W, 50% power at 550–600mm/min cuts Dollar Tree foam board cleanly in one pass. Faster than that and you may not get through; slower and you risk scorching the paper skin.' },
-      engrave: { power: [15,25], speed: 2200, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 90, notes: 'The paper skin engraves beautifully at 20W with very low power. Easy to over-engrave — start light.', lb_tip: 'At 20W, 18% power at 2000mm/min is plenty for a clean mark on the paper skin. Engrave before cutting.' },
-    },
-    foam_board_readi: {
-      cut: { power: [47,58], speed: 550, passes: 1, air: 'Off', kerf: 0.20, focus: 'surface', confidence: 90, notes: 'Similar to Dollar Tree. May vary slightly by brand density. Single pass at 20W.', lb_tip: 'Air OFF. Test on a corner — if not through, slow down 50mm/min before adding power.' },
-      engrave: { power: [15,25], speed: 2200, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 88, notes: 'Paper skin marks well at low power.', lb_tip: 'Keep power minimal. 20W marks foam board paper skin very aggressively.' },
-    },
-    foam_board_thick: {
-      cut: { power: [65,78], speed: 350, passes: [1,2], air: 'Off', kerf: 0.25, focus: 'mid', confidence: 84, notes: '~10mm foam board in 1–2 passes at 20W. Focus at mid-point. Air off.', lb_tip: 'Single pass may work at 20W on 10mm board — try one full pass before adding a second.' },
-      engrave: { power: [18,30], speed: 1800, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 78, notes: 'Surface engrave only.', lb_tip: 'Surface marks only on thick board. Use cut mode at low power for score lines.' },
-    },
-    depron_foam: {
-      cut: { power: [22,35], speed: 900, passes: 1, air: 'Off', kerf: 0.11, focus: 'surface', confidence: 87, notes: 'Very low power needed at 20W for Depron. Single fast pass.', lb_tip: 'Start at 20% and test. 20W will blow through Depron very easily.' },
-      engrave: { power: [8,15], speed: 3000, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 82, notes: 'Extremely low power for surface texturing on Depron at 20W.', lb_tip: 'Very low power. 20W engraves Depron incredibly aggressively — go lighter than feels right.' },
-    },
-    cork_sheet: {
-      cut: { power: [48,62], speed: 700, passes: 1, air: 'Low', kerf: 0.14, focus: 'surface', confidence: 87, notes: 'Cork cuts easily in one pass at 20W.', lb_tip: 'Single pass, moderate speed. 20W handles cork with ease.' },
-      engrave: { power: [18,28], speed: 3200, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 88, notes: 'Beautiful contrast engrave on cork at 20W.', lb_tip: 'Go faster and lower power vs 10W settings. Results are excellent.' },
-    },
-    rubber_stamp: {
-      cut: { power: [55,68], speed: 500, passes: 1, air: 'Low', kerf: 0.15, focus: 'surface', confidence: 85, notes: 'Stamp rubber cuts in one pass at 20W easily.', lb_tip: 'Mirror text. Single clean pass.' },
-      engrave: { power: [25,40], speed: 2000, passes: 1, air: 'Low', dpi: 254, focus: 'surface', confidence: 90, notes: 'Excellent deep stamp relief at 20W.', lb_tip: 'Mirror design. Higher power = deeper relief. Test a corner first.' },
-    },
-    eva_foam: {
-      cut: { power: [38,50], speed: 600, passes: 1, air: 'Off', kerf: 0.16, focus: 'surface', confidence: 82, notes: 'EVA cuts easily at 20W. Single pass. Air off. Ventilate.', lb_tip: 'Air OFF. Single pass. 20W cuts EVA foam very easily at low power.' },
-      engrave: { power: [12,22], speed: 2800, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 80, notes: 'Good 3D texture engraving at low power.', lb_tip: 'Very low power for foam engrave at 20W. Variable power creates excellent cosplay textures.' },
-    },
-  },
-  // ── CO2 40W ──
-  '40w_co2': {
-    basswood_plywood: {
-      cut: { power: [55,65], speed_mms: 20, passes: 1, air: 'On', kerf: 0.18, focus: 'surface', confidence: 95, notes: 'Single pass clean cut. 40W CO₂ is the classic hobbyist machine. K40 machines vary in actual wattage — some true-40W machines cut faster than stated.', lb_tip: 'CO₂ machines in LightBurn use mm/s. 20mm/s = 1200mm/min. Set power as percentage, speed in mm/s.' },
-      engrave: { power: [20,35], speed_mms: 200, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 92, notes: 'Beautiful engrave on basswood with CO₂.', lb_tip: 'Higher speeds possible on CO₂ for engraving. 150–300 mm/s for fill engraving, depending on detail needed.' },
-    },
-    birch_plywood: {
-      cut: { power: [60,70], speed_mms: 18, passes: 1, air: 'On', kerf: 0.20, focus: 'surface', confidence: 90, notes: 'Birch cuts well on CO₂. Very clean edge. Higher density than basswood needs slightly more power.', lb_tip: 'Slightly slower than basswood for same power. 18mm/s at 65% is a reliable starting point.' },
-      engrave: { power: [18,30], speed_mms: 200, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 88, notes: 'Excellent engrave contrast on birch.', lb_tip: 'Grain direction matters for engraving — engrave perpendicular to grain for finest detail.' },
-    },
-    mdf: {
-      cut: { power: [60,70], speed_mms: 18, passes: 1, air: 'Max', kerf: 0.22, focus: 'surface', confidence: 88, notes: '⚠️ MDF fumes are heavy even on CO₂. Max air, good exhaust. Single pass achievable.', lb_tip: 'Residue from MDF cuts is thick and sticky. Clean the bed and mirrors/lens after MDF sessions.' },
-      engrave: { power: [15,25], speed_mms: 300, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 87, notes: 'Very uniform engrave on MDF. Great for sign production.', lb_tip: 'CO₂ engraves MDF very predictably. Consistent results make it good for production runs.' },
-    },
-    acrylic_cast: {
-      cut: { power: [60,70], speed_mms: 15, passes: 1, air: 'Off', kerf: 0.20, focus: 'surface', confidence: 96, notes: 'CO₂ is the ideal tool for acrylic. Single pass, no air assist = flame-polished edge. Air on acrylic = frosted edge (sometimes desired).', lb_tip: 'Air OFF for flame-polish edge. Air ON for matte/frosted edge — both have uses. Never use air at high pressure on acrylic.' },
-      engrave: { power: [15,25], speed_mms: 200, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 94, notes: 'Stunning white engrave on clear or colored acrylic. Classic CO₂ use case.', lb_tip: 'For backlit acrylic signs: engrave at 15–20% power for bright white marks that diffuse light beautifully.' },
-    },
-    acrylic_extruded: {
-      cut: { power: [55,65], speed_mms: 18, passes: 1, air: 'Off', kerf: 0.18, focus: 'surface', confidence: 90, notes: 'Extruded cuts slightly easier than cast but edges aren\'t as polished. More prone to chipping at high power.', lb_tip: 'Slightly higher speed than cast acrylic for same result. Edge won\'t flame-polish as beautifully.' },
-      engrave: { power: [12,20], speed_mms: 250, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 88, notes: 'Engraves well but less bright white than cast.', lb_tip: 'Extruded acrylic engraving is slightly less crisp than cast. Still excellent for most purposes.' },
-    },
-    leather_veg_tan: {
-      cut: { power: [35,45], speed_mms: 25, passes: 1, air: 'Medium', kerf: 0.15, focus: 'surface', confidence: 92, notes: 'CO₂ is excellent for leather. Low power, fast speed = clean cut with minimal charring.', lb_tip: 'Much lower power than you think. 40% power at 25mm/s is a common starting point for 2–3mm veg tan.' },
-      engrave: { power: [10,18], speed_mms: 300, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 90, notes: 'Beautiful results. Extremely controllable depth.', lb_tip: 'Variable power (greyscale) engraving on leather is stunning — use photo engraving mode for portraits.' },
-    },
-    cardboard: {
-      cut: { power: [40,50], speed_mms: 40, passes: 1, air: 'Low', kerf: 0.15, focus: 'surface', confidence: 88, notes: 'Very fast and easy on CO₂. Low power required.', lb_tip: 'Fast and low-power on CO₂. Main risk is fire from too-slow speed or too-high power.' },
-      engrave: { power: [8,15], speed_mms: 400, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 85, notes: 'Very light touch needed on CO₂ for cardboard engrave.', lb_tip: 'Even 10% power at 300mm/s will mark cardboard. Start very low.' },
-    },
-    cotton: {
-      cut: { power: [25,35], speed_mms: 40, passes: 1, air: 'Low', kerf: 0.10, focus: 'surface', confidence: 85, notes: 'Easy and fast on CO₂. Pin fabric flat.', lb_tip: 'Pin flat and cut at speed. CO₂ cuts fabric very efficiently.' },
-      engrave: { power: [8,12], speed_mms: 300, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 82, notes: 'Very light engrave on fabric.', lb_tip: 'Use very low power for fabric engrave on CO₂. Test thoroughly.' },
-    },
-    felt: {
-      cut: { power: [30,40], speed_mms: 35, passes: 1, air: 'Low', kerf: 0.12, focus: 'surface', confidence: 90, notes: 'Felt cuts beautifully on CO₂. Great sealed edges.', lb_tip: 'Higher speed = better edge seal. Low power is all you need.' },
-      engrave: { power: [6,12], speed_mms: 350, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 87, notes: 'Excellent engrave. Very low power needed.', lb_tip: 'Start at 8% power and test. CO₂ engraves felt very aggressively.' },
-    },
-    foam_board_dollar_tree: {
-      cut: { power: [30,42], speed_mms: 30, passes: 1, air: 'Off', kerf: 0.20, focus: 'surface', confidence: 88, notes: 'Dollar Tree foam board cuts easily on CO₂ — single pass, low power. Air assist OFF. The CO₂ wavelength cuts the foam core very efficiently.', lb_tip: 'Air OFF. 35% power at 28mm/s is a solid starting point on 40W CO₂. Very fast single pass.' },
-      engrave: { power: [8,15], speed_mms: 250, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 85, notes: 'Paper skin engraves cleanly on CO₂ with very low power.', lb_tip: 'Extremely light touch on CO₂ — even 10% power will mark the paper skin strongly.' },
-    },
-    foam_board_readi: {
-      cut: { power: [32,44], speed_mms: 28, passes: 1, air: 'Off', kerf: 0.20, focus: 'surface', confidence: 86, notes: 'Similar to Dollar Tree on CO₂. Air OFF, single pass.', lb_tip: 'Test on a corner. CO₂ cuts foam board very efficiently at low power.' },
-      engrave: { power: [8,14], speed_mms: 250, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 84, notes: 'Paper skin engrave at very low power.', lb_tip: 'Keep it light — CO₂ marks foam board paper very aggressively.' },
-    },
-    cork_sheet: {
-      cut: { power: [35,48], speed_mms: 30, passes: 1, air: 'Low', kerf: 0.14, focus: 'surface', confidence: 88, notes: 'Cork cuts beautifully on CO₂. Great for coasters, trivets, and signage.', lb_tip: 'Single pass. Low power. One of the most satisfying CO₂ cut materials.' },
-      engrave: { power: [8,15], speed_mms: 350, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 90, notes: 'Excellent contrast. Cork is ideal for CO₂ engraving.', lb_tip: 'Cork engraving on CO₂ looks stunning. Vary power for depth effects.' },
-    },
-    rubber_stamp: {
-      cut: { power: [45,58], speed_mms: 20, passes: 1, air: 'Low', kerf: 0.15, focus: 'surface', confidence: 86, notes: 'Stamp rubber cuts cleanly on CO₂.', lb_tip: 'Mirror design. Single pass cut.' },
-      engrave: { power: [18,30], speed_mms: 200, passes: 1, air: 'Low', dpi: 254, focus: 'surface', confidence: 92, notes: 'CO₂ is excellent for stamp engraving — deep, clean relief.', lb_tip: 'Mirror text. Vary power for relief depth. CO₂ stamp engraving is a classic use case.' },
-    },
-    eva_foam: {
-      cut: { power: [22,32], speed_mms: 35, passes: 1, air: 'Off', kerf: 0.15, focus: 'surface', confidence: 82, notes: 'EVA cuts easily on CO₂ at low power. Air off. Ventilate.', lb_tip: 'Air OFF. Very low power needed on CO₂ for EVA foam.' },
-      engrave: { power: [6,12], speed_mms: 300, passes: 1, air: 'Off', dpi: 254, focus: 'surface', confidence: 80, notes: 'Good texture engrave at very low power.', lb_tip: 'Extremely light touch on CO₂ for foam engraving. Variable power for 3D effects.' },
-    },
-  },
-};
-
-// ── MACHINE → CATEGORY MAPPING ──
-const machineToCategory = {
-  // 5W class diodes
-  longer_ray5_5w: '5w_diode',
-  xtool_d1_5w: '5w_diode',
-  sculpfun_s9: '5w_diode',
-  ortur_lm2_pro: '5w_diode',
-  atomstack_a5: '5w_diode',
-  diode_generic_5w: '5w_diode',
-  // 10W class diodes
-  longer_ray5_10w: '10w_diode',
-  xtool_d1_10w: '10w_diode',
-  xtool_f1: '10w_diode',
-  xtool_m1: '10w_diode',
-  sculpfun_s30: '10w_diode',
-  ortur_lm3: '10w_diode',
-  atomstack_a10: '10w_diode',
-  comgrow_z1: '10w_diode',
-  twotrees_ts2: '10w_diode',
-  lasermaster3: '10w_diode',
-  diode_generic_10w: '10w_diode',
-  // 20W class diodes
-  longer_ray5_20w: '20w_diode',
-  xtool_d1_20w: '20w_diode',
-  xtool_s1: '20w_diode',
-  sculpfun_s30_max: '20w_diode',
-  sculpfun_s30_ultra: '20w_diode',
-  ortur_lm3_ultra: '20w_diode',
-  atomstack_a20: '20w_diode',
-  atomstack_x20: '20w_diode',
-  twotrees_ts3: '20w_diode',
-  diode_generic_20w: '20w_diode',
-  // 30W class (map to 20w with note)
-  longer_b1_30w: '20w_diode',
-  // CO₂
-  k40_co2: '40w_co2',
-  glowforge_basic: '40w_co2',
-  glowforge_plus: '40w_co2',
-  glowforge_pro: '40w_co2',
-  co2_generic_40w: '40w_co2',
-  omtech_50w: '50w_co2',
-  omtech_60w: '60w_co2',
-  boss_ls1416: '60w_co2',
-  co2_generic_60w: '60w_co2',
-};
-
-// ─── MAIN CALCULATE FUNCTION ───
-function calculate() {
-  const machine = document.getElementById('sel-machine').value;
-  const material = document.getElementById('sel-material').value;
-  const thickness = parseFloat(document.getElementById('inp-thickness-mm').value);
-
-  if (!machine || !material || !thickness) {
-    alert('Please fill in machine, material, and thickness before calculating.');
-    return;
-  }
-
-  const category = machineToCategory[machine];
-  if (!category) { showNoData(machine, material); return; }
-
-  const catData = DB[category];
-  if (!catData || !catData[material] || !catData[material][opType]) {
-    // Try fallback categories
-    const fallback = getFallback(category, material, opType);
-    if (!fallback) { showNoData(machine, material); return; }
-    renderResults(machine, material, thickness, fallback, true);
-    return;
-  }
-
-  const settings = catData[material][opType];
-  renderResults(machine, material, thickness, adjustForThickness(settings, thickness, category), false);
-}
-
-function getFallback(category, material, op) {
-  // Try adjacent power categories
-  const fallbackOrder = {
-    '5w_diode': ['10w_diode'],
-    '10w_diode': ['5w_diode', '20w_diode'],
-    '20w_diode': ['10w_diode'],
-    '50w_co2': ['40w_co2'],
-    '60w_co2': ['40w_co2', '50w_co2'],
-  };
-  const tries = fallbackOrder[category] || [];
-  for (const cat of tries) {
-    if (DB[cat] && DB[cat][material] && DB[cat][material][op]) {
-      return DB[cat][material][op];
-    }
-  }
-  return null;
-}
-
-function adjustForThickness(base, thickness, category) {
-  const s = JSON.parse(JSON.stringify(base)); // deep clone
-  const isco2 = category.includes('co2');
-
-  // Scale power and speed based on thickness
-  if (thickness <= 1) {
-    // Thin: reduce power, increase speed
-    if (Array.isArray(s.power)) {
-      s.power = [Math.max(10, s.power[0] - 15), Math.max(20, s.power[1] - 20)];
-    }
-    if (s.speed) s.speed = Math.min(s.speed * 1.4, 4000);
-    if (s.speed_mms) s.speed_mms = Math.min(s.speed_mms * 1.3, 300);
-    s.passes = 1;
-  } else if (thickness > 3 && thickness <= 6) {
-    // Medium-thick: more passes or power
-    if (Array.isArray(s.power)) {
-      s.power = [Math.min(s.power[0] + 10, 100), Math.min(s.power[1] + 10, 100)];
-    }
-    if (s.speed) s.speed = Math.max(s.speed * 0.7, 100);
-    if (s.speed_mms) s.speed_mms = Math.max(s.speed_mms * 0.7, 5);
-    if (Array.isArray(s.passes)) {
-      s.passes = [s.passes[0] + 1, s.passes[1] + 1];
-    } else {
-      s.passes = [s.passes + 1, s.passes + 2];
-    }
-    s.focus = 'mid';
-  } else if (thickness > 6) {
-    // Thick: max settings
-    if (Array.isArray(s.power)) {
-      s.power = [Math.min(s.power[0] + 15, 100), 100];
-    }
-    if (s.speed) s.speed = Math.max(s.speed * 0.5, 80);
-    if (s.speed_mms) s.speed_mms = Math.max(s.speed_mms * 0.5, 4);
-    if (Array.isArray(s.passes)) {
-      s.passes = [s.passes[0] + 2, s.passes[1] + 3];
-    } else {
-      s.passes = [s.passes + 2, s.passes + 4];
-    }
-    s.focus = 'mid';
-    s.confidence = Math.max((s.confidence || 80) - 20, 40);
-  }
-  return s;
-}
-
-function formatPower(p) {
-  if (Array.isArray(p)) return `${p[0]}–${p[1]}%`;
-  return `${p}%`;
-}
-
-function formatSpeed(s, isco2) {
-  if (isco2 && s.speed_mms) return `${Math.round(s.speed_mms)} mm/s`;
-  return `${Math.round(s.speed || 300)} mm/min`;
-}
-
-function formatPasses(p) {
-  if (Array.isArray(p)) return `${p[0]}–${p[1]}`;
-  return `${p}`;
-}
-
-function renderResults(machine, material, thickness, settings, isFallback) {
-  const panel = document.getElementById('results-panel');
-  const empty = document.getElementById('results-empty');
-  const content = document.getElementById('results-content');
-  const isco2 = machineToCategory[machine]?.includes('co2');
-
-  panel.classList.add('visible');
-  empty.style.display = 'none';
-  content.style.display = 'block';
-
-  // Header
-  document.getElementById('res-machine-name').textContent = getMachineName(machine);
-  document.getElementById('res-material-name').textContent = getMaterialName(material);
-  document.getElementById('res-thickness').textContent = thickness;
-
-  // Confidence
-  const conf = Math.min(100, (settings.confidence || 75) - (isFallback ? 15 : 0));
-  document.getElementById('conf-fill').style.width = conf + '%';
-  document.getElementById('conf-pct').textContent = conf + '%';
-
-  // Cards
-  const cards = document.getElementById('result-cards');
-  const focusLabel = { surface: 'Surface', mid: 'Mid-point', auto: 'Auto/Passthrough' };
-  const actualFocus = focusMode === 'auto' ? 'auto' : settings.focus;
-
-  const kerfVal = settings.kerf ? `${settings.kerf} mm` : '—';
-
-  const cardData = [
-    { label: 'Power', value: formatPower(settings.power), unit: '', sub: opType === 'cut' ? 'for cutting' : 'for engraving', type: 'laser', col: 'laser' },
-    { label: 'Speed', value: formatSpeed(settings, isco2), unit: '', sub: isco2 ? 'in LightBurn mm/s' : 'in LightBurn mm/min', type: 'speed', col: 'speed' },
-    { label: 'Passes', value: formatPasses(settings.passes || 1), unit: '', sub: 'total passes to run', type: 'passes', col: 'passes' },
-    { label: 'Air Assist', value: settings.air || 'Off', unit: '', sub: 'assist pressure setting', type: 'air', col: 'air' },
-    { label: 'Kerf Offset', value: kerfVal, unit: '', sub: 'half this for LightBurn', type: 'kerf', col: 'kerf' },
-    { label: 'Focus Point', value: focusLabel[actualFocus] || 'Surface', unit: '', sub: opType === 'cut' && thickness > 4 ? 'focus at mid-thickness' : 'focus at material top', type: 'focus', col: 'focus' },
-  ];
-
-  if (opType === 'engrave' && settings.dpi) {
-    cardData[4] = { label: 'DPI / Interval', value: settings.dpi, unit: ' DPI', sub: '0.1mm line interval', type: 'kerf', col: 'kerf' };
-  }
-
-  cards.innerHTML = cardData.map((c, i) => `
-    <div class="result-card ${c.type}-type" style="animation-delay:${0.05 + i*0.05}s">
-      <div class="rc-label">${c.label}</div>
-      <div class="rc-value ${c.col}-col">${c.value}<span class="rc-unit">${c.unit}</span></div>
-      <div class="rc-sub">${c.sub}</div>
-    </div>
-  `).join('');
-
-  // Notes
-  let notes = settings.notes || '';
-  if (isFallback) notes = `<strong>Note:</strong> No exact data for this machine+material combo. Settings extrapolated from closest available data — treat as a starting estimate and test carefully. ${notes}`;
-  if (machine === 'longer_b1_30w') notes = `<strong>Longer B1 (30W):</strong> Settings shown are for the 20W class — the B1 runs hotter. Start 10–15% lower on power or 15–20% faster on speed than shown, then work up. ${notes}`;
-  if (machine === 'xtool_f1') notes = `<strong>xTool F1 note:</strong> The F1 has both a diode and IR laser module. Settings shown are for the diode module. IR module settings differ significantly — IR is better for metals and dark materials. ${notes}`;
-  if (thickness > 6 && !machineToCategory[machine]?.includes('co2')) {
-    notes += ` <strong>⚠ ${thickness}mm is at the upper limit for a diode laser.</strong> Multiple slow passes are required. Focus at the mid-point of the material. Results depend heavily on material density — CO₂ is the better tool for this thickness.`;
-  }
-  document.getElementById('result-notes').innerHTML = notes;
-
-  // LightBurn tip
-  document.getElementById('lb-tip-text').innerHTML = `<strong style="color:var(--laser2)">LightBurn tip:</strong> ${settings.lb_tip || 'Run a test cut on a small scrap piece before committing to the full cut.'}`;
-
-  // Scroll to results
-  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-
-function showNoData(machine, material) {
-  const panel = document.getElementById('results-panel');
-  const empty = document.getElementById('results-empty');
-  const content = document.getElementById('results-content');
-
-  panel.classList.add('visible');
-  empty.style.display = 'block';
-  empty.innerHTML = `
-    <span class="empty-icon">◌</span>
-    <p>No data yet for <strong style="color:var(--text)">${getMachineName(machine)}</strong> + <strong style="color:var(--text)">${getMaterialName(material)}</strong>. Try a similar machine category, or check the reference tables below for a starting point.</p>
-  `;
-  content.style.display = 'none';
-}
-
-// ─── TABS ───
-function openTab(id, btn) {
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  btn.classList.add('active');
-}
-
-// ─── FAQ ───
-function toggleFaq(el) {
-  const item = el.closest('.faq-item');
-  item.classList.toggle('open');
-}
-
-// ─── INIT ───
-document.addEventListener('DOMContentLoaded', () => {
-  // Hide CO2 group on load (diode is default)
-  const sel = document.getElementById('sel-machine');
-  sel.querySelectorAll('optgroup').forEach(og => {
-    if (og.id === 'group-co2') og.style.display = 'none';
-  });
+// ── DRAG & DROP ──
+dropZone.addEventListener('dragover',  e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+dropZone.addEventListener('dragleave', ()  => dropZone.classList.remove('dragover'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropZone.classList.remove('dragover');
+  const files = Array.from(e.dataTransfer.files).filter(f => f.name.endsWith('.pdf'));
+  if (files.length) processFiles(files);
 });
+dropZone.addEventListener('click', e => { if (e.target.tagName !== 'BUTTON') fileInput.click(); });
+fileInput.addEventListener('change', e => { if (e.target.files.length) processFiles(Array.from(e.target.files)); });
+
+// ── PROCESS ──
+async function processFiles(files) {
+  resetUI();
+  showStatus('Initialising…', 0);
+  let allText = '';
+
+  for (let i = 0; i < files.length; i++) {
+    const f = files[i];
+    showStatus(`Reading ${f.name}…`, Math.round((i / files.length) * 40));
+    try {
+      allText += await extractText(f, p => {
+        const pct = Math.round((i / files.length) * 40 + (p / files.length) * 40);
+        showStatus(`Extracting pages from ${f.name}…`, pct);
+      }) + '\n';
+    } catch(err) {
+      showError(`Could not read "${f.name}": ${err.message}<br><br>Make sure it is a digital (text-based) PDF downloaded from your bank's online portal — not a scanned image.`);
+      return;
+    }
+  }
+
+  showStatus('Parsing transactions…', 85);
+  await sleep(80);
+
+  const { rows } = parseTransactions(allText);
+
+  if (!rows.length) {
+    showError('No transactions were detected in this PDF.<br><br><strong>Common reasons:</strong><br>• The PDF is a scanned image (not text-based)<br>• The statement uses an unusual layout<br><br>Try downloading the statement directly from your bank\'s online portal as a PDF.');
+    hideStatus();
+    return;
+  }
+
+  parsedRows = rows;
+  showStatus('Done!', 100);
+  statusDot.className = 'status-dot done';
+  await sleep(500);
+  hideStatus();
+  renderResults(rows);
+}
+
+// ── PDF TEXT EXTRACTION ──
+async function extractText(file, onProgress) {
+  const buf = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
+  let text = '';
+  for (let p = 1; p <= pdf.numPages; p++) {
+    const page    = await pdf.getPage(p);
+    const content = await page.getTextContent();
+    const items   = content.items.slice().sort((a, b) => {
+      const ay = Math.round(a.transform[5] / 4) * 4;
+      const by = Math.round(b.transform[5] / 4) * 4;
+      return ay !== by ? by - ay : a.transform[4] - b.transform[4];
+    });
+    let lastY = null;
+    for (const item of items) {
+      const y = Math.round(item.transform[5] / 4) * 4;
+      if (lastY !== null && Math.abs(y - lastY) > 2) text += '\n';
+      text += item.str + ' ';
+      lastY = y;
+    }
+    text += '\n';
+    onProgress(Math.round((p / pdf.numPages) * 100));
+  }
+  return text;
+}
+
+// ── PARSER ──
+function parseTransactions(text) {
+  const DATE_PATS = [
+    /\b(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4})\b/,
+    /\b(\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2})\b/,
+    /\b(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{2,4})\b/i,
+    /\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},?\s+\d{2,4})\b/i,
+    /\b(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec))\b/i,
+    /\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2})\b/i,
+  ];
+  const IGNORE = /page\s*\d+|continued|account\s*(number|#|no)|customer\s*service|sort\s*code|iban|bic|swift|^---|opening\s*balance|closing\s*balance/i;
+  const HEADER = /\b(date|description|details|transaction|amount|debit|credit|balance|withdrawal|deposit)\b/i;
+  const AMT_RE = /(-?\$?[\d,]+\.\d{2})/g;
+
+  const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
+  const rows  = [];
+  const seen  = new Set();
+
+  for (const line of lines) {
+    if (!line || IGNORE.test(line)) continue;
+    if (HEADER.test(line) && (line.match(/\s{2,}/g) || []).length >= 2) continue;
+
+    let dateStr = null;
+    for (const pat of DATE_PATS) {
+      const m = line.match(pat);
+      if (m) { dateStr = m[1]; break; }
+    }
+    if (!dateStr) continue;
+
+    const amounts = [];
+    let m;
+    const re = new RegExp(AMT_RE.source, 'g');
+    while ((m = re.exec(line)) !== null) amounts.push(parseFloat(m[1].replace(/[$,]/g, '')));
+    if (!amounts.length) continue;
+
+    let desc = line;
+    desc = desc.replace(new RegExp(DATE_PATS.map(p => p.source).join('|'), 'gi'), '');
+    desc = desc.replace(/(-?\$?[\d,]+\.\d{2})/g, '').replace(/\s{2,}/g, ' ').trim();
+    if (!desc || desc.length < 2) desc = 'Transaction';
+    if (desc.length > 120) desc = desc.substring(0, 120);
+
+    let debit = '', credit = '', balance = '';
+    if (amounts.length === 1) {
+      amounts[0] < 0 ? (debit = Math.abs(amounts[0]).toFixed(2)) : (credit = amounts[0].toFixed(2));
+    } else if (amounts.length === 2) {
+      credit = amounts[0] > 0 ? amounts[0].toFixed(2) : '';
+      debit  = amounts[1] > 0 ? amounts[1].toFixed(2) : '';
+    } else {
+      balance = amounts[amounts.length - 1].toFixed(2);
+      debit   = amounts[0] ? amounts[0].toFixed(2) : '';
+      credit  = amounts[1] ? amounts[1].toFixed(2) : '';
+    }
+
+    const key = `${dateStr}|${desc}|${debit}|${credit}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    rows.push({ date: dateStr, description: desc, debit, credit, balance });
+  }
+
+  return { rows };
+}
+
+// ── RENDER ──
+function renderResults(rows) {
+  resultPane.classList.add('visible');
+
+  document.getElementById('stat-rows').textContent = rows.length;
+
+  const dates = rows.map(r => r.date).filter(Boolean);
+  document.getElementById('stat-dates').textContent = dates.length >= 2
+    ? `${dates[0]} – ${dates[dates.length-1]}` : (dates[0] || '—');
+
+  const credits = rows.reduce((s, r) => s + (parseFloat(r.credit) || 0), 0);
+  const debits  = rows.reduce((s, r) => s + (parseFloat(r.debit)  || 0), 0);
+  document.getElementById('stat-credits').textContent = fmt(credits);
+  document.getElementById('stat-debits').textContent  = fmt(debits);
+
+  const headers = ['Date','Description','Debit','Credit','Balance'];
+  document.getElementById('tbl-head').innerHTML = '<tr>' + headers.map(h => `<th>${h}</th>`).join('') + '</tr>';
+  document.getElementById('tbl-body').innerHTML = rows.map(r => `
+    <tr>
+      <td>${esc(r.date)}</td>
+      <td title="${esc(r.description)}">${esc(r.description)}</td>
+      <td class="${r.debit  ? 'neg' : ''}">${r.debit  || ''}</td>
+      <td class="${r.credit ? 'pos' : ''}">${r.credit || ''}</td>
+      <td class="bal">${r.balance || ''}</td>
+    </tr>`).join('');
+
+  document.getElementById('tbl-footer-l').textContent = `${rows.length} transaction${rows.length !== 1 ? 's' : ''}`;
+  document.getElementById('results-title').textContent = `${rows.length} Transactions Found`;
+  resultPane.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── DOWNLOADS ──
+function buildCSV(rows) {
+  const hdr = ['Date','Description','Debit','Credit','Balance'];
+  const q   = v => `"${String(v||'').replace(/"/g,'""')}"`;
+  return [hdr.join(','), ...rows.map(r => [r.date,r.description,r.debit,r.credit,r.balance].map(q).join(','))].join('\r\n');
+}
+
+document.getElementById('btn-csv').addEventListener('click', () => {
+  if (!parsedRows.length) return;
+  blob(new Blob([buildCSV(parsedRows)], {type:'text/csv'}), 'bank-statement.csv');
+});
+
+document.getElementById('btn-copy').addEventListener('click', async () => {
+  if (!parsedRows.length) return;
+  await navigator.clipboard.writeText(buildCSV(parsedRows));
+  const b = document.getElementById('btn-copy');
+  b.textContent = '✓ Copied!';
+  setTimeout(() => b.textContent = 'Copy CSV', 2000);
+});
+
+document.getElementById('btn-excel').addEventListener('click', () => {
+  if (!parsedRows.length) return;
+  const hdr = ['Date','Description','Debit','Credit','Balance'];
+  let html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="UTF-8"></head><body><table>';
+  html += '<tr>' + hdr.map(h => `<th><b>${h}</b></th>`).join('') + '</tr>';
+  html += parsedRows.map(r => `<tr><td>${esc(r.date)}</td><td>${esc(r.description)}</td><td>${r.debit}</td><td>${r.credit}</td><td>${r.balance}</td></tr>`).join('');
+  html += '</table></body></html>';
+  blob(new Blob([html], {type:'application/vnd.ms-excel'}), 'bank-statement.xls');
+});
+
+document.getElementById('btn-reset').addEventListener('click', () => { resetUI(); fileInput.value = ''; });
+
+// ── FAQ ──
+function toggleFaq(btn) { btn.closest('.faq-item').classList.toggle('open'); }
+
+// ── HELPERS ──
+function showStatus(msg, pct) {
+  statusBox.classList.add('visible');
+  statusLbl.textContent    = msg;
+  statusPct.textContent    = pct + '%';
+  progFill.style.width     = pct + '%';
+  statusDot.className      = 'status-dot';
+}
+function hideStatus() { statusBox.classList.remove('visible'); }
+
+function showError(msg) {
+  errorBox.classList.remove('hidden');
+  errorBox.innerHTML = `<div class="alert alert-red">⚠️ ${msg}</div>`;
+  hideStatus();
+}
+
+function resetUI() {
+  parsedRows = [];
+  resultPane.classList.remove('visible');
+  errorBox.classList.add('hidden');
+  errorBox.innerHTML = '';
+  hideStatus();
+}
+
+function fmt(n) { return '$' + n.toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2}); }
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function blob(b, name) { const u = URL.createObjectURL(b); const a = document.createElement('a'); a.href=u; a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(u),1000); }
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 </script>
 
 </body>
