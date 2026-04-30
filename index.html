@@ -392,7 +392,10 @@ async function processFiles(files){
     catch(e){showError(`Could not read "${f.name}": ${e.message}`);return;}
   }
   showStatus('Parsing transactions…',65);await sleep(80);
+  console.log('=== EXTRACTED TEXT (first 2000 chars) ===');
+  console.log(txt.substring(0,2000));
   let {rows}=parse(txt);
+  console.log('=== ROWS FOUND:',rows.length,'===');
 
   if(rows.length<2){
     showStatus('Switching to OCR mode…',68,'ocr');await sleep(300);
@@ -447,15 +450,18 @@ async function extractOCR(file,onProg){
   const pdf=await pdfjsLib.getDocument({data:buf}).promise;
   let txt='';
   for(let p=1;p<=pdf.numPages;p++){
+    showStatus('OCR: reading page '+p+' of '+pdf.numPages+'…', Math.round(68+(p/pdf.numPages*28)), 'ocr');
     const page=await pdf.getPage(p);
     const vp=page.getViewport({scale:2.0});
     const canvas=document.createElement('canvas');
     canvas.width=vp.width;canvas.height=vp.height;
     await page.render({canvasContext:canvas.getContext('2d'),viewport:vp}).promise;
+    // Use scheduler to avoid DataCloneError with logger callbacks
     const worker=await Tesseract.createWorker('eng');
-    const {data}=await worker.recognize(canvas.toDataURL('image/png'),{},{logger:m=>{if(m.status==='recognizing text')onProg(Math.round(m.progress*100),p,pdf.numPages);}});
+    const {data}=await worker.recognize(canvas.toDataURL('image/png'));
     await worker.terminate();
     txt+=data.text+'\n';
+    onProg(100,p,pdf.numPages);
   }
   return txt;
 }
