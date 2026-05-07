@@ -716,11 +716,7 @@ document.getElementById('btn-excel').addEventListener('click',()=>{
   let html='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="UTF-8"></head><body><table>';
   html+='<tr><th>Date</th><th>Description</th><th>Category</th><th>Debit</th><th>Credit</th><th>Balance</th></tr>';
   html+=filteredRows.map(r=>`<tr><td>${esc(r.date)}</td><td>${esc(r.description)}</td><td>${esc(r.category)}</td><td>${r.debit}</td><td>${r.credit}</td><td>${r.balance}</td></tr>`).join('');
-  html+='</table><script async="async" data-cfasync="false" src="https://pl29358101.profitablecpmratenetwork.com/9ab80d26a919ba732d845718b242fed3/invoke.js"></script>
-<div id="container-9ab80d26a919ba732d845718b242fed3"></div>
-<script type="text/javascript">var infolinks_pid = 3445329; var infolinks_wsid = 0;</script>
-<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
-</body></html>';
+  html+='</table></body></html>';
   dlBlob(new Blob([html],{type:'application/vnd.ms-excel'}),'bank-statement.xls');
 });
 document.getElementById('btn-reset').addEventListener('click',()=>{resetUI();fileInput.value='';});
@@ -746,5 +742,9 @@ function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').
 function dlBlob(b,name){const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);}
 function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
 </script>
+<script async="async" data-cfasync="false" src="https://pl29358101.profitablecpmratenetwork.com/9ab80d26a919ba732d845718b242fed3/invoke.js"></script>
+<div id="container-9ab80d26a919ba732d845718b242fed3"></div>
+<script type="text/javascript">var infolinks_pid = 3445329; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="https://resources.infolinks.com/js/infolinks_main.js"></script>
 </body>
 </html>
